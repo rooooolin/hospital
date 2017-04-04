@@ -22,6 +22,5 @@ namespace Model
             set { _RoleName = value; }
             get { return _RoleName; }
         }
-
     }
 }
