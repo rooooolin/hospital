@@ -1,0 +1,11 @@
+D:\Documents\Vs Projects\hospital\hospital\obj\Debug\hospital.csprojResolveAssemblyReference.cache
+D:\Documents\Vs Projects\hospital\hospital\bin\hospital.dll
+D:\Documents\Vs Projects\hospital\hospital\bin\hospital.pdb
+D:\Documents\Vs Projects\hospital\hospital\bin\BLL.dll
+D:\Documents\Vs Projects\hospital\hospital\bin\DAL.dll
+D:\Documents\Vs Projects\hospital\hospital\bin\Model.dll
+D:\Documents\Vs Projects\hospital\hospital\bin\BLL.pdb
+D:\Documents\Vs Projects\hospital\hospital\bin\DAL.pdb
+D:\Documents\Vs Projects\hospital\hospital\bin\Model.pdb
+D:\Documents\Vs Projects\hospital\hospital\obj\Debug\hospital.dll
+D:\Documents\Vs Projects\hospital\hospital\obj\Debug\hospital.pdb
