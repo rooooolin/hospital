@@ -34,7 +34,7 @@ namespace hospital
             return "Hello World";
         }
         [WebMethod]
-        public string user_login(string u_name,string u_passwd,int u_roleId)
+        public string admin_login(string u_name,string u_passwd,int u_roleId)
         {
             string u_pwd = FormsAuthentication.HashPasswordForStoringInConfigFile(FormsAuthentication.HashPasswordForStoringInConfigFile(u_passwd, "MD5"), "MD5");
             bll_admin admin = new bll_admin();
@@ -52,6 +52,19 @@ namespace hospital
                 return "0";
 
             }
+        }
+        [WebMethod]
+        public string user_login(string u_name, string u_phone, string u_passwd, int u_roleId)
+        {
+            string u_pwd = FormsAuthentication.HashPasswordForStoringInConfigFile(FormsAuthentication.HashPasswordForStoringInConfigFile(u_passwd, "MD5"), "MD5");
+            bll_user user = new bll_user();
+            model_user model = new model_user();
+            model.user_name = u_name;
+            model.user_phone = u_phone;
+            model.user_password=u_passwd;
+            model.user_roleid = u_roleId;
+            return user.user_login(model) != 0 ? "1" : "0";
+            
         }
     }
 }

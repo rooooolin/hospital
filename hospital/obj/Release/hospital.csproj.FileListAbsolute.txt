@@ -1,0 +1,11 @@
+D:\Documents\GitHub\hospital\hospital\bin\hospital.dll
+D:\Documents\GitHub\hospital\hospital\bin\hospital.pdb
+D:\Documents\GitHub\hospital\hospital\bin\BLL.dll
+D:\Documents\GitHub\hospital\hospital\bin\DAL.dll
+D:\Documents\GitHub\hospital\hospital\bin\Model.dll
+D:\Documents\GitHub\hospital\hospital\bin\BLL.pdb
+D:\Documents\GitHub\hospital\hospital\bin\DAL.pdb
+D:\Documents\GitHub\hospital\hospital\bin\Model.pdb
+D:\Documents\GitHub\hospital\hospital\obj\Release\hospital.csprojResolveAssemblyReference.cache
+D:\Documents\GitHub\hospital\hospital\obj\Release\hospital.dll
+D:\Documents\GitHub\hospital\hospital\obj\Release\hospital.pdb

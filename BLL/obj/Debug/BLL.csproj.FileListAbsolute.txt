@@ -7,3 +7,12 @@ D:\Documents\Vs Projects\hospital\BLL\bin\Debug\DAL.pdb
 D:\Documents\Vs Projects\hospital\BLL\bin\Debug\Model.pdb
 D:\Documents\Vs Projects\hospital\BLL\obj\Debug\BLL.dll
 D:\Documents\Vs Projects\hospital\BLL\obj\Debug\BLL.pdb
+D:\Documents\GitHub\hospital\BLL\bin\Debug\BLL.dll
+D:\Documents\GitHub\hospital\BLL\bin\Debug\BLL.pdb
+D:\Documents\GitHub\hospital\BLL\bin\Debug\DAL.dll
+D:\Documents\GitHub\hospital\BLL\bin\Debug\Model.dll
+D:\Documents\GitHub\hospital\BLL\bin\Debug\DAL.pdb
+D:\Documents\GitHub\hospital\BLL\bin\Debug\Model.pdb
+D:\Documents\GitHub\hospital\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+D:\Documents\GitHub\hospital\BLL\obj\Debug\BLL.dll
+D:\Documents\GitHub\hospital\BLL\obj\Debug\BLL.pdb

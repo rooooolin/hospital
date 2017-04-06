@@ -3,3 +3,7 @@ D:\Documents\Vs Projects\hospital\DAL\bin\Debug\DAL.dll
 D:\Documents\Vs Projects\hospital\DAL\bin\Debug\DAL.pdb
 D:\Documents\Vs Projects\hospital\DAL\obj\Debug\DAL.dll
 D:\Documents\Vs Projects\hospital\DAL\obj\Debug\DAL.pdb
+D:\Documents\GitHub\hospital\DAL\bin\Debug\DAL.dll
+D:\Documents\GitHub\hospital\DAL\bin\Debug\DAL.pdb
+D:\Documents\GitHub\hospital\DAL\obj\Debug\DAL.dll
+D:\Documents\GitHub\hospital\DAL\obj\Debug\DAL.pdb

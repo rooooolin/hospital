@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="model_admin.cs" />
     <Compile Include="model_role.cs" />
+    <Compile Include="model_user.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

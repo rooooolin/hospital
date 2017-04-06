@@ -3,3 +3,7 @@ D:\Documents\Vs Projects\hospital\Model\bin\Debug\Model.pdb
 D:\Documents\Vs Projects\hospital\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 D:\Documents\Vs Projects\hospital\Model\obj\Debug\Model.dll
 D:\Documents\Vs Projects\hospital\Model\obj\Debug\Model.pdb
+D:\Documents\GitHub\hospital\Model\bin\Debug\Model.dll
+D:\Documents\GitHub\hospital\Model\bin\Debug\Model.pdb
+D:\Documents\GitHub\hospital\Model\obj\Debug\Model.dll
+D:\Documents\GitHub\hospital\Model\obj\Debug\Model.pdb

@@ -1,0 +1,4 @@
+D:\Documents\GitHub\hospital\DAL\bin\Release\DAL.dll
+D:\Documents\GitHub\hospital\DAL\bin\Release\DAL.pdb
+D:\Documents\GitHub\hospital\DAL\obj\Release\DAL.dll
+D:\Documents\GitHub\hospital\DAL\obj\Release\DAL.pdb
