@@ -33,38 +33,33 @@ namespace hospital
         {
             return "Hello World";
         }
-        [WebMethod]
-        public string admin_login(string u_name,string u_passwd,int u_roleId)
+        [WebMethod(Description="管理员登录不用输入手机号")]
+        public string login(string u_name,string u_phone,string u_passwd,int u_roleId)
         {
             string u_pwd = FormsAuthentication.HashPasswordForStoringInConfigFile(FormsAuthentication.HashPasswordForStoringInConfigFile(u_passwd, "MD5"), "MD5");
-            bll_admin admin = new bll_admin();
-            model_admin model = new model_admin();
-            model.UserName = u_name;
-            model.PassWd = u_pwd;
-            model.RoleID = u_roleId;
-            int count = admin.admin_login(model);
-            if (count != 0)
+            int count = 0;
+            if (u_roleId == 1)
             {
-                return "1"; 
+                bll_admin admin = new bll_admin();
+                model_admin model = new model_admin();
+                model.admin_name = u_name;
+                model.admin_password = u_pwd;
+                model.admin_roleid = u_roleId;
+                count = admin.admin_login(model);
             }
-            else
+            else 
             {
-                return "0";
-
+                bll_user user = new bll_user();
+                model_user model = new model_user();
+                model.user_name = u_name;
+                model.user_phone = u_phone;
+                model.user_password = u_pwd;
+                model.user_roleid = u_roleId;
+                count = user.user_login(model);
             }
+            return count != 0 ? "1" : "0"; 
         }
-        [WebMethod]
-        public string user_login(string u_name, string u_phone, string u_passwd, int u_roleId)
-        {
-            string u_pwd = FormsAuthentication.HashPasswordForStoringInConfigFile(FormsAuthentication.HashPasswordForStoringInConfigFile(u_passwd, "MD5"), "MD5");
-            bll_user user = new bll_user();
-            model_user model = new model_user();
-            model.user_name = u_name;
-            model.user_phone = u_phone;
-            model.user_password=u_passwd;
-            model.user_roleid = u_roleId;
-            return user.user_login(model) != 0 ? "1" : "0";
-            
-        }
+      
+       
     }
 }

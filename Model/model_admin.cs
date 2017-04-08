@@ -10,10 +10,9 @@ namespace Model
         public model_admin() { }
 
         private int _ID;
-        private string _UserName;
-        private string _PassWd;
-        private int _RoleID;
-        private DateTime _CreatDate=DateTime.Now;
+        private string _admin_name;
+        private string _admin_password;
+        private int _admin_roleid;
 
 
         public int ID
@@ -21,25 +20,21 @@ namespace Model
             set { _ID = value; }
             get { return _ID; }
         }
-        public string UserName
+        public string admin_name
         {
-            set { _UserName = value; }
-            get { return _UserName; }
+            set { _admin_name = value; }
+            get { return _admin_name; }
         }
-        public string PassWd
+        public string admin_password
         {
-            set { _PassWd = value; }
-            get { return _PassWd; }
+            set { _admin_password = value; }
+            get { return _admin_password; }
         }
-        public int RoleID
+        public int admin_roleid
         {
-            set { _RoleID = value; }
-            get { return _RoleID; }
+            set { _admin_roleid = value; }
+            get { return _admin_roleid; }
         }
-        public DateTime CreatDate
-        {
-            set { _CreatDate = value; }
-            get { return _CreatDate; }
-        }
+      
     }
 }

@@ -43,7 +43,7 @@ namespace Model
             set { _user_ID_Card = value; }
             get { return _user_ID_Card; }
         }
-        public string ser_patient_number
+        public string user_patient_number
         {
             set { _user_patient_number = value; }
             get { return _user_patient_number; }

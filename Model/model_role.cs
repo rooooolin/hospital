@@ -10,17 +10,17 @@ namespace Model
         public model_role() { }
 
         private int _ID;
-        private string _RoleName;
+        private string _role_name;
 
         public int ID
         {
             set { _ID = value; }
             get { return _ID; }
         }
-        public string RoleName
+        public string role_name
         {
-            set { _RoleName = value; }
-            get { return _RoleName; }
+            set { _role_name = value; }
+            get { return _role_name; }
         }
     }
 }

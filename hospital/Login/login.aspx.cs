@@ -28,7 +28,7 @@ namespace hospital.Login
                 {
                     for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                     {
-                        Role.Items.Add(new ListItem(ds.Tables[0].Rows[i]["RoleName"].ToString(), ds.Tables[0].Rows[i]["ID"].ToString()));
+                        Role.Items.Add(new ListItem(ds.Tables[0].Rows[i]["role_name"].ToString(), ds.Tables[0].Rows[i]["ID"].ToString()));
                     }
                 }
                     
@@ -47,13 +47,13 @@ namespace hospital.Login
                 string u_pwd = FormsAuthentication.HashPasswordForStoringInConfigFile(FormsAuthentication.HashPasswordForStoringInConfigFile(password.Text.Trim(), "MD5"), "MD5");
                 bll_admin admin = new bll_admin();
                 model_admin model = new model_admin();
-                model.UserName = name.Text.Trim(); ;
-                model.PassWd = u_pwd;
-                model.RoleID = RoleID;
+                model.admin_name = name.Text.Trim(); ;
+                model.admin_password = u_pwd;
+                model.admin_roleid = RoleID;
                 int count = admin.admin_login(model);
                 if (count != 0)
                 {
-                    FormsAuthentication.RedirectFromLoginPage(model.UserName, false);
+                    FormsAuthentication.RedirectFromLoginPage(model.admin_name, false);
 
                     Response.Redirect("../index.aspx");
                 }

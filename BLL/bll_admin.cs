@@ -16,13 +16,13 @@ namespace BLL
         public int admin_login(Model.model_admin model)
         {
             SqlParameter[] sp={
-                                new SqlParameter("@UserName",SqlDbType.VarChar,50),
-                                new SqlParameter("@PassWd",SqlDbType.VarChar,50),
-                                new SqlParameter("@RoleID",SqlDbType.Int,4),
+                                new SqlParameter("@admin_name",SqlDbType.VarChar,50),
+                                new SqlParameter("@admin_password",SqlDbType.VarChar,50),
+                                new SqlParameter("@role_id",SqlDbType.Int,4),
                             };
-            sp[0].Value = model.UserName;
-            sp[1].Value = model.PassWd;
-            sp[2].Value = model.RoleID;
+            sp[0].Value = model.admin_name;
+            sp[1].Value = model.admin_password;
+            sp[2].Value = model.admin_roleid;
 
             object obj = sqlcon.selectSql_return_object("admin_login", CommandType.StoredProcedure, sp);
             if (obj != null)
