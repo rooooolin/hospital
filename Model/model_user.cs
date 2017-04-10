@@ -23,6 +23,7 @@ namespace Model
         private string _user_contact_rela;
         private string _user_contact_phone;
         private int _user_roleid;
+        //model_user
         public int ID
         {
             set { _ID = value; }
