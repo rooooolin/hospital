@@ -36,6 +36,10 @@ namespace DAL
                     foreach (SqlParameter p in sp)
                     {
                         cmd.Parameters.Add(p);
+                        if (p.Value == null)
+                        {
+                            p.Value = DBNull.Value;
+                        }
                     }
                 }
 

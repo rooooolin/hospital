@@ -20,3 +20,4 @@ D:\Documents\GitHub\hospital\hospital\bin\Model.pdb
 D:\Documents\GitHub\hospital\hospital\obj\Debug\hospital.csprojResolveAssemblyReference.cache
 D:\Documents\GitHub\hospital\hospital\obj\Debug\hospital.dll
 D:\Documents\GitHub\hospital\hospital\obj\Debug\hospital.pdb
+D:\Documents\GitHub\hospital\hospital\bin\hospital.dll.config

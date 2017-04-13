@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Services;
 using System.Collections;
 using System.Configuration;
 using System.Data;
-using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
@@ -12,11 +15,14 @@ using BLL;
 using System.Data.SqlClient;
 using System.Web.Security;
 using Model;
+using System.Web.Mvc;
 
 namespace hospital.Login
 {
     public partial class login : System.Web.UI.Page
     {
+        public Dictionary<string, dynamic> map { get; set; }
+        public List<string> model_names;
         public static int RoleID = 1; 
         protected void Page_Load(object sender, EventArgs e)
         {

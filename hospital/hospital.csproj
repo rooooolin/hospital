@@ -48,6 +48,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -60,10 +61,22 @@
     <Content Include="common\ValidateCode.aspx" />
     <Content Include="Css\add.css" />
     <Content Include="Css\bootstrap.css" />
+    <Content Include="Css\index.css" />
+    <Content Include="Css\PageIndex.css" />
+    <Content Include="Css\table.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="index.aspx" />
+    <Content Include="Js\common.js" />
+    <Content Include="Js\function.js" />
+    <Content Include="Js\jquery-1.6.4.min.js" />
+    <Content Include="Js\jquery.js" />
+    <Content Include="Js\tendina.js" />
     <Content Include="Login\login.aspx" />
+    <Content Include="Users\ModifyInfo.aspx" />
+    <Content Include="Users\UserList.aspx" />
     <Content Include="Web.config" />
     <Content Include="WebService.asmx" />
+    <Content Include="welcom.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="common\ValidateCode.aspx.cs">
@@ -88,12 +101,37 @@
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Users\ModifyInfo.aspx.cs">
+      <DependentUpon>ModifyInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Users\ModifyInfo.aspx.designer.cs">
+      <DependentUpon>ModifyInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Users\UserList.aspx.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Users\UserList.aspx.designer.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebService.asmx.cs">
       <DependentUpon>WebService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="welcom.aspx.cs">
+      <DependentUpon>welcom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="welcom.aspx.designer.cs">
+      <DependentUpon>welcom.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\FontAwesome.otf" />
     <None Include="Properties\PublishProfiles\123.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -121,7 +159,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
-    <Folder Include="Js\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

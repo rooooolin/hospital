@@ -45,6 +45,7 @@
     <Compile Include="bll_admin.cs" />
     <Compile Include="bll_role.cs" />
     <Compile Include="bll_user.cs" />
+    <Compile Include="PageIndex.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidatedCode.cs" />
   </ItemGroup>

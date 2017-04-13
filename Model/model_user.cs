@@ -7,7 +7,10 @@ namespace Model
 {
     public partial class model_user
     {
-        public model_user() { }
+        public model_user() 
+        { 
+
+        }
 
         private int _ID;
         private string _user_password;
@@ -94,5 +97,7 @@ namespace Model
             set { _user_roleid = value; }
             get { return _user_roleid; }
         }
+
+       
     }
 }

@@ -1,0 +1,95 @@
+﻿
+body {
+font: normal 11px auto "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+color: #4f6b72;
+background: #E6EAE9;
+height:100%;
+}
+a {
+color: #c75f3e;
+text-decoration:none;
+} 
+#mytable {
+width: 100%;
+padding: 0;
+margin: 0;
+} 
+caption {
+padding: 0 0 5px 0;
+width: 100%;
+font: italic 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+text-align: right;
+}
+.navi {
+    border-right: 1px solid #C1DAD7;
+border-bottom: 1px solid #C1DAD7;
+border-top: 1px solid #C1DAD7;
+letter-spacing: 2px;
+text-transform: uppercase;
+text-align: center;
+padding: 6px 6px 6px 12px;
+background: #fff;
+height:25px;
+
+}
+.option {
+width:150px; 
+height:25px; 
+float:left;
+font-size:11px;
+text-align:left;
+line-height:25px;
+}
+.posi {
+width:300px;
+height:25px;
+float:right;
+font-size:11px;
+text-align:right;
+line-height:25px;
+}
+th {
+font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+color: #4f6b72;
+border-right: 1px solid #C1DAD7;
+border-bottom: 1px solid #C1DAD7;
+border-top: 1px solid #C1DAD7;
+letter-spacing: 2px;
+text-transform: uppercase;
+text-align: center;
+padding: 6px 6px 6px 12px;
+background: #CAE8EA;
+
+}
+.spebtn {
+background-color:#fff;
+border:none;
+cursor:pointer;
+color:#c75f3e;
+font-size:12px;
+font: normal 11px auto "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+td {
+border-right: 1px solid #C1DAD7;
+border-bottom: 1px solid #C1DAD7;
+background: #fff;
+font-size:11px;
+
+text-align: center;
+padding: 6px 6px 6px 12px;
+color: #4f6b72;
+
+}
+btnmenu {
+border-right: 1px solid #C1DAD7;
+border-bottom: 1px solid #C1DAD7;
+border-top: 1px solid #C1DAD7;
+letter-spacing: 2px;
+text-transform: uppercase;
+text-align: center;
+padding: 6px 6px 6px 12px;
+
+height:25px;
+}
+/*---------for IE 5.x bug*/
+html>body td{ font-size:11px;}

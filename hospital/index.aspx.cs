@@ -11,7 +11,20 @@ namespace hospital
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (User.Identity.IsAuthenticated)
+            {
+                string userName = User.Identity.Name;
+                this.AdminName.Text = userName;
+            }
+            else
+            {
+                Response.Redirect("Login/login.aspx");
+            }
+        }
+        protected void LoginOut_Click(object sender, EventArgs e)
+        {
+            System.Web.Security.FormsAuthentication.SignOut();
+            Response.Redirect("Login/login.aspx");
         }
     }
 }

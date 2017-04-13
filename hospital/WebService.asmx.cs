@@ -15,6 +15,7 @@ using BLL;
 using System.Data.SqlClient;
 using System.Web.Security;
 using Model;
+using System.Web.Mvc;
 namespace hospital
 {
     /// <summary>
@@ -59,7 +60,32 @@ namespace hospital
             }
             return count != 0 ? "1" : "0"; 
         }
-      
+        public Dictionary<string, dynamic> map { get; set; }
+        public List<string> model_names;
+       
+        [WebMethod]
+        public string modify_userinfo(int[] pos,string[] info_list)
+        {
+            model_user model = new model_user();
+            bll_user user = new bll_user();
+            Type model_type = model.GetType();
+            model_names = new List<string>();
+            map = new Dictionary<string, dynamic>();
+            int cunt_pos = 0; int cunt_info = -1;
+            foreach (var property in model_type.GetProperties())
+            {
+                map.Add(property.Name, null);
+                model_names.Add(property.Name.ToString());
+            }
+            foreach (string name in model_names)
+            {
+                if (pos[cunt_pos++] == 1)
+                {
+                    map[name] = info_list[++cunt_info];
+                }
+            }
+            return user.mobile_update_info(model_names, map) != 0 ? "1" : "0";
+        }
        
     }
 }

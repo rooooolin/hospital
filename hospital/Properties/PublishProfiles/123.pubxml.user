@@ -8,19 +8,20 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <LastUsedBuildConfiguration>Release</LastUsedBuildConfiguration>
     <LastUsedPlatform>Any CPU</LastUsedPlatform>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>D:\Documents\GitHub\hospital\Published</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/BLL.dll">
-      <publishTime>04/08/2017 13:29:00</publishTime>
+      <publishTime>04/13/2017 21:26:11</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>04/08/2017 13:28:59</publishTime>
+      <publishTime>04/13/2017 21:26:11</publishTime>
     </File>
     <File Include="bin/hospital.dll">
-      <publishTime>04/08/2017 13:29:00</publishTime>
+      <publishTime>04/13/2017 21:26:12</publishTime>
     </File>
     <File Include="bin/Model.dll">
-      <publishTime>04/08/2017 13:28:59</publishTime>
+      <publishTime>04/13/2017 21:26:11</publishTime>
     </File>
     <File Include="common/ValidateCode.aspx">
       <publishTime>04/07/2017 17:56:46</publishTime>
@@ -31,20 +32,68 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Css/bootstrap.css">
       <publishTime>04/07/2017 17:56:46</publishTime>
     </File>
+    <File Include="Css/index.css">
+      <publishTime>04/13/2017 14:41:20</publishTime>
+    </File>
+    <File Include="Css/PageIndex.css">
+      <publishTime>04/13/2017 14:55:41</publishTime>
+    </File>
+    <File Include="Css/table.css">
+      <publishTime>04/13/2017 15:50:35</publishTime>
+    </File>
+    <File Include="fonts/fontawesome-webfont.eot">
+      <publishTime>04/13/2017 14:49:01</publishTime>
+    </File>
+    <File Include="fonts/fontawesome-webfont.svg">
+      <publishTime>04/13/2017 14:49:01</publishTime>
+    </File>
+    <File Include="fonts/fontawesome-webfont.ttf">
+      <publishTime>04/13/2017 14:49:01</publishTime>
+    </File>
+    <File Include="fonts/fontawesome-webfont.woff">
+      <publishTime>04/13/2017 14:49:01</publishTime>
+    </File>
+    <File Include="fonts/FontAwesome.otf">
+      <publishTime>04/13/2017 14:49:01</publishTime>
+    </File>
     <File Include="index.aspx">
-      <publishTime>04/07/2017 17:56:46</publishTime>
+      <publishTime>04/13/2017 17:22:21</publishTime>
+    </File>
+    <File Include="Js/common.js">
+      <publishTime>04/13/2017 14:40:56</publishTime>
+    </File>
+    <File Include="Js/function.js">
+      <publishTime>04/13/2017 14:56:25</publishTime>
+    </File>
+    <File Include="Js/jquery-1.6.4.min.js">
+      <publishTime>04/13/2017 14:56:25</publishTime>
+    </File>
+    <File Include="Js/jquery.js">
+      <publishTime>04/13/2017 14:40:56</publishTime>
+    </File>
+    <File Include="Js/tendina.js">
+      <publishTime>04/13/2017 14:40:56</publishTime>
     </File>
     <File Include="Login/login.aspx">
       <publishTime>04/07/2017 17:56:46</publishTime>
     </File>
+    <File Include="Users/ModifyInfo.aspx">
+      <publishTime>04/13/2017 16:52:29</publishTime>
+    </File>
+    <File Include="Users/UserList.aspx">
+      <publishTime>04/13/2017 17:03:40</publishTime>
+    </File>
     <File Include="Web.config">
-      <publishTime>04/08/2017 13:29:00</publishTime>
+      <publishTime>04/13/2017 21:26:12</publishTime>
     </File>
     <File Include="Web.sitemap">
       <publishTime>04/07/2017 17:56:46</publishTime>
     </File>
     <File Include="WebService.asmx">
       <publishTime>04/07/2017 17:56:46</publishTime>
+    </File>
+    <File Include="welcom.aspx">
+      <publishTime>04/13/2017 14:48:21</publishTime>
     </File>
   </ItemGroup>
 </Project>
