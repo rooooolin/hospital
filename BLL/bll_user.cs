@@ -15,24 +15,19 @@ namespace BLL
         public int user_login(Model.model_user model)
         {
             SqlParameter[] sp ={
+                                new SqlParameter("@UserID",SqlDbType.Int,4),
                                 new SqlParameter("@user_name",SqlDbType.VarChar,50),
                                 new SqlParameter("@user_password",SqlDbType.VarChar,50),
                                 new SqlParameter("@user_phone",SqlDbType.VarChar,50),
                                 new SqlParameter("@user_roleid",SqlDbType.Int,4),
                             };
-            sp[0].Value = model.user_name;
-            sp[1].Value = model.user_password;
-            sp[2].Value = model.user_phone;
-            sp[3].Value = model.user_roleid;
-            object obj = sqlcon.selectSql_return_object("user_login", CommandType.StoredProcedure, sp);
-            if (obj != null)
-            {
-                return int.Parse(obj.ToString());
-            }
-            else
-            {
-                return 0;
-            }
+            sp[0].Direction = ParameterDirection.Output;
+            sp[1].Value = model.user_name;
+            sp[2].Value = model.user_password;
+            sp[3].Value = model.user_phone;
+            sp[4].Value = model.user_roleid;
+            return sqlcon.excuteCommand_return_int("user_login", CommandType.StoredProcedure, sp);
+           
 
         }
        
@@ -66,6 +61,20 @@ namespace BLL
             int count = sqlcon.excuteCommand_return_int("update_userinfo", CommandType.StoredProcedure, parameters);
             return count;
         }
+        public int update_password(Model.model_user model)
+        {
+
+            SqlParameter[] parameters = {
+					new SqlParameter("@ID", SqlDbType.Int,4),
+					new SqlParameter("@user_password", SqlDbType.VarChar,50)
+					};
+            parameters[0].Value = model.ID;
+            parameters[1].Value = model.user_password;
+
+
+            int count = sqlcon.excuteCommand_return_int("update_user_password", CommandType.StoredProcedure, parameters);
+            return count;
+        }
         public int update_info(Model.model_user model)
         {
 
@@ -81,7 +90,7 @@ namespace BLL
 					new SqlParameter("@user_contact", SqlDbType.VarChar,50),
 					new SqlParameter("@user_contact_rela", SqlDbType.VarChar,50),
 					new SqlParameter("@user_contact_phone", SqlDbType.VarChar,50)};
-            parameters[0].Direction = ParameterDirection.Output;
+            parameters[0].Value = model.ID;
             parameters[1].Value = model.user_name;
             parameters[2].Value = model.user_ID_Card;
             parameters[3].Value = model.user_patient_number;

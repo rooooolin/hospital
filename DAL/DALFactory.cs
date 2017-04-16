@@ -42,10 +42,19 @@ namespace DAL
                         }
                     }
                 }
-
-                int count = cmd.ExecuteNonQuery();
-
-                return count;
+                int return_value; 
+                if (command_text == "user_login")
+                {
+                    //IAsyncResult result = 
+                    cmd.ExecuteNonQuery();
+                    //cmd.EndExecuteNonQuery(result);
+                    return_value = Int32.Parse(sp[0].Value.ToString());
+                }
+                else
+                {
+                    return_value = cmd.ExecuteNonQuery();
+                }
+                return return_value;
             }
             catch (Exception ex)
             {
@@ -79,8 +88,10 @@ namespace DAL
                     }
                 }
                 cmd.CommandType = type;
+               
                 object obj = cmd.ExecuteScalar();
                 return obj;
+              
             }
             catch (Exception ex)
             {
