@@ -35,7 +35,7 @@ namespace hospital
         {
             string u_pwd = FormsAuthentication.HashPasswordForStoringInConfigFile(FormsAuthentication.HashPasswordForStoringInConfigFile(u_passwd, "MD5"), "MD5");
             int result = 0;
-            if (u_roleId == 1)
+            if (u_roleId == 1 || u_roleId == 2)
             {
                 bll_admin admin = new bll_admin();
                 model_admin model = new model_admin();

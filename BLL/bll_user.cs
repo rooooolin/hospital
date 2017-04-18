@@ -77,7 +77,7 @@ namespace BLL
         }
         public int update_info(Model.model_user model)
         {
-
+            
             SqlParameter[] parameters = {
 					new SqlParameter("@ID", SqlDbType.Int,4),
 					new SqlParameter("@user_name", SqlDbType.VarChar,50),
