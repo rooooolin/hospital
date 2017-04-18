@@ -15,6 +15,8 @@ using BLL;
 using System.Data.SqlClient;
 using System.Web.Security;
 using Model;
+using System.Xml;
+using System.Reflection;
 using System.Web.Mvc;
 namespace hospital
 {
@@ -98,6 +100,40 @@ namespace hospital
             bll_user user = new bll_user();
             return user.update_info(model) != 0 ? "1" : "0";
         }
+
+        public static string ModelToXML(object model)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            XmlElement ModelNode = xmldoc.CreateElement("Model");
+            xmldoc.AppendChild(ModelNode);
+
+            if (model != null)
+            {
+                foreach (PropertyInfo property in model.GetType().GetProperties())
+                {
+                    XmlElement attribute = xmldoc.CreateElement(property.Name);
+                    if (property.GetValue(model, null) != null)
+                        attribute.InnerText = property.GetValue(model, null).ToString();
+                    else
+                        attribute.InnerText = "[Null]";
+                    ModelNode.AppendChild(attribute);
+                }
+            }
+
+            return xmldoc.OuterXml;
+        }  
+        [WebMethod]
+        public string get_userinfo(int u_id)
+        {
+           
+                bll_user user = new bll_user();
+                model_user model = new model_user();
+                string id = u_id.ToString();
+                model = user.get_model(int.Parse(id));
+                return ModelToXML(model); 
+          
+        }
+
         //public string modify_userinfo(int[] pos,string[] info_list)
         //{
         //    model_user model = new model_user();
