@@ -35,7 +35,7 @@ namespace hospital
         {
             string u_pwd = FormsAuthentication.HashPasswordForStoringInConfigFile(FormsAuthentication.HashPasswordForStoringInConfigFile(u_passwd, "MD5"), "MD5");
             int result = 0;
-            if (u_roleId == 1 || u_roleId == 2)
+            if (u_roleId == 1 )
             {
                 bll_admin admin = new bll_admin();
                 model_admin model = new model_admin();
@@ -44,12 +44,21 @@ namespace hospital
                 model.admin_roleid = u_roleId;
                 result = admin.admin_login(model);
             }
-            else 
+            else if (u_roleId == 3)
             {
                 bll_user user = new bll_user();
                 model_user model = new model_user();
                 model.user_name = u_name;
                 model.user_phone = u_phone;
+                model.user_password = u_pwd;
+                model.user_roleid = u_roleId;
+                result = user.user_login(model);
+            }
+            else
+            {
+                bll_user user = new bll_user();
+                model_user model = new model_user();
+                model.user_name = u_name;
                 model.user_password = u_pwd;
                 model.user_roleid = u_roleId;
                 result = user.user_login(model);
