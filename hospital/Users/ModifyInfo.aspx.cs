@@ -28,8 +28,8 @@ namespace hospital.Users
                 }
             }
         }
-        bll_user user = new bll_user();
-        model_user model = new model_user();
+        bll_patient user = new bll_patient();
+        model_patient_info model = new model_patient_info();
         private void show()
         {
             if (Request.QueryString["id"] != null)

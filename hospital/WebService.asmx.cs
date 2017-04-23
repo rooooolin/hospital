@@ -31,58 +31,36 @@ namespace hospital
     public class WebService : System.Web.Services.WebService
     {
 
-       
-        [WebMethod(Description="用户(医生，患者)登录成功返回ID,登录失败返回0。管理员登录成功返回1,失败返回0")]
-        public string login(string u_name,string u_phone,string u_passwd,int u_roleId)
+
+        [WebMethod(Description = "输入患者(或医生)手机号和密码，以及用户角色ID(患者=3,医生=2)。登录成功返回患者(或医生)ID,登录失败返回0。")]
+        public string login(string u_phone,string u_passwd,int u_roleId)
         {
             string u_pwd = FormsAuthentication.HashPasswordForStoringInConfigFile(FormsAuthentication.HashPasswordForStoringInConfigFile(u_passwd, "MD5"), "MD5");
-            int result = 0;
-            if (u_roleId == 1 )
-            {
-                bll_admin admin = new bll_admin();
-                model_admin model = new model_admin();
-                model.admin_name = u_name;
-                model.admin_password = u_pwd;
-                model.admin_roleid = u_roleId;
-                result = admin.admin_login(model);
-            }
-            else if (u_roleId == 3)
-            {
-                bll_user user = new bll_user();
-                model_user model = new model_user();
-                model.user_name = u_name;
-                model.user_phone = u_phone;
-                model.user_password = u_pwd;
-                model.user_roleid = u_roleId;
-                result = user.user_login(model);
-            }
-            else
-            {
-                bll_user user = new bll_user();
-                model_user model = new model_user();
-                model.user_name = u_name;
-                model.user_password = u_pwd;
-                model.user_roleid = u_roleId;
-                result = user.user_login(model);
-            }
+            bll_patient user = new bll_patient();
+            model_patient_info model = new model_patient_info();
+            model.user_password = u_pwd;
+            model.user_roleid = u_roleId;
+            model.user_phone = u_phone;
+            int  result = user.user_login(model);
             return result != 0 ? result.ToString() : "0"; 
         }
-        [WebMethod(Description="输入用户ID和新密码，成功修改返回1，失败则返回0")]
-        public string modify_password(string u_id, string u_password)
+        [WebMethod(Description="输入患者(或医生)ID和新密码，以及用户角色ID(患者=3,医生=2)。修改成功修改返回1，失败则返回0")]
+        public string modify_password(string u_id, string u_password,int u_roldId)
         {
-            model_user model = new model_user();
+            model_patient_info model = new model_patient_info();
             model.ID = Int32.Parse(u_id);
             model.user_password = FormsAuthentication.HashPasswordForStoringInConfigFile(FormsAuthentication.HashPasswordForStoringInConfigFile(u_password, "MD5"), "MD5");
-            bll_user user = new bll_user();
+            model.user_roleid = u_roldId;
+            bll_patient user = new bll_patient();
             return user.update_password(model) != 0 ? "1" : "0";
         }
         public Dictionary<string, dynamic> map { get; set; }
         public List<string> model_names;
 
-        [WebMethod(Description = "输入用户ID和需要修改的信息,成功修改返回1，失败则返回0")]
-        public string modify_userinfo(string u_id, string u_name, string u_idcard, string u_patient_number, string u_phone, string u_sex, string u_birthday, string u_work_address, string u_is_married, string u_contact, string u_contact_rela, string u_contact_phone)
+        [WebMethod(Description = "输入患者ID和需要修改的信息,成功修改返回1，失败则返回0")]
+        public string modify_patientinfo(string u_id, string u_name, string u_idcard, string u_patient_number, string u_phone, string u_sex, string u_birthday, string u_work_address, string u_is_married, string u_contact, string u_contact_rela, string u_contact_phone)
         {
-            model_user model = new model_user();
+            model_patient_info model = new model_patient_info();
             model.ID = Int32.Parse(u_id);
             model.user_name = u_name;
             model.user_ID_Card = u_idcard;
@@ -97,7 +75,7 @@ namespace hospital
             model.user_contact = u_contact;
             model.user_contact_rela = u_contact_rela;
             model.user_contact_phone = u_contact_phone;
-            bll_user user = new bll_user();
+            bll_patient user = new bll_patient();
             return user.update_info(model) != 0 ? "1" : "0";
         }
 
@@ -121,13 +99,13 @@ namespace hospital
             }
 
             return xmldoc.OuterXml;
-        }  
-        [WebMethod]
-        public string get_userinfo(int u_id)
+        }
+        [WebMethod(Description="通过患者ID获取患者所有信息")]
+        public string get_patientinfo(int u_id)
         {
            
-                bll_user user = new bll_user();
-                model_user model = new model_user();
+                bll_patient user = new bll_patient();
+                model_patient_info model = new model_patient_info();
                 string id = u_id.ToString();
                 model = user.get_model(int.Parse(id));
                 return ModelToXML(model); 

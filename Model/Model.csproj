@@ -40,8 +40,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="model_admin.cs" />
+    <Compile Include="model_depart.cs" />
+    <Compile Include="model_doctor_info.cs" />
+    <Compile Include="model_patient_info.cs" />
+    <Compile Include="model_patient_group.cs" />
     <Compile Include="model_role.cs" />
-    <Compile Include="model_user.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
