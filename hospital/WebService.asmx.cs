@@ -108,7 +108,7 @@ namespace hospital
                 model_patient_info model = new model_patient_info();
                 string id = u_id.ToString();
                 model = user.get_model(int.Parse(id));
-                return ModelToXML(model); 
+                return JsonHelper.GetJson<model_patient_info>(model);
           
         }
 

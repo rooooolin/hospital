@@ -6,6 +6,8 @@ using DAL;
 using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
+
 namespace BLL
 {
     public class bll_patient
@@ -101,7 +103,7 @@ namespace BLL
             parameters[9].Value = model.user_contact_rela;
             parameters[10].Value = model.user_contact_phone;
 
-            int count = sqlcon.excuteCommand_return_int("update_userinfo", CommandType.StoredProcedure, parameters);
+            int count = sqlcon.excuteCommand_return_int("update_patientinfo", CommandType.StoredProcedure, parameters);
             return count;
         }
         public Model.model_patient_info get_model(int ID)
@@ -112,7 +114,7 @@ namespace BLL
             parameters[0].Value = ID;
 
             Model.model_patient_info model = new Model.model_patient_info();
-            DataSet ds = sqlcon.excuteSelect_return_dataSet("get_user_model", CommandType.StoredProcedure, parameters);
+            DataSet ds = sqlcon.excuteSelect_return_dataSet("get_patient_model", CommandType.StoredProcedure, parameters);
             if (ds.Tables[0].Rows.Count > 0)
             {
                 if (ds.Tables[0].Rows[0]["id"].ToString() != "")
@@ -171,6 +173,10 @@ namespace BLL
                 if (ds.Tables[0].Rows[0]["user_roleid"].ToString() != "")
                 {
                     model.user_roleid = int.Parse(ds.Tables[0].Rows[0]["user_roleid"].ToString());
+                }
+                if (ds.Tables[0].Rows[0]["user_creat_time"].ToString() != "")
+                {
+                    model.user_creat_time =DateTime.Parse(ds.Tables[0].Rows[0]["user_creat_time"].ToString());
                 }
                
                 return model;
