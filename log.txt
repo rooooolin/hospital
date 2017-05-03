@@ -32,3 +32,5 @@ Model
   --model_user.cs
 Published
 --log.txt
+
+[delete]
