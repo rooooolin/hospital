@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="bll_admin.cs" />
+    <Compile Include="bll_doctor.cs" />
     <Compile Include="bll_role.cs" />
     <Compile Include="bll_patient.cs" />
     <Compile Include="PageIndex.cs" />

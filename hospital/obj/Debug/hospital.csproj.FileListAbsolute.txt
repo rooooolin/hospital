@@ -21,3 +21,5 @@ D:\Documents\GitHub\hospital\hospital\obj\Debug\hospital.csprojResolveAssemblyRe
 D:\Documents\GitHub\hospital\hospital\obj\Debug\hospital.dll
 D:\Documents\GitHub\hospital\hospital\obj\Debug\hospital.pdb
 D:\Documents\GitHub\hospital\hospital\bin\hospital.dll.config
+D:\Documents\GitHub\hospital\hospital\bin\Newtonsoft.Json.pdb
+D:\Documents\GitHub\hospital\hospital\bin\Newtonsoft.Json.xml

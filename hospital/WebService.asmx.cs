@@ -12,9 +12,11 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using BLL;
+using Newtonsoft.Json.Linq;
 using System.Data.SqlClient;
 using System.Web.Security;
 using Model;
+using System.Data;
 using System.Xml;
 using System.Reflection;
 using System.Web.Mvc;
@@ -44,6 +46,7 @@ namespace hospital
             int  result = user.user_login(model);
             return result != 0 ? result.ToString() : "0"; 
         }
+
         [WebMethod(Description="输入患者(或医生)ID和新密码，以及用户角色ID(患者=3,医生=2)。修改成功修改返回1，失败则返回0")]
         public string modify_password(string u_id, string u_password,int u_roldId)
         {
@@ -79,27 +82,6 @@ namespace hospital
             return user.update_info(model) != 0 ? "1" : "0";
         }
 
-        public static string ModelToXML(object model)
-        {
-            XmlDocument xmldoc = new XmlDocument();
-            XmlElement ModelNode = xmldoc.CreateElement("Model");
-            xmldoc.AppendChild(ModelNode);
-
-            if (model != null)
-            {
-                foreach (PropertyInfo property in model.GetType().GetProperties())
-                {
-                    XmlElement attribute = xmldoc.CreateElement(property.Name);
-                    if (property.GetValue(model, null) != null)
-                        attribute.InnerText = property.GetValue(model, null).ToString();
-                    else
-                        attribute.InnerText = "[Null]";
-                    ModelNode.AppendChild(attribute);
-                }
-            }
-
-            return xmldoc.OuterXml;
-        }
         [WebMethod(Description="通过患者ID获取患者所有信息")]
         public string get_patientinfo(int u_id)
         {
@@ -110,6 +92,63 @@ namespace hospital
                 model = user.get_model(int.Parse(id));
                 return JsonHelper.GetJson<model_patient_info>(model);
           
+        }
+        [WebMethod(Description = "通过医生ID获取医生所有信息")]
+        public string get_doctorinfo(int d_id)
+        {
+
+            bll_doctor doctor = new bll_doctor();
+            model_doctor_info model = new model_doctor_info();
+            string id = d_id.ToString();
+            model = doctor.get_model(int.Parse(id));
+            return JsonHelper.GetJson<model_doctor_info>(model);
+
+        }
+        [WebMethod(Description = "通过医生ID获取该医生下所有患者信息")]
+        public string get_dpatient_list(int d_id)
+        {
+
+            bll_doctor doctor = new bll_doctor();
+            bll_patient patient = new bll_patient();
+            DataSet ds = doctor.get_dpatient(d_id);
+            var json_object = new JObject();
+            model_patient_info model = new model_patient_info();
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                json_object.Add("patient_count", ds.Tables[0].Rows.Count);
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    json_object.Add(ds.Tables[0].Rows[i]["p_id"].ToString(), JsonHelper.GetJson<model_patient_info>(patient.get_model(int.Parse(ds.Tables[0].Rows[i]["p_id"].ToString()))));
+                }
+            }
+            return json_object.ToString();
+            //string id = d_id.ToString();
+            //model = doctor.get_model(int.Parse(id));
+            //return JsonHelper.GetJson<model_doctor_info>(model);
+
+        }
+        [WebMethod(Description = "通过患者ID获取该患者下所有患医生信息")]
+        public string get_pdoctor_list(int p_id)
+        {
+
+            bll_doctor doctor = new bll_doctor();
+            bll_patient patient = new bll_patient();
+            DataSet ds = patient.get_pdoctor(p_id);
+            var json_object = new JObject();
+            model_doctor_info model = new model_doctor_info();
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                json_object.Add("doctor_count", ds.Tables[0].Rows.Count);
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    json_object.Add(ds.Tables[0].Rows[i]["d_id"].ToString(), JsonHelper.GetJson<model_doctor_info>(doctor.get_model(int.Parse(ds.Tables[0].Rows[i]["d_id"].ToString()))));
+                }
+            }
+            return json_object.ToString();
+            //string id = d_id.ToString();
+            //model = doctor.get_model(int.Parse(id));
+            //return JsonHelper.GetJson<model_doctor_info>(model);
+
         }
 
         //public string modify_userinfo(int[] pos,string[] info_list)

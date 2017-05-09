@@ -25,10 +25,7 @@ namespace Model
     /// <returns>JSON字符串</returns>
     public static string GetJson<T>(T obj)
     {
-        //记住 添加引用 System.ServiceModel.Web 
-        /**
-         * 如果不添加上面的引用,System.Runtime.Serialization.Json; Json是出不来的哦
-         * */
+       
         DataContractJsonSerializer json = new DataContractJsonSerializer(typeof(T));
         using (MemoryStream ms = new MemoryStream())
         {

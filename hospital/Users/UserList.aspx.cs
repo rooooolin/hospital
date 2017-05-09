@@ -16,16 +16,17 @@ namespace hospital.Users
     {
         Sqlcmd sqlcmd = new Sqlcmd();
         int pagesize = 9;
-        
-        string condition = " ";
+
+        string condition = " 1=1 order by ID desc";
+        public static string table_ = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["user_roleid"] != null)
             {
                 if (Request.QueryString["user_roleid"].ToString() == "2")
-                { condition = " user_roleid=2 order by ID desc"; }
+                { table_ = " DoctorInfo"; }
                 if (Request.QueryString["user_roleid"].ToString() == "3")
-                { condition = " user_roleid=3 order by ID desc"; }
+                { table_ = " PatientInfo"; }
                 user_list();
             }
            
@@ -34,8 +35,14 @@ namespace hospital.Users
         protected void user_list()
         {
             DataSet ds = new DataSet();
-            ds = sqlcmd.PageIndex("UserInfo", "*", condition);
-            this.PageInfo.InnerHtml = PageIndex.GetPageNum(ds, UserRepeter, pagesize);
+            ds = sqlcmd.PageIndex(table_, "*", condition);
+            if (table_ == " DoctorInfo")
+            {
+                this.PageInfo.InnerHtml = PageIndex.GetPageNum(ds, DoctorRepeter, pagesize);
+
+            }
+            else
+                this.PageInfo.InnerHtml = PageIndex.GetPageNum(ds, UserRepeter, pagesize);
         }
         protected void DelBtn_Click(object sender, EventArgs e)
         {
@@ -46,7 +53,7 @@ namespace hospital.Users
                 {
                     Label lb = (Label)UserRepeter.Items[i].FindControl("ID");
 
-                    sqlcmd.CommonDeleteColumns("dbo.UserInfo", "where ID= " + lb.Text);
+                    sqlcmd.CommonDeleteColumns(table_, " where ID= " + lb.Text);
 
 
                 }
@@ -64,7 +71,7 @@ namespace hospital.Users
                 NowState = "1";
 
 
-            int result = sqlcmd.CommonUpdate("UserInfo", " user_state = " + NowState, " ID = " + userID);
+            int result = sqlcmd.CommonUpdate(table_, " user_state = " + NowState, " ID = " + userID);
             if (result != 0)
             {
                 if ("1" == StateCondi)
@@ -88,7 +95,7 @@ namespace hospital.Users
         }
         protected void userState_SelectedIndexChanged(object sender, EventArgs e)
         {
-            condition = " UserInfo.user_state =" + this.userState.SelectedValue.ToString();
+            condition = table_+".user_state =" + this.userState.SelectedValue.ToString();
             user_list();
         }
 
