@@ -46,8 +46,10 @@
     <Compile Include="model_admin.cs" />
     <Compile Include="model_depart.cs" />
     <Compile Include="model_doctor_info.cs" />
+    <Compile Include="model_doctor_tolist.cs" />
     <Compile Include="model_patient_info.cs" />
     <Compile Include="model_patient_group.cs" />
+    <Compile Include="model_patient_tolist.cs" />
     <Compile Include="model_role.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

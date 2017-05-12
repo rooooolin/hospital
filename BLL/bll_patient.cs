@@ -185,5 +185,44 @@ namespace BLL
                 return null;
             }
         }
+        public Model.model_patient_tolist model_tolist(int ID)
+        {
+            SqlParameter[] parameters = {
+					new SqlParameter("@ID", SqlDbType.Int,4)
+};
+            parameters[0].Value = ID;
+
+            Model.model_patient_tolist model = new Model.model_patient_tolist();
+            DataSet ds = sqlcon.excuteSelect_return_dataSet("get_patient_model", CommandType.StoredProcedure, parameters);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                if (ds.Tables[0].Rows[0]["id"].ToString() != "")
+                {
+                    model.ID = int.Parse(ds.Tables[0].Rows[0]["ID"].ToString());
+                }
+                if (ds.Tables[0].Rows[0]["user_name"].ToString() != "")
+                {
+                    model.user_name = ds.Tables[0].Rows[0]["user_name"].ToString();
+                }
+                
+                
+                if (ds.Tables[0].Rows[0]["user_patient_number"].ToString() != "")
+                {
+                    model.user_patient_number = ds.Tables[0].Rows[0]["user_patient_number"].ToString();
+                }
+                if (ds.Tables[0].Rows[0]["user_phone"].ToString() != "")
+                {
+                    model.user_phone = ds.Tables[0].Rows[0]["user_phone"].ToString();
+                }
+
+               
+
+                return model;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

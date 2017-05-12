@@ -120,13 +120,13 @@ namespace hospital
             DataSet ds = doctor.get_dpatient(d_id);
             string return_str="{\"patient\":[";
             var json_object = new JObject();
-            model_patient_info model = new model_patient_info();
+            model_patient_tolist model = new model_patient_tolist();
             if (ds.Tables[0].Rows.Count > 0)
             {
                 
                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                 {
-                    return_str+=JsonHelper.GetJson<model_patient_info>(patient.get_model(int.Parse(ds.Tables[0].Rows[i]["p_id"].ToString())));
+                    return_str += JsonHelper.GetJson<model_patient_tolist>(patient.model_tolist(int.Parse(ds.Tables[0].Rows[i]["p_id"].ToString())));
                     if (i < ds.Tables[0].Rows.Count-1)
                         return_str += ",";
                 }
@@ -147,13 +147,13 @@ namespace hospital
             bll_patient patient = new bll_patient();
             DataSet ds = patient.get_pdoctor(p_id);
             var json_object = new JObject();
-            model_doctor_info model = new model_doctor_info();
+            model_doctor_tolist model = new model_doctor_tolist();
             string return_str = "{\"patient\":[";
             if (ds.Tables[0].Rows.Count > 0)
             {
                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                 {
-                    return_str += JsonHelper.GetJson<model_doctor_info>(doctor.get_model(int.Parse(ds.Tables[0].Rows[i]["d_id"].ToString())));
+                    return_str += JsonHelper.GetJson<model_doctor_tolist>(doctor.model_tolist(int.Parse(ds.Tables[0].Rows[i]["d_id"].ToString())));
                     if (i < ds.Tables[0].Rows.Count - 1)
                         return_str += ",";
                 }

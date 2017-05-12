@@ -78,6 +78,45 @@ namespace BLL
                 return null;
             }
         }
+        public Model.model_doctor_tolist model_tolist(int ID)
+        {
+            SqlParameter[] parameters = {
+					new SqlParameter("@ID", SqlDbType.Int,4)
+};
+            parameters[0].Value = ID;
+
+            Model.model_doctor_tolist model = new Model.model_doctor_tolist();
+            DataSet ds = sqlcon.excuteSelect_return_dataSet("get_doctor_model", CommandType.StoredProcedure, parameters);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                if (ds.Tables[0].Rows[0]["id"].ToString() != "")
+                {
+                    model.ID = int.Parse(ds.Tables[0].Rows[0]["ID"].ToString());
+                }
+                if (ds.Tables[0].Rows[0]["doctor_name"].ToString() != "")
+                {
+                    model.doctor_name = ds.Tables[0].Rows[0]["doctor_name"].ToString();
+                }
+              
+                if (ds.Tables[0].Rows[0]["doctor_title"].ToString() != "")
+                {
+                    model.doctor_title = ds.Tables[0].Rows[0]["doctor_title"].ToString();
+                }
+              
+                if (ds.Tables[0].Rows[0]["doctor_unit"].ToString() != "")
+                {
+                    model.doctor_unit = ds.Tables[0].Rows[0]["doctor_unit"].ToString();
+                }
+              
+
+
+                return model;
+            }
+            else
+            {
+                return null;
+            }
+        }
         public DataSet get_dpatient(int d_id)
         {
             SqlParameter[] sp ={
