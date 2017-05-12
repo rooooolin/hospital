@@ -104,6 +104,13 @@ namespace hospital
             return JsonHelper.GetJson<model_doctor_info>(model);
 
         }
+
+        [WebMethod(Description = "添加医患从属关系。输入为医生ID和患者ID,以及可选备注。成功添加返回1,失败则返回0")]
+        public string add_dp_map(int d_id,int p_id,string remarks)
+        {
+            bll_dpmap bpmap = new bll_dpmap();
+            return bpmap.add_map(d_id, p_id, remarks) != 0 ? "1" : "0";
+        }
         [WebMethod(Description = "通过医生ID获取该医生下所有患者信息")]
         public string get_dpatient_list(int d_id)
         {
@@ -111,17 +118,22 @@ namespace hospital
             bll_doctor doctor = new bll_doctor();
             bll_patient patient = new bll_patient();
             DataSet ds = doctor.get_dpatient(d_id);
+            string return_str="{\"patient\":[";
             var json_object = new JObject();
             model_patient_info model = new model_patient_info();
             if (ds.Tables[0].Rows.Count > 0)
             {
-                json_object.Add("patient_count", ds.Tables[0].Rows.Count);
+                
                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                 {
-                    json_object.Add(ds.Tables[0].Rows[i]["p_id"].ToString(), JsonHelper.GetJson<model_patient_info>(patient.get_model(int.Parse(ds.Tables[0].Rows[i]["p_id"].ToString()))));
+                    return_str+=JsonHelper.GetJson<model_patient_info>(patient.get_model(int.Parse(ds.Tables[0].Rows[i]["p_id"].ToString())));
+                    if (i < ds.Tables[0].Rows.Count-1)
+                        return_str += ",";
                 }
             }
-            return json_object.ToString();
+            return_str += "]}";
+            //json_object.Add("patient", return_str);
+            return return_str;
             //string id = d_id.ToString();
             //model = doctor.get_model(int.Parse(id));
             //return JsonHelper.GetJson<model_doctor_info>(model);
@@ -136,15 +148,19 @@ namespace hospital
             DataSet ds = patient.get_pdoctor(p_id);
             var json_object = new JObject();
             model_doctor_info model = new model_doctor_info();
+            string return_str = "{\"patient\":[";
             if (ds.Tables[0].Rows.Count > 0)
             {
-                json_object.Add("doctor_count", ds.Tables[0].Rows.Count);
                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                 {
-                    json_object.Add(ds.Tables[0].Rows[i]["d_id"].ToString(), JsonHelper.GetJson<model_doctor_info>(doctor.get_model(int.Parse(ds.Tables[0].Rows[i]["d_id"].ToString()))));
+                    return_str += JsonHelper.GetJson<model_doctor_info>(doctor.get_model(int.Parse(ds.Tables[0].Rows[i]["d_id"].ToString())));
+                    if (i < ds.Tables[0].Rows.Count - 1)
+                        return_str += ",";
                 }
             }
-            return json_object.ToString();
+            return_str += "]}";
+            //json_object.Add("patient", return_str);
+            return return_str;
             //string id = d_id.ToString();
             //model = doctor.get_model(int.Parse(id));
             //return JsonHelper.GetJson<model_doctor_info>(model);
