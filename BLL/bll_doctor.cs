@@ -117,6 +117,34 @@ namespace BLL
                 return null;
             }
         }
+        public int update_info(Model.model_doctor_info model)
+        {
+
+            SqlParameter[] parameters = {
+					new SqlParameter("@ID", SqlDbType.Int,4),
+					new SqlParameter("@doctor_name", SqlDbType.VarChar,50),
+					new SqlParameter("@doctor_education", SqlDbType.VarChar,50),
+                    new SqlParameter("@doctor_title",SqlDbType.VarChar,50),
+                    new SqlParameter("@doctor_telphone",SqlDbType.VarChar,50),
+					new SqlParameter("@doctor_license", SqlDbType.VarChar,50),
+					new SqlParameter("@doctor_phone", SqlDbType.VarChar,50),
+					new SqlParameter("@doctor_email", SqlDbType.Bit),
+					new SqlParameter("@doctor_unit", SqlDbType.VarChar,50),
+					new SqlParameter("@doctor_depart_id", SqlDbType.Int,50)};
+            parameters[0].Value = model.ID;
+            parameters[1].Value = model.doctor_name;
+            parameters[2].Value = model.doctor_education;
+            parameters[3].Value = model.doctor_title;
+            parameters[4].Value = model.doctor_telphone;
+            parameters[5].Value = model.doctor_license;
+            parameters[6].Value = model.doctor_phone;
+            parameters[7].Value = model.doctor_email;
+            parameters[8].Value = model.doctor_unit;
+            parameters[9].Value = model.doctor_depart_id;
+
+            int count = sqlcon.excuteCommand_return_int("update_doctorinfo", CommandType.StoredProcedure, parameters);
+            return count;
+        }
         public DataSet get_dpatient(int d_id)
         {
             SqlParameter[] sp ={

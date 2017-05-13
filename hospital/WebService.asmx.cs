@@ -82,6 +82,54 @@ namespace hospital
             return user.update_info(model) != 0 ? "1" : "0";
         }
 
+        [WebMethod(Description = "患者表搜索。输入需要搜索的字段,以及搜索内容。搜索成功返回相关字符串，失败返回0")]
+        public string patient_search(string filed, string content)
+        {
+            DataSet ds=new DataSet();
+            bll_search search = new bll_search();
+
+            ds = search.fully_search(filed, content);
+
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                string return_str = "[";
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    string temp_str = "{";
+                    temp_str += "\"user_name\":\""+ds.Tables[0].Rows[i]["user_name"].ToString()+"\",";
+                    temp_str += "\"user_patient_number\":\"" + ds.Tables[0].Rows[i]["user_patient_number"].ToString() + "\"";
+                    if (i < ds.Tables[0].Rows.Count - 1)
+                        temp_str += "},";
+                    else
+                        temp_str += "}";
+
+                    return_str += temp_str;
+                }
+                return_str += "]";
+                return return_str;
+            }
+            else
+                return "0";
+        }
+
+        [WebMethod(Description = "输入医生ID和需要修改的信息,成功修改返回1，失败则返回0")]
+        public string modify_doctorinfo(string d_id, string doctor_name, string doctor_education, string doctor_title, string doctor_telphone, string doctor_license, string doctor_phone, string doctor_email, string doctor_unit, int doctor_depart_id)
+        {
+            model_doctor_info model = new model_doctor_info();
+            model.ID = Int32.Parse(d_id);
+            model.doctor_name = doctor_name;
+            model.doctor_education = doctor_education;
+            model.doctor_title = doctor_title;
+            model.doctor_telphone = doctor_telphone;
+            model.doctor_license = doctor_license;
+            model.doctor_phone = doctor_phone;
+            model.doctor_email = doctor_email;
+            model.doctor_unit = doctor_unit;
+            model.doctor_depart_id = doctor_depart_id;
+            bll_doctor doctor = new bll_doctor();
+            return doctor.update_info(model) != 0 ? "1" : "0";
+        }
+
         [WebMethod(Description="通过患者ID获取患者所有信息")]
         public string get_patientinfo(int u_id)
         {
@@ -118,7 +166,7 @@ namespace hospital
             bll_doctor doctor = new bll_doctor();
             bll_patient patient = new bll_patient();
             DataSet ds = doctor.get_dpatient(d_id);
-            string return_str="{\"patient\":[";
+            string return_str="[";
             var json_object = new JObject();
             model_patient_tolist model = new model_patient_tolist();
             if (ds.Tables[0].Rows.Count > 0)
@@ -131,7 +179,7 @@ namespace hospital
                         return_str += ",";
                 }
             }
-            return_str += "]}";
+            return_str += "]";
             //json_object.Add("patient", return_str);
             return return_str;
             //string id = d_id.ToString();
@@ -148,7 +196,7 @@ namespace hospital
             DataSet ds = patient.get_pdoctor(p_id);
             var json_object = new JObject();
             model_doctor_tolist model = new model_doctor_tolist();
-            string return_str = "{\"patient\":[";
+            string return_str = "[";
             if (ds.Tables[0].Rows.Count > 0)
             {
                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
@@ -158,7 +206,7 @@ namespace hospital
                         return_str += ",";
                 }
             }
-            return_str += "]}";
+            return_str += "]";
             //json_object.Add("patient", return_str);
             return return_str;
             //string id = d_id.ToString();
