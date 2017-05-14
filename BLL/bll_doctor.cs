@@ -128,7 +128,7 @@ namespace BLL
                     new SqlParameter("@doctor_telphone",SqlDbType.VarChar,50),
 					new SqlParameter("@doctor_license", SqlDbType.VarChar,50),
 					new SqlParameter("@doctor_phone", SqlDbType.VarChar,50),
-					new SqlParameter("@doctor_email", SqlDbType.Bit),
+					new SqlParameter("@doctor_email", SqlDbType.VarChar,50),
 					new SqlParameter("@doctor_unit", SqlDbType.VarChar,50),
 					new SqlParameter("@doctor_depart_id", SqlDbType.Int,50)};
             parameters[0].Value = model.ID;
