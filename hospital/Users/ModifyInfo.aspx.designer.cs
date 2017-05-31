@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace hospital.Users {
+namespace hospital.Case {
     
     
     public partial class ModifyInfo {

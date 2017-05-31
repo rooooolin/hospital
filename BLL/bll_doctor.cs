@@ -145,6 +145,26 @@ namespace BLL
             int count = sqlcon.excuteCommand_return_int("update_doctorinfo", CommandType.StoredProcedure, parameters);
             return count;
         }
+        public DataSet get_doc_name()
+        {
+            SqlParameter[] sp ={
+                                   new SqlParameter("@table",SqlDbType.VarChar,50),
+                                   new SqlParameter("@columns",SqlDbType.VarChar,50),
+                                  new SqlParameter("@Condition",SqlDbType.VarChar,50)
+                              };
+            sp[0].Value = "DoctorInfo";
+            sp[1].Value = "ID,doctor_name";
+            sp[2].Value = "1=1";
+            Model.model_role model = new Model.model_role();
+            DataSet ds = sqlcon.excuteSelect_return_dataSet("general_get_data", CommandType.StoredProcedure, sp);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+
+                return ds;
+            }
+            else
+                return null;
+        }
         public DataSet get_dpatient(int d_id)
         {
             SqlParameter[] sp ={

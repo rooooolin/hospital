@@ -9,8 +9,7 @@ using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using BLL;
-
-namespace hospital.Users
+namespace hospital.Case
 {
     public partial class UserList : System.Web.UI.Page
     {

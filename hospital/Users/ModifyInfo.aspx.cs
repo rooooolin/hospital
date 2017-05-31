@@ -10,7 +10,7 @@ using System.Data.Sql;
 using DAL;
 using BLL;
 using Model;
-namespace hospital.Users
+namespace hospital.Case
 {
     public partial class ModifyInfo : System.Web.UI.Page
     {

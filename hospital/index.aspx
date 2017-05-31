@@ -34,13 +34,23 @@
             <li class="childUlLi">
                <a href="#" target="menuFrame"><i class="glyph-icon icon-home"></i>用户管理</a>
                  <ul style="display: none;">
-                     <li><a href="" target="menuFrame"><i class="glyph-icon icon-chevron-right"></i>管理员</a></li>
+                     <li><a href="Users/adminList.aspx" target="menuFrame"><i class="glyph-icon icon-chevron-right"></i>管理员</a></li>
                     <li><a href="Users/UserList.aspx?user_roleid=2" target="menuFrame"><i class="glyph-icon icon-chevron-right"></i>医生</a></li>
                     <li><a href="Users/UserList.aspx?user_roleid=3" target="menuFrame"><i class="glyph-icon icon-chevron-right"></i>用户</a></li>
                
                 </ul>
             </li>
         </ul>
+      <ul class="tendina" id="menu">
+            <li class="childUlLi">
+               <a href="#" target="menuFrame"><i class="glyph-icon icon-home"></i>病例管理</a>
+                 <ul style="display: none;">
+                     <li><a href="Case/CaseManage.aspx" target="menuFrame"><i class="glyph-icon icon-chevron-right"></i>病例列表</a></li>
+                  
+               
+                </ul>
+            </li>
+        </ul> 
     </div>
     <div id="layout_right_content" class="layout_right_content">
         <div class="route_bg">

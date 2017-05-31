@@ -65,6 +65,15 @@ namespace BLL
             DataSet ds = db.excuteSelect_return_dataSet(sql, CommandType.Text, pars);
             return ds;
         }
+        public DataSet TriJoinPageIndex(string m_table, string a_table,string b_table, string columns, string ma_condi,string mb_condi)
+        {
+            string sql = "select " + columns + " from " + m_table + " as m left join " + a_table + " as a on " + ma_condi + " left join " + b_table + " as b on " + mb_condi;
+            SqlParameter[] pars = new SqlParameter[]{
+           
+          };
+            DataSet ds = db.excuteSelect_return_dataSet(sql, CommandType.Text, pars);
+            return ds;
+        }
 
        
 

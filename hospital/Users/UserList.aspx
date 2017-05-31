@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserList.aspx.cs" Inherits="hospital.Users.UserList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserList.aspx.cs" Inherits="hospital.Case.UserList" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-   <title>用户列表</title>
+    <title></title>
 <link href="../css/table.css" type="text/css" rel="stylesheet" />
     <link href="../css/PageIndex.css" type="text/css" rel="stylesheet" />
  
@@ -64,7 +64,7 @@
                     <td width="5%"><asp:Label ID="ID" runat="server" Text='<%#Eval("ID")%>'></asp:Label></td>
                      <td width="15%"><asp:Label ID="user_name" runat="server" Text='<%#Eval("user_name") %>'></asp:Label></td>
                     <td width="5%"><asp:Label ID="user_sex" runat="server" Text='<%#Eval("user_sex") %>'></asp:Label></td>
-                    <td width="10"><asp:Label ID="user_patient_number" runat="server" Text='<%#Eval("user_patient_number") %>'></asp:Label></td>
+                    <td width="10%"><asp:Label ID="user_patient_number" runat="server" Text='<%#Eval("user_patient_number") %>'></asp:Label></td>
                     <td width="10%"><asp:Label ID="user_phone" runat="server" text='<%#Eval("user_phone") %>'></asp:Label></td>
                     <td width="10%"><asp:Label ID="user_birthday" runat="server"  Text='<%#Eval("user_birthday") %>'></asp:Label></td>
                     <td width="5%"><asp:Label ID="user_is_married" runat="server" Text='<%#Eval("user_is_married") %>'></asp:Label></td>
@@ -72,7 +72,7 @@
                     <td width="5%"><asp:Label ID="user_contact_rela" runat="server" Text='<%#Eval("user_contact_rela") %>'></asp:Label></td>
                     <td width="10%"><asp:Label ID="user_contact_phone" runat="server" Text='<%#Eval("user_contact_phone") %>'></asp:Label></td>
                     <td width="5%"><asp:Label ID="user_state" runat="server" Text='<%# Int32.Parse(Eval("user_state").ToString())==1?"使用中":"X 已禁用" %>'></asp:Label></td>
-                    <td width="10%"><a href="ModifyInfo.aspx?id=<%#Eval("ID") %>">编辑</a>&nbsp;&nbsp;<asp:LinkButton Class="spebtn"  CommandName='<%#Eval("user_state") %>' CommandArgument='<%#Eval("ID")%>' ID="StateBtn" oncommand="StateBtn_Command" runat="server" Text='<%# Int32.Parse(Eval("user_state").ToString())==1?"禁用":"启用" %>'></asp:LinkButton></td>
+                    <td width="10%"><a href="../Case/AddCase.aspx?id=<%#Eval("ID") %>">添加病例</a>&nbsp;&nbsp;<a href="ModifyInfo.aspx?id=<%#Eval("ID") %>">编辑</a>&nbsp;&nbsp;<asp:LinkButton Class="spebtn"  CommandName='<%#Eval("user_state") %>' CommandArgument='<%#Eval("ID")%>' ID="StateBtn" oncommand="StateBtn_Command" runat="server" Text='<%# Int32.Parse(Eval("user_state").ToString())==1?"禁用":"启用" %>'></asp:LinkButton></td>
                 </tr>
                
 
@@ -88,13 +88,13 @@
                 <tr>
                     <th width="5%"><span class="btn_all" onclick="checkAll(this);">全选</span></th>
                     <th width="5%">ID</th>
-                    <th width="15%">用户名</th>
-                    <th width="5%">教育水平</th>
+                    <th width="8%">用户名</th>
+                    <th width="7%">教育水平</th>
                     <th width="10%">职称</th>
                     <th width="10%">手机号</th>
                     <th width="10%">许可证</th>
                     <th width="5%">座机</th>
-                     <th width="5%">Email</th>
+                     <th width="10%">Email</th>
                      <th width="5%">组织单位</th>
                      <th width="10%">科室</th>
                     <th width="5%">用户状态</th>
@@ -107,13 +107,13 @@
                 <tr>
                     <td width="5%"><asp:CheckBox CssClass="checkall" ID="UserCheck" runat="server" /></td>
                     <td width="5%"><asp:Label ID="ID" runat="server" Text='<%#Eval("ID")%>'></asp:Label></td>
-                     <td width="15%"><asp:Label ID="doctor_name" runat="server" Text='<%#Eval("doctor_name") %>'></asp:Label></td>
-                    <td width="5%"><asp:Label ID="doctor_education" runat="server" Text='<%#Eval("doctor_education") %>'></asp:Label></td>
-                    <td width="10"><asp:Label ID="doctor_title" runat="server" Text='<%#Eval("doctor_title") %>'></asp:Label></td>
+                     <td width="8%"><asp:Label ID="doctor_name" runat="server" Text='<%#Eval("doctor_name") %>'></asp:Label></td>
+                    <td width="7%"><asp:Label ID="doctor_education" runat="server" Text='<%#Eval("doctor_education") %>'></asp:Label></td>
+                    <td width="10%"><asp:Label ID="doctor_title" runat="server" Text='<%#Eval("doctor_title") %>'></asp:Label></td>
                     <td width="10%"><asp:Label ID="doctor_telphone" runat="server" text='<%#Eval("doctor_telphone") %>'></asp:Label></td>
                     <td width="10%"><asp:Label ID="doctor_license" runat="server"  Text='<%#Eval("doctor_license") %>'></asp:Label></td>
                     <td width="5%"><asp:Label ID="doctor_phone" runat="server" Text='<%#Eval("doctor_phone") %>'></asp:Label></td>
-                    <td width="5%"><asp:Label ID="doctor_email" runat="server" Text='<%#Eval("doctor_email") %>'></asp:Label></td>
+                    <td width="10%"><asp:Label ID="doctor_email" runat="server" Text='<%#Eval("doctor_email") %>'></asp:Label></td>
                     <td width="5%"><asp:Label ID="doctor_unit" runat="server" Text='<%#Eval("doctor_unit") %>'></asp:Label></td>
                     <td width="10%"><asp:Label ID="doctor_depart_id" runat="server" Text='<%#Eval("doctor_depart_id") %>'></asp:Label></td>
                     <td width="5%"><asp:Label ID="doctor_state" runat="server" Text='<%# Int32.Parse(Eval("doctor_state").ToString())==1?"使用中":"X 已禁用" %>'></asp:Label></td>

@@ -62,6 +62,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Case\CaseManage.aspx" />
+    <Content Include="Case\ModifyCase.aspx" />
     <Content Include="common\ValidateCode.aspx" />
     <Content Include="Css\add.css" />
     <Content Include="Css\bootstrap.css" />
@@ -76,6 +78,16 @@
     <Content Include="Js\jquery.js" />
     <Content Include="Js\tendina.js" />
     <Content Include="Login\login.aspx" />
+    <Content Include="test\images\cabbb.gif" />
+    <Content Include="test\images\embbb.gif" />
+    <Content Include="test\images\faqbb.gif" />
+    <Content Include="test\images\janomebb.gif" />
+    <Content Include="test\images\jukibb.gif" />
+    <Content Include="test\images\mainpagebb.gif" />
+    <Content Include="test\images\sewwnl.jpg" />
+    <Content Include="test\index.html" />
+    <Content Include="Case\AddCase.aspx" />
+    <Content Include="Users\adminList.aspx" />
     <Content Include="Users\ModifyInfo.aspx" />
     <Content Include="Users\UserList.aspx" />
     <Content Include="Web.config" />
@@ -83,6 +95,20 @@
     <Content Include="welcom.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Case\CaseManage.aspx.cs">
+      <DependentUpon>CaseManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Case\CaseManage.aspx.designer.cs">
+      <DependentUpon>CaseManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Case\ModifyCase.aspx.cs">
+      <DependentUpon>ModifyCase.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Case\ModifyCase.aspx.designer.cs">
+      <DependentUpon>ModifyCase.aspx</DependentUpon>
+    </Compile>
     <Compile Include="common\ValidateCode.aspx.cs">
       <DependentUpon>ValidateCode.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -105,6 +131,20 @@
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Case\AddCase.aspx.cs">
+      <DependentUpon>AddCase.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Case\AddCase.aspx.designer.cs">
+      <DependentUpon>AddCase.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Users\adminList.aspx.cs">
+      <DependentUpon>adminList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Users\adminList.aspx.designer.cs">
+      <DependentUpon>adminList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Users\ModifyInfo.aspx.cs">
       <DependentUpon>ModifyInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -187,6 +187,25 @@ namespace hospital
             //return JsonHelper.GetJson<model_doctor_info>(model);
 
         }
+        [WebMethod(Description = "通过患者ID获取该患者的所有病例")]
+        public string get_patient_case(int p_id)
+        {
+            bll_case bcase = new bll_case();
+            DataSet ds = bcase.get_info(0, p_id, 2);
+            string return_str = "[";
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    return_str += "{\"title\":\"" + ds.Tables[0].Rows[i]["case_title"].ToString() + "\",\"brief\":\"" + ds.Tables[0].Rows[i]["case_brief"].ToString() + "\",\"p_id\":\"" + ds.Tables[0].Rows[i]["p_id"].ToString() + "\",\"d_id\":\"" + ds.Tables[0].Rows[i]["d_id"].ToString() + "\",\"file_path\":\""+ds.Tables[0].Rows[i]["case_path"].ToString() + "\"}";
+                    if (i < ds.Tables[0].Rows.Count - 1)
+                        return_str += ",";
+                }
+            }
+            return_str += "]";
+            return return_str;
+
+        }
         [WebMethod(Description = "通过患者ID获取该患者下所有患医生信息")]
         public string get_pdoctor_list(int p_id)
         {

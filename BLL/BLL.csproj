@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="bll_admin.cs" />
+    <Compile Include="bll_case.cs" />
     <Compile Include="bll_doctor.cs" />
     <Compile Include="bll_dpmap.cs" />
     <Compile Include="bll_role.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="bll_search.cs" />
     <Compile Include="PageIndex.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UploadFile.cs" />
     <Compile Include="ValidatedCode.cs" />
   </ItemGroup>
   <ItemGroup>
