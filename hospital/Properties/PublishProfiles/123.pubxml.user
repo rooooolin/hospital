@@ -12,19 +12,28 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/BLL.dll">
-      <publishTime>05/14/2017 16:51:50</publishTime>
+      <publishTime>05/31/2017 16:32:00</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>05/14/2017 16:51:49</publishTime>
+      <publishTime>05/31/2017 16:31:59</publishTime>
     </File>
     <File Include="bin/hospital.dll">
-      <publishTime>05/14/2017 16:51:51</publishTime>
+      <publishTime>05/31/2017 16:32:00</publishTime>
     </File>
     <File Include="bin/Model.dll">
-      <publishTime>05/14/2017 16:51:50</publishTime>
+      <publishTime>05/31/2017 16:31:59</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>04/02/2017 17:45:54</publishTime>
+    </File>
+    <File Include="Case/AddCase.aspx">
+      <publishTime>05/31/2017 15:53:42</publishTime>
+    </File>
+    <File Include="Case/CaseManage.aspx">
+      <publishTime>05/31/2017 15:19:09</publishTime>
+    </File>
+    <File Include="Case/ModifyCase.aspx">
+      <publishTime>05/31/2017 15:54:20</publishTime>
     </File>
     <File Include="common/ValidateCode.aspx">
       <publishTime>05/03/2017 12:48:00</publishTime>
@@ -60,7 +69,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/03/2017 12:48:00</publishTime>
     </File>
     <File Include="index.aspx">
-      <publishTime>05/03/2017 12:48:00</publishTime>
+      <publishTime>05/31/2017 15:50:15</publishTime>
     </File>
     <File Include="Js/common.js">
       <publishTime>05/03/2017 12:48:00</publishTime>
@@ -80,11 +89,38 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Login/login.aspx">
       <publishTime>05/03/2017 12:48:00</publishTime>
     </File>
+    <File Include="test/images/cabbb.gif">
+      <publishTime>05/16/2017 10:41:30</publishTime>
+    </File>
+    <File Include="test/images/embbb.gif">
+      <publishTime>05/16/2017 10:41:30</publishTime>
+    </File>
+    <File Include="test/images/faqbb.gif">
+      <publishTime>05/16/2017 10:41:30</publishTime>
+    </File>
+    <File Include="test/images/janomebb.gif">
+      <publishTime>05/16/2017 10:41:30</publishTime>
+    </File>
+    <File Include="test/images/jukibb.gif">
+      <publishTime>05/16/2017 10:41:30</publishTime>
+    </File>
+    <File Include="test/images/mainpagebb.gif">
+      <publishTime>05/16/2017 10:41:30</publishTime>
+    </File>
+    <File Include="test/images/sewwnl.jpg">
+      <publishTime>05/16/2017 10:41:30</publishTime>
+    </File>
+    <File Include="test/index.html">
+      <publishTime>05/16/2017 13:03:48</publishTime>
+    </File>
+    <File Include="Users/adminList.aspx">
+      <publishTime>05/31/2017 15:50:27</publishTime>
+    </File>
     <File Include="Users/ModifyInfo.aspx">
-      <publishTime>05/03/2017 12:48:00</publishTime>
+      <publishTime>05/31/2017 14:38:04</publishTime>
     </File>
     <File Include="Users/UserList.aspx">
-      <publishTime>05/03/2017 16:52:00</publishTime>
+      <publishTime>05/31/2017 15:17:00</publishTime>
     </File>
     <File Include="Web.config">
       <publishTime>05/03/2017 12:48:00</publishTime>
