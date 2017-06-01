@@ -49,7 +49,7 @@
                     <td width="10%"><asp:Label ID="d_id" runat="server" text='<%#Eval("d_id") %>'></asp:Label></td>
                     <td width="15%"><asp:Label ID="doctor_name" runat="server"  Text='<%#Eval("doctor_name") %>'></asp:Label></td>
                     <td width="10%"><asp:Label ID="case_path" runat="server" Text='<%#Eval("case_path") %>'></asp:Label></td>
-                    <td width="15%"><a href="../UploadFiles/Case/<%#Eval("case_path") %>" target="_blank">查看病例</a>&nbsp;&nbsp;<a href="ModifyCase.aspx?case_id=<%#Eval("ID") %>&p_id=<%#Eval("p_id") %>&d_id=<%#Eval("d_id") %>">修改</a>&nbsp;&nbsp;</td>
+                    <td width="15%"><a href="../<%#Eval("case_path") %>" target="_blank">查看病例</a>&nbsp;&nbsp;<a href="ModifyCase.aspx?case_id=<%#Eval("ID") %>&p_id=<%#Eval("p_id") %>&d_id=<%#Eval("d_id") %>">修改</a>&nbsp;&nbsp;</td>
                 </tr>
                
 

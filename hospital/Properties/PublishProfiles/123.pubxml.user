@@ -18,7 +18,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/31/2017 16:31:59</publishTime>
     </File>
     <File Include="bin/hospital.dll">
-      <publishTime>05/31/2017 16:32:00</publishTime>
+      <publishTime>06/01/2017 10:26:23</publishTime>
     </File>
     <File Include="bin/Model.dll">
       <publishTime>05/31/2017 16:31:59</publishTime>
@@ -30,7 +30,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/31/2017 15:53:42</publishTime>
     </File>
     <File Include="Case/CaseManage.aspx">
-      <publishTime>05/31/2017 15:19:09</publishTime>
+      <publishTime>06/01/2017 10:26:07</publishTime>
     </File>
     <File Include="Case/ModifyCase.aspx">
       <publishTime>05/31/2017 15:54:20</publishTime>
