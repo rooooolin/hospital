@@ -20,6 +20,7 @@ using System.Data;
 using System.Xml;
 using System.Reflection;
 using System.Web.Mvc;
+using DAL;
 namespace hospital
 {
     /// <summary>
@@ -30,6 +31,7 @@ namespace hospital
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
     // [System.Web.Script.Services.ScriptService]
+    
     public class WebService : System.Web.Services.WebService
     {
 
@@ -187,6 +189,11 @@ namespace hospital
             //return JsonHelper.GetJson<model_doctor_info>(model);
 
         }
+        //[WebMethod(Description = "医生自定义患者分组")]
+        //public string make_group(int d_id,string group_name,string group_number,string p_id_list)
+        //{
+            
+        //}
         [WebMethod(Description = "通过患者ID获取该患者的所有病例")]
         public string get_patient_case(int p_id)
         {
@@ -205,6 +212,22 @@ namespace hospital
             return_str += "]";
             return return_str;
 
+        }
+        [WebMethod(Description = "通用删除方法。传入表名和该表下需要删除的id列表。成功删除返回1，否则返回0")]
+        public string delete(string table_name, string id_list)
+        {
+            Sqlcmd sqlcmd = new Sqlcmd();
+            string[] list_ = id_list.Split(new char[1]{','});
+            int result_cunt = 0;
+            foreach (string id in list_)
+            {
+                int result=sqlcmd.CommonDeleteColumns(table_name, " where ID= " + int.Parse(id));
+                if (result != 0)
+                {
+                    result_cunt++;
+                }
+            }
+            return result_cunt == list_.Length ? "1" : "0";
         }
         [WebMethod(Description = "通过患者ID获取该患者下所有患医生信息")]
         public string get_pdoctor_list(int p_id)
@@ -226,14 +249,65 @@ namespace hospital
                 }
             }
             return_str += "]";
-            //json_object.Add("patient", return_str);
             return return_str;
-            //string id = d_id.ToString();
-            //model = doctor.get_model(int.Parse(id));
-            //return JsonHelper.GetJson<model_doctor_info>(model);
+            
 
         }
+        [WebMethod(Description = "添加自定义分组")]
+        public string add_group(int d_id, string group_name, string group_number, string p_id_list, string remarks)
+        {
+            model_group model = new model_group();
+            model.d_id = d_id;
+            model.group_name = group_name;
+            model.group_number = group_number;
+            model.p_id_list = p_id_list;
+            model.remarks = remarks;
+            bll_group group = new bll_group();
+            return group.add_group(model)!=0?"1":"0";
+        }
+        [WebMethod(Description = "更新自定义分组")]
+        public string update_group(int group_id,int d_id, string group_name, string group_number, string p_id_list, string remarks)
+        {
+            model_group model = new model_group();
+            model.ID = group_id;
+            model.d_id = d_id;
+            model.group_name = group_name;
+            model.group_number = group_number;
+            model.p_id_list = p_id_list;
+            model.remarks = remarks;
+            bll_group group = new bll_group();
+            return group.update_group(model) != 0 ? "1" : "0";
+        }
+        [WebMethod(Description = "通过组id获取该分组的所有信息")]
+        public string get_group_byID(int group_id)
+        {
+            bll_group group = new bll_group();
+            model_group model = new model_group();
+            string id = group_id.ToString();
+            model = group.get_model(int.Parse(id));
+            return JsonHelper.GetJson<model_group>(model);
+        }
+        [WebMethod(Description = "通过医生ID获取该医生下的所有自定义分组")]
+        public string get_group_list(int d_id)
+        {
+            bll_group group = new bll_group();
+            DataSet ds = group.get_group_list(d_id);
+            string return_str = "[";
+            var json_object = new JObject();
+            model_group model = new model_group();
+            if (ds.Tables[0].Rows.Count > 0)
+            {
 
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    return_str += JsonHelper.GetJson<model_group>(group.get_model(int.Parse(ds.Tables[0].Rows[i]["ID"].ToString())));
+                    if (i < ds.Tables[0].Rows.Count - 1)
+                        return_str += ",";
+                }
+            }
+            return_str += "]";
+            return return_str; 
+        }
         //public string modify_userinfo(int[] pos,string[] info_list)
         //{
         //    model_user model = new model_user();

@@ -1,0 +1,8 @@
+D:\Documents\GitHub\hospital\JPush\obj\Debug\JPush.csprojResolveAssemblyReference.cache
+D:\Documents\GitHub\hospital\JPush\bin\Debug\JPush.dll
+D:\Documents\GitHub\hospital\JPush\bin\Debug\JPush.pdb
+D:\Documents\GitHub\hospital\JPush\bin\Debug\cn.jpush.api.dll
+D:\Documents\GitHub\hospital\JPush\bin\Debug\Newtonsoft.Json.dll
+D:\Documents\GitHub\hospital\JPush\bin\Debug\Newtonsoft.Json.xml
+D:\Documents\GitHub\hospital\JPush\obj\Debug\JPush.dll
+D:\Documents\GitHub\hospital\JPush\obj\Debug\JPush.pdb

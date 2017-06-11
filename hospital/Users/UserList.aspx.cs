@@ -17,15 +17,10 @@ namespace hospital.Case
         int pagesize = 9;
 
         string condition = " 1=1 order by ID desc";
-        public static string table_ = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["user_roleid"] != null)
+            if (!IsPostBack)
             {
-                if (Request.QueryString["user_roleid"].ToString() == "2")
-                { table_ = " DoctorInfo"; }
-                if (Request.QueryString["user_roleid"].ToString() == "3")
-                { table_ = " PatientInfo"; }
                 user_list();
             }
            
@@ -34,14 +29,8 @@ namespace hospital.Case
         protected void user_list()
         {
             DataSet ds = new DataSet();
-            ds = sqlcmd.PageIndex(table_, "*", condition);
-            if (table_ == " DoctorInfo")
-            {
-                this.PageInfo.InnerHtml = PageIndex.GetPageNum(ds, DoctorRepeter, pagesize);
-
-            }
-            else
-                this.PageInfo.InnerHtml = PageIndex.GetPageNum(ds, UserRepeter, pagesize);
+            ds = sqlcmd.PageIndex("PatientInfo", "*", condition);
+            this.PageInfo.InnerHtml = PageIndex.GetPageNum(ds, UserRepeter, pagesize);
         }
         protected void DelBtn_Click(object sender, EventArgs e)
         {
@@ -52,7 +41,7 @@ namespace hospital.Case
                 {
                     Label lb = (Label)UserRepeter.Items[i].FindControl("ID");
 
-                    sqlcmd.CommonDeleteColumns(table_, " where ID= " + lb.Text);
+                    sqlcmd.CommonDeleteColumns("PatientInfo", " where ID= " + lb.Text);
 
 
                 }
@@ -68,9 +57,7 @@ namespace hospital.Case
                 NowState = "0";
             else
                 NowState = "1";
-
-
-            int result = sqlcmd.CommonUpdate(table_, " user_state = " + NowState, " ID = " + userID);
+            int result = sqlcmd.CommonUpdate("PatientInfo", " user_state = " + NowState, " ID = " + userID);
             if (result != 0)
             {
                 if ("1" == StateCondi)
@@ -94,7 +81,8 @@ namespace hospital.Case
         }
         protected void userState_SelectedIndexChanged(object sender, EventArgs e)
         {
-            condition = table_+".user_state =" + this.userState.SelectedValue.ToString();
+
+            condition ="PatientInfo.user_state =" + this.userState.SelectedValue.ToString();
             user_list();
         }
 

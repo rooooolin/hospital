@@ -88,6 +88,7 @@
     <Content Include="test\index.html" />
     <Content Include="Case\AddCase.aspx" />
     <Content Include="Users\adminList.aspx" />
+    <Content Include="Users\DoctorList.aspx" />
     <Content Include="Users\ModifyInfo.aspx" />
     <Content Include="Users\UserList.aspx" />
     <Content Include="Web.config">
@@ -146,6 +147,13 @@
     </Compile>
     <Compile Include="Users\adminList.aspx.designer.cs">
       <DependentUpon>adminList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Users\DoctorList.aspx.cs">
+      <DependentUpon>DoctorList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Users\DoctorList.aspx.designer.cs">
+      <DependentUpon>DoctorList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Users\ModifyInfo.aspx.cs">
       <DependentUpon>ModifyInfo.aspx</DependentUpon>

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{58104B3A-B69A-4F95-A808-8E1B857AF3E1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JPush", "JPush\JPush.csproj", "{4DEF5D35-8BE5-48B9-80C0-01A9920D861B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{58104B3A-B69A-4F95-A808-8E1B857AF3E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58104B3A-B69A-4F95-A808-8E1B857AF3E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58104B3A-B69A-4F95-A808-8E1B857AF3E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DEF5D35-8BE5-48B9-80C0-01A9920D861B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DEF5D35-8BE5-48B9-80C0-01A9920D861B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DEF5D35-8BE5-48B9-80C0-01A9920D861B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DEF5D35-8BE5-48B9-80C0-01A9920D861B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

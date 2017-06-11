@@ -49,6 +49,7 @@
     <Compile Include="bll_case.cs" />
     <Compile Include="bll_doctor.cs" />
     <Compile Include="bll_dpmap.cs" />
+    <Compile Include="bll_group.cs" />
     <Compile Include="bll_role.cs" />
     <Compile Include="bll_patient.cs" />
     <Compile Include="bll_search.cs" />
