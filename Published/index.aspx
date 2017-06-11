@@ -35,8 +35,8 @@
                <a href="#" target="menuFrame"><i class="glyph-icon icon-home"></i>用户管理</a>
                  <ul style="display: none;">
                      <li><a href="Users/adminList.aspx" target="menuFrame"><i class="glyph-icon icon-chevron-right"></i>管理员</a></li>
-                    <li><a href="Users/UserList.aspx?user_roleid=2" target="menuFrame"><i class="glyph-icon icon-chevron-right"></i>医生</a></li>
-                    <li><a href="Users/UserList.aspx?user_roleid=3" target="menuFrame"><i class="glyph-icon icon-chevron-right"></i>用户</a></li>
+                    <li><a href="Users/DoctorList.aspx" target="menuFrame"><i class="glyph-icon icon-chevron-right"></i>医生</a></li>
+                    <li><a href="Users/UserList.aspx" target="menuFrame"><i class="glyph-icon icon-chevron-right"></i>用户</a></li>
                
                 </ul>
             </li>
