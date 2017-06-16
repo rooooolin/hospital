@@ -42,8 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="get_control.cs" />
     <Compile Include="JsonHelper.cs" />
     <Compile Include="model_admin.cs" />
+    <Compile Include="model_control.cs" />
     <Compile Include="model_depart.cs" />
     <Compile Include="model_doctor_info.cs" />
     <Compile Include="model_doctor_tolist.cs" />

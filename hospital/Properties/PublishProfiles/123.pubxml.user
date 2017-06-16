@@ -12,16 +12,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/BLL.dll">
-      <publishTime>06/11/2017 12:09:14</publishTime>
+      <publishTime>06/16/2017 12:20:32</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>06/11/2017 12:09:13</publishTime>
+      <publishTime>06/16/2017 12:20:31</publishTime>
     </File>
     <File Include="bin/hospital.dll">
-      <publishTime>06/11/2017 12:09:14</publishTime>
+      <publishTime>06/16/2017 13:33:49</publishTime>
     </File>
     <File Include="bin/Model.dll">
-      <publishTime>06/11/2017 12:09:13</publishTime>
+      <publishTime>06/16/2017 12:20:32</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>02/14/2017 00:30:50</publishTime>
@@ -44,6 +44,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Css/bootstrap.css">
       <publishTime>05/03/2017 12:48:00</publishTime>
     </File>
+    <File Include="Css/follow.css">
+      <publishTime>06/15/2017 14:56:53</publishTime>
+    </File>
+    <File Include="Css/form.min.css">
+      <publishTime>06/16/2017 13:58:35</publishTime>
+    </File>
     <File Include="Css/index.css">
       <publishTime>05/03/2017 12:48:00</publishTime>
     </File>
@@ -52,6 +58,24 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Css/table.css">
       <publishTime>05/03/2017 12:48:00</publishTime>
+    </File>
+    <File Include="follow.aspx">
+      <publishTime>06/16/2017 13:57:18</publishTime>
+    </File>
+    <File Include="Follow/AddFollow.aspx">
+      <publishTime>06/15/2017 20:18:07</publishTime>
+    </File>
+    <File Include="Follow/CheckFollowRecord.aspx">
+      <publishTime>06/15/2017 22:06:49</publishTime>
+    </File>
+    <File Include="Follow/FollowManage.aspx">
+      <publishTime>06/16/2017 10:13:05</publishTime>
+    </File>
+    <File Include="Follow/FollowRecordManage.aspx">
+      <publishTime>06/16/2017 10:04:09</publishTime>
+    </File>
+    <File Include="Follow/TextJump.aspx">
+      <publishTime>06/16/2017 09:49:03</publishTime>
     </File>
     <File Include="fonts/fontawesome-webfont.eot">
       <publishTime>05/03/2017 12:48:00</publishTime>
@@ -68,11 +92,47 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="fonts/FontAwesome.otf">
       <publishTime>05/03/2017 12:48:00</publishTime>
     </File>
+    <File Include="Images/add.png">
+      <publishTime>06/16/2017 10:39:10</publishTime>
+    </File>
+    <File Include="Images/base.png">
+      <publishTime>06/16/2017 10:39:10</publishTime>
+    </File>
+    <File Include="Images/minus.png">
+      <publishTime>06/16/2017 10:39:10</publishTime>
+    </File>
+    <File Include="Images/sctx.png">
+      <publishTime>06/16/2017 10:39:10</publishTime>
+    </File>
+    <File Include="Images/ubox-select.gif">
+      <publishTime>06/15/2017 14:50:08</publishTime>
+    </File>
+    <File Include="Images/voice.png">
+      <publishTime>06/16/2017 10:39:10</publishTime>
+    </File>
     <File Include="index.aspx">
-      <publishTime>06/10/2017 21:53:16</publishTime>
+      <publishTime>06/15/2017 21:40:55</publishTime>
     </File>
     <File Include="Js/common.js">
       <publishTime>05/03/2017 12:48:00</publishTime>
+    </File>
+    <File Include="Js/dist/dependencies/jquery.min.js">
+      <publishTime>06/16/2017 12:39:27</publishTime>
+    </File>
+    <File Include="Js/dist/dependencies/moment.min.js">
+      <publishTime>06/16/2017 12:39:27</publishTime>
+    </File>
+    <File Include="Js/dist/dependencies/pikaday-responsive-modernizr.js">
+      <publishTime>06/16/2017 12:40:16</publishTime>
+    </File>
+    <File Include="Js/dist/dependencies/pikaday.min.js">
+      <publishTime>06/16/2017 12:39:27</publishTime>
+    </File>
+    <File Include="Js/dist/pikaday-package.css">
+      <publishTime>06/16/2017 13:56:57</publishTime>
+    </File>
+    <File Include="Js/dist/pikaday-responsive.js">
+      <publishTime>06/16/2017 13:57:00</publishTime>
     </File>
     <File Include="Js/function.js">
       <publishTime>05/03/2017 12:48:00</publishTime>
@@ -80,14 +140,68 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Js/jquery-1.6.4.min.js">
       <publishTime>05/03/2017 12:48:00</publishTime>
     </File>
+    <File Include="Js/jquery-2.1.4.min.js">
+      <publishTime>06/15/2017 21:34:10</publishTime>
+    </File>
     <File Include="Js/jquery.js">
       <publishTime>05/03/2017 12:48:00</publishTime>
+    </File>
+    <File Include="Js/jqueryui/images/ui-bg_diagonals-thick_18_b81900_40x40.png">
+      <publishTime>06/15/2017 21:33:39</publishTime>
+    </File>
+    <File Include="Js/jqueryui/images/ui-bg_diagonals-thick_20_666666_40x40.png">
+      <publishTime>06/15/2017 21:33:39</publishTime>
+    </File>
+    <File Include="Js/jqueryui/images/ui-bg_flat_10_000000_40x100.png">
+      <publishTime>06/15/2017 21:33:39</publishTime>
+    </File>
+    <File Include="Js/jqueryui/images/ui-bg_glass_100_f6f6f6_1x400.png">
+      <publishTime>06/15/2017 21:33:39</publishTime>
+    </File>
+    <File Include="Js/jqueryui/images/ui-bg_glass_100_fdf5ce_1x400.png">
+      <publishTime>06/15/2017 21:33:39</publishTime>
+    </File>
+    <File Include="Js/jqueryui/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>06/15/2017 21:33:39</publishTime>
+    </File>
+    <File Include="Js/jqueryui/images/ui-bg_gloss-wave_35_f6a828_500x100.png">
+      <publishTime>06/15/2017 21:33:39</publishTime>
+    </File>
+    <File Include="Js/jqueryui/images/ui-bg_highlight-soft_100_eeeeee_1x100.png">
+      <publishTime>06/15/2017 21:33:39</publishTime>
+    </File>
+    <File Include="Js/jqueryui/images/ui-bg_highlight-soft_75_ffe45c_1x100.png">
+      <publishTime>06/15/2017 21:33:39</publishTime>
+    </File>
+    <File Include="Js/jqueryui/images/ui-icons_222222_256x240.png">
+      <publishTime>06/15/2017 21:33:39</publishTime>
+    </File>
+    <File Include="Js/jqueryui/images/ui-icons_228ef1_256x240.png">
+      <publishTime>06/15/2017 21:33:39</publishTime>
+    </File>
+    <File Include="Js/jqueryui/images/ui-icons_ef8c08_256x240.png">
+      <publishTime>06/15/2017 21:33:39</publishTime>
+    </File>
+    <File Include="Js/jqueryui/images/ui-icons_ffd27a_256x240.png">
+      <publishTime>06/15/2017 21:33:39</publishTime>
+    </File>
+    <File Include="Js/jqueryui/images/ui-icons_ffffff_256x240.png">
+      <publishTime>06/15/2017 21:33:39</publishTime>
+    </File>
+    <File Include="Js/jqueryui/jquery-ui.css">
+      <publishTime>06/15/2017 21:33:39</publishTime>
+    </File>
+    <File Include="Js/jqueryui/jquery-ui.min.js">
+      <publishTime>06/15/2017 21:33:40</publishTime>
+    </File>
+    <File Include="Js/select2css.js">
+      <publishTime>06/15/2017 14:56:51</publishTime>
     </File>
     <File Include="Js/tendina.js">
       <publishTime>05/03/2017 12:48:00</publishTime>
     </File>
     <File Include="Login/login.aspx">
-      <publishTime>05/03/2017 12:48:00</publishTime>
+      <publishTime>06/15/2017 15:09:13</publishTime>
     </File>
     <File Include="test/images/cabbb.gif">
       <publishTime>05/16/2017 10:41:30</publishTime>
@@ -117,7 +231,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/31/2017 15:50:27</publishTime>
     </File>
     <File Include="Users/DoctorList.aspx">
-      <publishTime>06/10/2017 21:55:47</publishTime>
+      <publishTime>06/15/2017 18:54:52</publishTime>
     </File>
     <File Include="Users/ModifyInfo.aspx">
       <publishTime>05/31/2017 14:38:04</publishTime>
@@ -132,7 +246,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/03/2017 12:48:00</publishTime>
     </File>
     <File Include="WebService.asmx">
-      <publishTime>05/03/2017 12:48:00</publishTime>
+      <publishTime>06/12/2017 16:36:45</publishTime>
     </File>
     <File Include="welcom.aspx">
       <publishTime>05/03/2017 12:48:00</publishTime>

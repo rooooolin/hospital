@@ -67,15 +67,53 @@
     <Content Include="common\ValidateCode.aspx" />
     <Content Include="Css\add.css" />
     <Content Include="Css\bootstrap.css" />
+    <Content Include="Css\form.min.css" />
     <Content Include="Css\index.css" />
     <Content Include="Css\PageIndex.css" />
+    <Content Include="Css\follow.css" />
     <Content Include="Css\table.css" />
+    <Content Include="follow.aspx" />
+    <Content Include="Follow\AddFollow.aspx" />
+    <Content Include="Follow\CheckFollowRecord.aspx" />
+    <Content Include="Follow\FollowManage.aspx" />
+    <Content Include="Follow\FollowRecordManage.aspx" />
+    <Content Include="Follow\TextJump.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="Images\add.png" />
+    <Content Include="Images\base.png" />
+    <Content Include="Images\minus.png" />
+    <Content Include="Images\sctx.png" />
+    <Content Include="Images\ubox-select.gif" />
+    <Content Include="Images\voice.png" />
     <Content Include="index.aspx" />
     <Content Include="Js\common.js" />
+    <Content Include="Js\dist\dependencies\jquery.min.js" />
+    <Content Include="Js\dist\dependencies\moment.min.js" />
+    <Content Include="Js\dist\dependencies\pikaday-responsive-modernizr.js" />
+    <Content Include="Js\dist\dependencies\pikaday.min.js" />
+    <Content Include="Js\dist\pikaday-package.css" />
+    <Content Include="Js\dist\pikaday-responsive.js" />
     <Content Include="Js\function.js" />
     <Content Include="Js\jquery-1.6.4.min.js" />
+    <Content Include="Js\jquery-2.1.4.min.js" />
     <Content Include="Js\jquery.js" />
+    <Content Include="Js\jqueryui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Js\jqueryui\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Js\jqueryui\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Js\jqueryui\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Js\jqueryui\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Js\jqueryui\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Js\jqueryui\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Js\jqueryui\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Js\jqueryui\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Js\jqueryui\images\ui-icons_222222_256x240.png" />
+    <Content Include="Js\jqueryui\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Js\jqueryui\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Js\jqueryui\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Js\jqueryui\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Js\jqueryui\jquery-ui.css" />
+    <Content Include="Js\jqueryui\jquery-ui.min.js" />
+    <Content Include="Js\select2css.js" />
     <Content Include="Js\tendina.js" />
     <Content Include="Login\login.aspx" />
     <Content Include="test\images\cabbb.gif" />
@@ -118,6 +156,48 @@
     </Compile>
     <Compile Include="common\ValidateCode.aspx.designer.cs">
       <DependentUpon>ValidateCode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="follow.aspx.cs">
+      <DependentUpon>follow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="follow.aspx.designer.cs">
+      <DependentUpon>follow.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Follow\AddFollow.aspx.cs">
+      <DependentUpon>AddFollow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Follow\AddFollow.aspx.designer.cs">
+      <DependentUpon>AddFollow.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Follow\CheckFollowRecord.aspx.cs">
+      <DependentUpon>CheckFollowRecord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Follow\CheckFollowRecord.aspx.designer.cs">
+      <DependentUpon>CheckFollowRecord.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Follow\FollowManage.aspx.cs">
+      <DependentUpon>FollowManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Follow\FollowManage.aspx.designer.cs">
+      <DependentUpon>FollowManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Follow\FollowRecordManage.aspx.cs">
+      <DependentUpon>FollowRecordManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Follow\FollowRecordManage.aspx.designer.cs">
+      <DependentUpon>FollowRecordManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Follow\TextJump.aspx.cs">
+      <DependentUpon>TextJump.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Follow\TextJump.aspx.designer.cs">
+      <DependentUpon>TextJump.aspx</DependentUpon>
     </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -211,9 +291,7 @@
       <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

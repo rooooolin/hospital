@@ -51,6 +51,17 @@
                 </ul>
             </li>
         </ul> 
+         <ul class="tendina" id="menu">
+            <li class="childUlLi">
+               <a href="#" target="menuFrame"><i class="glyph-icon icon-home"></i>随访管理</a>
+                 <ul style="display: none;">
+                      <li><a href="Follow/FollowManage.aspx" target="menuFrame"><i class="glyph-icon icon-chevron-right"></i>随访表管理</a></li>
+                     <li><a href="Follow/AddFollow.aspx" target="menuFrame"><i class="glyph-icon icon-chevron-right"></i>添加随访表</a></li>
+                  <li><a href="Follow/FollowRecordManage.aspx" target="menuFrame"><i class="glyph-icon icon-chevron-right"></i>随访记录</a></li> 
+               
+                </ul>
+            </li>
+        </ul> 
     </div>
     <div id="layout_right_content" class="layout_right_content">
         <div class="route_bg">

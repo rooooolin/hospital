@@ -31,7 +31,8 @@
     </table>
     <div>
         <div class="navi">
-            <span class="option"><a href="#">添加用户</a></span>
+            <span class="option">
+               </span>
             <span class="posi"><b>当前位置：<asp:SiteMapPath ID="SiteMapPath1" runat="server"></asp:SiteMapPath> </b></span>
 
         </div>

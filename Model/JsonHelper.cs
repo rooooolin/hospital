@@ -40,9 +40,21 @@ namespace Model
     /// <typeparam name="T">对象类型</typeparam>
     /// <param name="szJson">JSON字符串</param>
     /// <returns>对象实体</returns>
+    /// 
+    protected static T GetObject<T>()
+    {
+        if (typeof(T).IsValueType || typeof(T) == typeof(string))
+        {
+            return default(T);
+        }
+        else
+        {
+            return (T)Activator.CreateInstance(typeof(T));
+        }
+    }
     public static T ParseFormJson<T>(string szJson)
     {
-        T obj = Activator.CreateInstance<T>();
+        T obj = GetObject<T>();
         using (MemoryStream ms = new MemoryStream (Encoding.UTF8.GetBytes(szJson)))
         {
             DataContractJsonSerializer dcj = new DataContractJsonSerializer(typeof(T));

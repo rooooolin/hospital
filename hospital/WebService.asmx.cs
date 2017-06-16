@@ -14,9 +14,7 @@ using System.Web.UI.WebControls.WebParts;
 using BLL;
 using Newtonsoft.Json.Linq;
 using System.Data.SqlClient;
-using System.Web.Security;
 using Model;
-using System.Data;
 using System.Xml;
 using System.Reflection;
 using System.Web.Mvc;
@@ -26,7 +24,7 @@ namespace hospital
     /// <summary>
     /// Summary description for WebService
     /// </summary>
-    [WebService(Namespace = "http://tempuri.org/")]
+    [WebService(Namespace = "http://hospital.cn/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
@@ -189,11 +187,7 @@ namespace hospital
             //return JsonHelper.GetJson<model_doctor_info>(model);
 
         }
-        //[WebMethod(Description = "医生自定义患者分组")]
-        //public string make_group(int d_id,string group_name,string group_number,string p_id_list)
-        //{
-            
-        //}
+       
         [WebMethod(Description = "通过患者ID获取该患者的所有病例")]
         public string get_patient_case(int p_id)
         {

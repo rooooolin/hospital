@@ -83,5 +83,7 @@ namespace hospital.Users
             condition = "DoctorInfo.doctor_state =" + this.userState.SelectedValue.ToString();
             doctor_list();
         }
+
+        
     }
 }

@@ -74,6 +74,15 @@ namespace BLL
             DataSet ds = db.excuteSelect_return_dataSet(sql, CommandType.Text, pars);
             return ds;
         }
+        public DataTable TriJoinPageIndexdt(string m_table, string a_table, string b_table, string columns, string ma_condi, string mb_condi)
+        {
+            string sql = "select " + columns + " from " + m_table + " as m left join " + a_table + " as a on " + ma_condi + " left join " + b_table + " as b on " + mb_condi;
+            SqlParameter[] pars = new SqlParameter[]{
+           
+          };
+            DataTable dt = db.excuteSelect_return_dataTable(sql, CommandType.Text, pars);
+            return dt;
+        }
 
        
 
@@ -107,6 +116,13 @@ namespace BLL
             new SqlParameter("@condition",condition)
           };
             return db.excuteCommand_return_int("general_delete_columns", CommandType.StoredProcedure, pars);
+        }
+        public int DropTable(string table)
+        {
+            SqlParameter[] pars = new SqlParameter[]{
+            new SqlParameter("@table",table),          
+          };
+            return db.excuteCommand_return_int("drop_table", CommandType.StoredProcedure, pars);
         }
 
     }
