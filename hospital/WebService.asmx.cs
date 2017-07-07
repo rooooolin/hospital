@@ -121,7 +121,7 @@ namespace hospital
                 {
                     string temp_str = "{";
                     temp_str += "\"ID\":\"" + ds.Tables[0].Rows[i]["ID"].ToString() + "\",";
-                    temp_str += "\"follow_name\":\"" + ds.Tables[0].Rows[i]["follow_name"].ToString() + "\",";
+                    temp_str += "\"table_name\":\"" + ds.Tables[0].Rows[i]["follow_name"].ToString() + "\",";
                     int cycle_id = int.Parse(ds.Tables[0].Rows[i]["cycle_id"].ToString());
                     DataSet ds2 = new DataSet();
                     ds2 = sqlcmd.getCommonDatads("FollowCycle", "*", " CycleID=" + cycle_id);
