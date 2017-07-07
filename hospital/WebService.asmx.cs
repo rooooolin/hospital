@@ -154,6 +154,7 @@ namespace hospital
                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                 {
                     string temp_str = "{";
+                    temp_str += "\"ID\":\"" + ds.Tables[0].Rows[i]["ID"].ToString() + "\",";
                     temp_str += "\"user_name\":\""+ds.Tables[0].Rows[i]["user_name"].ToString()+"\",";
                     temp_str += "\"user_phone\":\"" + ds.Tables[0].Rows[i]["user_phone"].ToString() + "\",";
                     temp_str += "\"user_patient_number\":\"" + ds.Tables[0].Rows[i]["user_patient_number"].ToString() + "\"";
