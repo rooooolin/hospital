@@ -16,6 +16,7 @@ namespace Model
         private string _control_name;
         private string _control_type;
         private string _control_value;
+        private int _role_id;
         
         public string ID
         {
@@ -37,6 +38,12 @@ namespace Model
         {
             set { _control_value = value; }
             get { return _control_value; }
+        }
+
+        public int role_id
+        {
+            set { _role_id = value; }
+            get { return _role_id; }
         }
 
 

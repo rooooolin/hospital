@@ -58,6 +58,7 @@
                       <li><a href="Follow/FollowManage.aspx" target="menuFrame"><i class="glyph-icon icon-chevron-right"></i>随访表管理</a></li>
                      <li><a href="Follow/AddFollow.aspx" target="menuFrame"><i class="glyph-icon icon-chevron-right"></i>添加随访表</a></li>
                   <li><a href="Follow/FollowRecordManage.aspx" target="menuFrame"><i class="glyph-icon icon-chevron-right"></i>随访记录</a></li> 
+                      <li><a href="Follow/TypeManage.aspx" target="menuFrame"><i class="glyph-icon icon-chevron-right"></i>表分类管理</a></li> 
                
                 </ul>
             </li>

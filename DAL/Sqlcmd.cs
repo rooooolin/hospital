@@ -6,12 +6,13 @@ using DAL;
 using System.Data;
 using System.Data.SqlClient;
 
+
 namespace BLL
 {
     public class Sqlcmd
     {
         DALFactory db = new DALFactory();
-
+        
 
 
         public DataTable getCommonData(string tableName, string columns, string condition)
@@ -22,6 +23,15 @@ namespace BLL
              new SqlParameter("@condition",condition)       
           };
             return db.excuteSelect_return_dataTable("general_get_data", CommandType.StoredProcedure, pars);
+        }
+        public DataSet getCommonDatads(string tableName, string columns, string condition)
+        {
+            SqlParameter[] pars = new SqlParameter[]{
+             new SqlParameter("@table",tableName),
+             new SqlParameter("@columns",columns),
+             new SqlParameter("@condition",condition)       
+          };
+            return db.excuteSelect_return_dataSet("general_get_data", CommandType.StoredProcedure, pars);
         }
 
         public int getCountData(string tableName, string columns, string condition)
@@ -58,11 +68,15 @@ namespace BLL
         }
         public DataSet JoinPageIndex(string table, string columns, string condi)
         {
-            string sql = "select " + columns + " from " + table + " on " + condi;
             SqlParameter[] pars = new SqlParameter[]{
+                new SqlParameter("@Jointable",table),
+                new SqlParameter("@columns",columns),
+                new SqlParameter("@condition",condi)
            
           };
-            DataSet ds = db.excuteSelect_return_dataSet(sql, CommandType.Text, pars);
+
+
+            DataSet ds = db.excuteSelect_return_dataSet("general_get_joindata", CommandType.StoredProcedure, pars);
             return ds;
         }
         public DataSet TriJoinPageIndex(string m_table, string a_table,string b_table, string columns, string ma_condi,string mb_condi)

@@ -12,16 +12,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/BLL.dll">
-      <publishTime>06/16/2017 12:20:32</publishTime>
+      <publishTime>07/07/2017 14:08:27</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>06/16/2017 12:20:31</publishTime>
+      <publishTime>07/07/2017 14:08:26</publishTime>
     </File>
     <File Include="bin/hospital.dll">
-      <publishTime>06/16/2017 13:33:49</publishTime>
+      <publishTime>07/07/2017 14:08:27</publishTime>
     </File>
     <File Include="bin/Model.dll">
-      <publishTime>06/16/2017 12:20:32</publishTime>
+      <publishTime>07/07/2017 14:08:26</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>02/14/2017 00:30:50</publishTime>
@@ -48,7 +48,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/15/2017 14:56:53</publishTime>
     </File>
     <File Include="Css/form.min.css">
-      <publishTime>06/16/2017 13:58:35</publishTime>
+      <publishTime>06/16/2017 15:48:49</publishTime>
     </File>
     <File Include="Css/index.css">
       <publishTime>05/03/2017 12:48:00</publishTime>
@@ -60,22 +60,34 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/03/2017 12:48:00</publishTime>
     </File>
     <File Include="follow.aspx">
-      <publishTime>06/16/2017 13:57:18</publishTime>
+      <publishTime>07/07/2017 13:40:54</publishTime>
+    </File>
+    <File Include="Follow/AddCycle.aspx">
+      <publishTime>07/05/2017 17:09:46</publishTime>
+    </File>
+    <File Include="Follow/AddDisease.aspx">
+      <publishTime>07/05/2017 16:13:25</publishTime>
     </File>
     <File Include="Follow/AddFollow.aspx">
-      <publishTime>06/15/2017 20:18:07</publishTime>
+      <publishTime>07/07/2017 11:26:48</publishTime>
     </File>
     <File Include="Follow/CheckFollowRecord.aspx">
       <publishTime>06/15/2017 22:06:49</publishTime>
     </File>
     <File Include="Follow/FollowManage.aspx">
-      <publishTime>06/16/2017 10:13:05</publishTime>
+      <publishTime>07/07/2017 11:17:25</publishTime>
     </File>
     <File Include="Follow/FollowRecordManage.aspx">
-      <publishTime>06/16/2017 10:04:09</publishTime>
+      <publishTime>07/07/2017 11:20:52</publishTime>
     </File>
     <File Include="Follow/TextJump.aspx">
       <publishTime>06/16/2017 09:49:03</publishTime>
+    </File>
+    <File Include="Follow/TypeManage.aspx">
+      <publishTime>07/05/2017 17:27:47</publishTime>
+    </File>
+    <File Include="followp.aspx">
+      <publishTime>07/07/2017 13:02:26</publishTime>
     </File>
     <File Include="fonts/fontawesome-webfont.eot">
       <publishTime>05/03/2017 12:48:00</publishTime>
@@ -111,7 +123,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/16/2017 10:39:10</publishTime>
     </File>
     <File Include="index.aspx">
-      <publishTime>06/15/2017 21:40:55</publishTime>
+      <publishTime>07/07/2017 13:45:03</publishTime>
     </File>
     <File Include="Js/common.js">
       <publishTime>05/03/2017 12:48:00</publishTime>
@@ -129,7 +141,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/16/2017 12:39:27</publishTime>
     </File>
     <File Include="Js/dist/pikaday-package.css">
-      <publishTime>06/16/2017 13:56:57</publishTime>
+      <publishTime>06/16/2017 15:48:47</publishTime>
     </File>
     <File Include="Js/dist/pikaday-responsive.js">
       <publishTime>06/16/2017 13:57:00</publishTime>
@@ -201,7 +213,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/03/2017 12:48:00</publishTime>
     </File>
     <File Include="Login/login.aspx">
-      <publishTime>06/15/2017 15:09:13</publishTime>
+      <publishTime>07/05/2017 15:48:23</publishTime>
     </File>
     <File Include="test/images/cabbb.gif">
       <publishTime>05/16/2017 10:41:30</publishTime>
@@ -243,7 +255,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/01/2017 10:55:32</publishTime>
     </File>
     <File Include="Web.sitemap">
-      <publishTime>05/03/2017 12:48:00</publishTime>
+      <publishTime>06/27/2017 17:09:36</publishTime>
     </File>
     <File Include="WebService.asmx">
       <publishTime>06/12/2017 16:36:45</publishTime>

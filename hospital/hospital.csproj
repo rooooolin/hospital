@@ -73,11 +73,15 @@
     <Content Include="Css\follow.css" />
     <Content Include="Css\table.css" />
     <Content Include="follow.aspx" />
+    <Content Include="followp.aspx" />
+    <Content Include="Follow\AddCycle.aspx" />
+    <Content Include="Follow\AddDisease.aspx" />
     <Content Include="Follow\AddFollow.aspx" />
     <Content Include="Follow\CheckFollowRecord.aspx" />
     <Content Include="Follow\FollowManage.aspx" />
     <Content Include="Follow\FollowRecordManage.aspx" />
     <Content Include="Follow\TextJump.aspx" />
+    <Content Include="Follow\TypeManage.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Images\add.png" />
     <Content Include="Images\base.png" />
@@ -164,6 +168,27 @@
     <Compile Include="follow.aspx.designer.cs">
       <DependentUpon>follow.aspx</DependentUpon>
     </Compile>
+    <Compile Include="followp.aspx.cs">
+      <DependentUpon>followp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="followp.aspx.designer.cs">
+      <DependentUpon>followp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Follow\AddCycle.aspx.cs">
+      <DependentUpon>AddCycle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Follow\AddCycle.aspx.designer.cs">
+      <DependentUpon>AddCycle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Follow\AddDisease.aspx.cs">
+      <DependentUpon>AddDisease.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Follow\AddDisease.aspx.designer.cs">
+      <DependentUpon>AddDisease.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Follow\AddFollow.aspx.cs">
       <DependentUpon>AddFollow.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -198,6 +223,13 @@
     </Compile>
     <Compile Include="Follow\TextJump.aspx.designer.cs">
       <DependentUpon>TextJump.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Follow\TypeManage.aspx.cs">
+      <DependentUpon>TypeManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Follow\TypeManage.aspx.designer.cs">
+      <DependentUpon>TypeManage.aspx</DependentUpon>
     </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>

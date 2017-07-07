@@ -59,8 +59,12 @@
             <p> </p>
         </div>
         <div class="form_ctrl form_select">
-            <label class="ctrl_title">随访目标</label>
-            <asp:DropDownList ID="FollowTarget" runat="server"></asp:DropDownList>
+            <label class="ctrl_title">推送目标<asp:RadioButtonList ID="RadioTarget" OnSelectedIndexChanged="RadioTarget_SelectedIndexChanged" AutoPostBack="true" runat="server">
+                <asp:ListItem selected="true">单人</asp:ListItem>
+                <asp:ListItem>组员</asp:ListItem>
+   
+                                          </asp:RadioButtonList>
+            <asp:DropDownList ID="FollowTarget" runat="server"  AutoPostBack="true" ></asp:DropDownList>
             
             <div></div>
         </div>
@@ -73,7 +77,7 @@
         </div>
         <div class="form_ctrl input_text">
             <label class="ctrl_title">随访时间</label>
-           <asp:TextBox type="text" ID="follow_time"  placeholder=" 请输入时间"  runat="server"></asp:TextBox>
+           <asp:TextBox type="text" ID="follow_time"   placeholder=" 请输入时间"  runat="server"></asp:TextBox>
             <label style="color:red">
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
             ErrorMessage="随访时间不能为空！" ControlToValidate="follow_time"></asp:RequiredFieldValidator></label>

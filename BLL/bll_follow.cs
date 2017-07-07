@@ -22,7 +22,7 @@ namespace BLL
             parameter[1].Value = filed;
             return sqlcon.excuteCommand_return_int("creat_follow_table", CommandType.StoredProcedure, parameter);
         }
-        public int add_table_record(string follow_name,string table_name,string json_str)
+        public int add_table_record(string follow_name,string table_name,string json_str,int disease_id,int cycle_id)
         {
             SqlParameter[] parameter ={
                 new SqlParameter("@table",SqlDbType.VarChar,20),
@@ -30,8 +30,8 @@ namespace BLL
                 new SqlParameter("@values",SqlDbType.VarChar,1000),
             };
             parameter[0].Value = "FollowManage";
-            parameter[1].Value = "follow_name,table_name,json_filed";
-            parameter[2].Value = "'"+follow_name+"','" + table_name + "','" + json_str + "'";
+            parameter[1].Value = "follow_name,table_name,json_filed,disease_id,cycle_id";
+            parameter[2].Value = "'"+follow_name+"','" + table_name + "','" + json_str + "',"+disease_id+","+cycle_id;
             return sqlcon.excuteCommand_return_int("gengral_insert", CommandType.StoredProcedure, parameter);
         }
         public DataSet get_table_byID(int id)
@@ -78,9 +78,21 @@ namespace BLL
                                         new SqlParameter("@values",SqlDbType.VarChar,1000)
                                     };
             paramter[0].Value = follow_table;
-            paramter[1].Value = columns_list+"d_id,p_id";
+            paramter[1].Value = columns_list + "d_id,p_id";
             paramter[2].Value = values;
             return sqlcon.excuteCommand_return_int("gengral_insert", CommandType.StoredProcedure, paramter); 
+        }
+        public int update_follow_record(string follow_table, string columns_list, string condition)
+        {
+            SqlParameter[] paramter ={
+                                        new SqlParameter("@table",SqlDbType.VarChar,50),
+                                        new SqlParameter("@columns",SqlDbType.VarChar,800),
+                                        new SqlParameter("@condition",SqlDbType.VarChar,500)
+                                    };
+            paramter[0].Value = follow_table;
+            paramter[1].Value = columns_list ;
+            paramter[2].Value = condition;
+            return sqlcon.excuteCommand_return_int("general_update", CommandType.StoredProcedure, paramter);
         }
         public DataSet get_tables()
         {

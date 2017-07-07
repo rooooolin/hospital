@@ -18,34 +18,29 @@ namespace hospital
     {
         public static string table_name;
         public static int d_id;
+        public static int role_id;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                if(Request.QueryString["role_id"]!=null)
+                {
+                    role_id = int.Parse(Request.QueryString["role_id"].ToString());
+                }
                 if (Request.QueryString["d_id"] != null)
                 {
                     d_id = int.Parse(Request.QueryString["d_id"].ToString());
-
-                    bll_doctor doctor = new bll_doctor();
-                    bll_patient patient = new bll_patient();
-                    DataSet ds = doctor.get_dpatient(d_id);
-                    if (ds.Tables[0].Rows.Count > 0)
+                    if (role_id == 1)
                     {
-
-                        for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-                        {
-
-                            model_patient_tolist model = new model_patient_tolist();
-                            model = patient.model_tolist(int.Parse(ds.Tables[0].Rows[i]["p_id"].ToString()));
-                            FollowTarget.Items.Add(new ListItem(model.user_name, model.ID.ToString()));
-                        }
+                        get_target(d_id);
                     }
-
+                   
                 }
             }
-            if (Request.QueryString["id"] != null)
+            if (Request.QueryString["id"] != null )
             {
                 int id = int.Parse(Request.QueryString["id"].ToString());
+                
                 bll_follow follow = new bll_follow();
                 DataSet ds = new DataSet();
                 ds = follow.get_table_byID(id);
@@ -59,56 +54,83 @@ namespace hospital
 
                     foreach (string data in str_)
                     {
-
-
                         model = JsonHelper.ParseFormJson<model_control>(data);
-                        if (model.control_type == "SingleLine" || model.control_type == "MutiLine")
+                        if (model.role_id == role_id)
                         {
-
-                            this.Controls_list.Controls.Add(new LiteralControl("<div class=\"form_ctrl input_text\">"));
-                            Label lb = new Label();
-                            TextBox tb = new TextBox();
-                            lb.ID = "lb_" + model.ID;
-                            lb.Text = model.control_name;
-                            lb.Attributes.Add("class", "ctrl_title");
-                            tb.ID = model.ID;
-                            tb.Attributes.Add("placeholder", "请输入" + model.control_name);
-                            tb.Attributes.Add("type", "text");
-                            if (model.control_type == "MutiLine")
+                            if (model.control_type == "SingleLine" || model.control_type == "MutiLine")
                             {
-                                tb.TextMode = TextBoxMode.MultiLine;
+                                this.Controls_list.Controls.Add(new LiteralControl("<div class=\"form_ctrl input_text\">"));
+                                Label lb = new Label();
+                                TextBox tb = new TextBox();
+                                lb.ID = "lb_" + model.ID;
+                                lb.Text = model.control_name;
+                                lb.Attributes.Add("class", "ctrl_title");
+                                tb.ID = model.ID;
+                                tb.Attributes.Add("placeholder", "请输入" + model.control_name);
+                                tb.Attributes.Add("type", "text");
+                                if (model.control_type == "MutiLine")
+                                    tb.TextMode = TextBoxMode.MultiLine;
+                                tb.Attributes.Add("runat", "server");
+                                this.Controls_list.Controls.Add(lb);
+                                this.Controls_list.Controls.Add(tb);
                             }
-                            tb.Attributes.Add("runat", "server");
-                            this.Controls_list.Controls.Add(lb);
-                            this.Controls_list.Controls.Add(tb);
 
-                        }
-
-                        else if (model.control_type == "DropDownList")
-                        {
-                            this.Controls_list.Controls.Add(new LiteralControl("<div class=\"form_ctrl form_select\">"));
-                            DropDownList dpd = new DropDownList();
-                            Label lb = new Label();
-                            lb.ID = "lb_" + model.ID;
-                            lb.Text = model.control_name;
-                            lb.Attributes.Add("class", "ctrl_title");
-                            dpd.ID = model.ID;
-                            string[] dpd_item_list = model.control_value.Split(new char[1] { '|' });
-                            foreach (string item in dpd_item_list)
+                            else if (model.control_type == "DropDownList")
                             {
-                                dpd.Items.Add(item);
+                                this.Controls_list.Controls.Add(new LiteralControl("<div class=\"form_ctrl form_select\">"));
+                                DropDownList dpd = new DropDownList();
+                                Label lb = new Label();
+                                lb.ID = "lb_" + model.ID;
+                                lb.Text = model.control_name;
+                                lb.Attributes.Add("class", "ctrl_title");
+                                dpd.ID = model.ID;
+                                string[] dpd_item_list = model.control_value.Split(new char[1] { '|' });
+                                foreach (string item in dpd_item_list)
+                                    dpd.Items.Add(item);
+                                this.Controls_list.Controls.Add(lb);
+                                this.Controls_list.Controls.Add(dpd);
                             }
-                            this.Controls_list.Controls.Add(lb);
-                            this.Controls_list.Controls.Add(dpd);
-
+                            this.Controls_list.Controls.Add(new LiteralControl("<p class=\"help-block\"></p></div></div>"));
                         }
-                        this.Controls_list.Controls.Add(new LiteralControl("<p class=\"help-block\"></p></div></div>"));
                     }
 
                 }
             }
         }
+        private void get_target(int d_id)
+        {
+            FollowTarget.Items.Clear();
+            if (RadioTarget.SelectedItem.Text == "单人")
+            {
+                bll_doctor doctor = new bll_doctor();
+                bll_patient patient = new bll_patient();
+                DataSet ds = doctor.get_dpatient(d_id);
+                if (ds.Tables[0].Rows.Count > 0)
+                {
 
+                    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                    {
+
+                        model_patient_tolist model = new model_patient_tolist();
+                        model = patient.model_tolist(int.Parse(ds.Tables[0].Rows[i]["p_id"].ToString()));
+                        FollowTarget.Items.Add(new ListItem(model.user_name, model.ID.ToString()));
+                    }
+                }
+            }
+            if (RadioTarget.SelectedItem.Text == "组员")
+            {
+                bll_group group = new bll_group();
+                DataSet ds = group.get_group_list(d_id);
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                    {
+                        FollowTarget.Items.Add(new ListItem(ds.Tables[0].Rows[i]["group_name"].ToString(), ds.Tables[0].Rows[i]["ID"].ToString()));
+                    }
+                }
+            }
+            
+        }
         protected void SubmitBtn_Click(object sender, EventArgs e)
         {
             string insert_values = "";
@@ -116,6 +138,8 @@ namespace hospital
             insert_values += "'" + record_title.Text + "',";
             insert_values += "'" + follow_time.Text.Split()[0] + "',";
             insert_values += "'" + table_name + "',";
+           
+            
             bool flag=true;
             foreach (Control item in this.Controls_list.Controls)
             {
@@ -142,22 +166,33 @@ namespace hospital
                     insert_values += "'" + (item as DropDownList).SelectedValue + "',";
                 }
             }
+           
             insert_values += d_id + "," + FollowTarget.SelectedValue;
+          
             if (flag)
             {
                 bll_follow follow = new bll_follow();
+               
                 int result = follow.add_follow_record("Follow_" + table_name, columns, insert_values);
                 if (result != 0)
                 {
-                    Response.Write("<script>alert('成功添加随访记录')</script>");
+                    Response.Write("<script>alert('成功添加并推送随访记录')</script>");
                 }
                 else
                 {
 
                     Response.Write("<script>alert('添加失败')</script>");
                 }
+           
+                
+                
             }
            
+        }
+
+        protected void RadioTarget_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            get_target(d_id);
         }
        
     }

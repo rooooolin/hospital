@@ -82,6 +82,64 @@ namespace hospital
             return user.update_info(model) != 0 ? "1" : "0";
         }
 
+        [WebMethod(Description = "获取所有的疾病类型")]
+        public string get_disease()
+        {
+            DataSet ds = new DataSet();
+            Sqlcmd sqlcmd = new Sqlcmd();
+            ds = sqlcmd.getCommonDatads("Disease","*"," 1=1");
+            string return_str = "[";
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    string temp_str = "{";
+                    temp_str += "\"DiseaseID\":\"" + ds.Tables[0].Rows[i]["DiseaseID"].ToString() + "\",";
+                    temp_str += "\"disease_name\":\"" + ds.Tables[0].Rows[i]["disease_name"].ToString() + "\",";
+                    
+                    if (i < ds.Tables[0].Rows.Count - 1)
+                        temp_str += "},";
+                    else
+                        temp_str += "}";
+
+                    return_str += temp_str; 
+                }
+            }
+            return_str += "]";
+            return return_str;
+        }
+        [WebMethod(Description = "根据疾病类型获取该疾病下的所有随访样式表")]
+        public string get_follow_table(int disease_id)
+        {
+            DataSet ds = new DataSet();
+            Sqlcmd sqlcmd = new Sqlcmd();
+            ds = sqlcmd.getCommonDatads("FollowManage", "*", " disease_id=" + disease_id);
+            string return_str = "[";
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    string temp_str = "{";
+                    temp_str += "\"ID\":\"" + ds.Tables[0].Rows[i]["ID"].ToString() + "\",";
+                    temp_str += "\"follow_name\":\"" + ds.Tables[0].Rows[i]["follow_name"].ToString() + "\",";
+                    int cycle_id = int.Parse(ds.Tables[0].Rows[i]["cycle_id"].ToString());
+                    DataSet ds2 = new DataSet();
+                    ds2 = sqlcmd.getCommonDatads("FollowCycle", "*", " CycleID=" + cycle_id);
+                    if (ds2.Tables[0].Rows.Count > 0)
+                    {
+                        temp_str += "\"cycle\":\"" + ds2.Tables[0].Rows[0]["cycle_name"].ToString() + "\","; 
+                    }
+                    if (i < ds.Tables[0].Rows.Count - 1)
+                        temp_str += "},";
+                    else
+                        temp_str += "}";
+
+                    return_str += temp_str;
+                }
+            }
+            return_str += "]";
+            return return_str; 
+        }
         [WebMethod(Description = "患者表搜索。输入需要搜索的字段,以及搜索内容。搜索成功返回相关字符串，失败返回0")]
         public string patient_search(string filed, string content)
         {
@@ -97,6 +155,7 @@ namespace hospital
                 {
                     string temp_str = "{";
                     temp_str += "\"user_name\":\""+ds.Tables[0].Rows[i]["user_name"].ToString()+"\",";
+                    temp_str += "\"user_phone\":\"" + ds.Tables[0].Rows[i]["user_phone"].ToString() + "\",";
                     temp_str += "\"user_patient_number\":\"" + ds.Tables[0].Rows[i]["user_patient_number"].ToString() + "\"";
                     if (i < ds.Tables[0].Rows.Count - 1)
                         temp_str += "},";

@@ -5,12 +5,20 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BLL;
+using DAL;
+using System.Data;
+
 namespace hospital.Follow
 {
     public partial class AddFollow : System.Web.UI.Page
     {
+        Sqlcmd sqlcmd = new Sqlcmd();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                BindDisease();
+            }
              RestoreControls();
         }
         static List<TextBox> txtbox_list = new List<TextBox>();
@@ -93,7 +101,7 @@ namespace hospital.Follow
                 dpd.ID = "dpd_" + ControlID.Text.ToString().Trim();
                 dpd.Style["Style"] = "width: 22%; height: 35px; border: 1px solid #ccc;";
                 filed_str += "[" + ControlID.Text.ToString().Trim() + "] [varchar](50) NULL,";
-                json_str += "{\"ID\":\"" + ControlID.Text.ToString().Trim() + "\",\"control_name\":\"" + this.ControlName.Text.ToString().Trim() + "\",\"control_type\":\"DropDownList\",\"control_value\":\"" + this.TxtCandidate.Text.ToString().Trim() + "\"},";
+                json_str += "{\"ID\":\"" + ControlID.Text.ToString().Trim() + "\",\"control_name\":\"" + this.ControlName.Text.ToString().Trim() + "\",\"control_type\":\"DropDownList\",\"control_value\":\"" + this.TxtCandidate.Text.ToString().Trim() + "\",\"role_id\":\""+WriteRole.SelectedValue+"\"},";
                 string[] dpd_candidate = this.TxtCandidate.Text.ToString().Trim().Split(new char[1] { '|' });
                 int cunt = 1;
                 foreach (string candidate in dpd_candidate)
@@ -120,13 +128,13 @@ namespace hospital.Follow
                     tb.ID += "_muti";
                     tb.TextMode = TextBoxMode.MultiLine;
                     filed_str += "[" + this.ControlID.Text.ToString().Trim() + "] [varchar](200) NULL,";
-                    json_str += "{\"ID\":\"" + this.ControlID.Text.ToString().Trim() + "\",\"control_name\":\"" + this.ControlName.Text.ToString().Trim() + "\",\"control_type\":\"MutiLine\",\"control_value\":\"null\"},";
+                    json_str += "{\"ID\":\"" + this.ControlID.Text.ToString().Trim() + "\",\"control_name\":\"" + this.ControlName.Text.ToString().Trim() + "\",\"control_type\":\"MutiLine\",\"control_value\":\"null\",\"role_id\":\"" + WriteRole.SelectedValue + "\"},";
                 }
                 else 
                 {
                     tb.ID += "_single";
                     filed_str += "[" + this.ControlID.Text.ToString().Trim() + "] [varchar](50) NULL,";
-                    json_str += "{\"ID\":\"" + this.ControlID.Text.ToString().Trim() + "\",\"control_name\":\"" + this.ControlName.Text.ToString().Trim() + "\",\"control_type\":\"SingleLine\",\"control_value\":\"null\"},";
+                    json_str += "{\"ID\":\"" + this.ControlID.Text.ToString().Trim() + "\",\"control_name\":\"" + this.ControlName.Text.ToString().Trim() + "\",\"control_type\":\"SingleLine\",\"control_value\":\"null\",\"role_id\":\"" + WriteRole.SelectedValue + "\"},";
                 }
                 
                 this.LabelPanel.Controls.Add(new LiteralControl("<span class=\"laber_from\">&nbsp;&nbsp;"));
@@ -137,14 +145,32 @@ namespace hospital.Follow
                 label_list.Add(lb);
             }
         }
-
+        private void BindDisease()
+        {
+            DataTable dt = sqlcmd.getCommonData("Disease","*","1=1");
+            DiseaseType.DataTextField = "disease_name";
+            DiseaseType.DataValueField = "DiseaseID"; 
+            DiseaseType.DataSource = dt.DefaultView;
+            DiseaseType.DataBind();
+            DiseaseType.Items.Insert(0, new ListItem("请选择疾病类型", ""));
+            CycleType.Items.Insert(0, new ListItem("请选择随访周期", ""));
+        }
+        protected void DiseaseType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int disease_id = Convert.ToInt32(DiseaseType.SelectedValue);
+            DataTable dt = sqlcmd.getCommonData("FollowCycle", "*", "disease_id=" + disease_id);
+            CycleType.DataTextField = "cycle_name";
+            CycleType.DataValueField = "CycleID"; 
+            CycleType.DataSource = dt.DefaultView;
+            CycleType.DataBind(); ;
+        }
         protected void Addbtn_Click(object sender, EventArgs e)
         {
             json_str = json_str.TrimEnd(',');
             json_str += "]";
             bll_follow follow = new bll_follow();
             int reslut1 = follow.creat_follow_table(this.table_name.Text.ToString().Trim(), filed_str);
-            int reslut2 = follow.add_table_record(this.follow_name.Text.ToString().Trim(),this.table_name.Text.Trim(), json_str);
+            int reslut2 = follow.add_table_record(this.follow_name.Text.ToString().Trim(),this.table_name.Text.Trim(), json_str,Convert.ToInt32(DiseaseType.SelectedValue),Convert.ToInt32(CycleType.SelectedValue));
             if (reslut1 != 0 && reslut2 != 0)
             {
                 Response.Write("<script>alert('添加成功')</script>");

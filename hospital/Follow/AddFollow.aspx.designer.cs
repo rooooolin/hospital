@@ -31,6 +31,33 @@ namespace hospital.Follow {
         protected global::System.Web.UI.WebControls.TextBox follow_name;
         
         /// <summary>
+        /// ScriptManager2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager2;
+        
+        /// <summary>
+        /// DiseaseType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DiseaseType;
+        
+        /// <summary>
+        /// CycleType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList CycleType;
+        
+        /// <summary>
         /// table_name control.
         /// </summary>
         /// <remarks>
@@ -121,15 +148,6 @@ namespace hospital.Follow {
         protected global::System.Web.UI.WebControls.TextBox TxtCandidate;
         
         /// <summary>
-        /// ScriptManager1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
-        /// <summary>
         /// UpdatePanel1 control.
         /// </summary>
         /// <remarks>
@@ -146,6 +164,24 @@ namespace hospital.Follow {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ControlType;
+        
+        /// <summary>
+        /// UpdatePanel2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
+        
+        /// <summary>
+        /// WriteRole control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList WriteRole;
         
         /// <summary>
         /// AddControl control.

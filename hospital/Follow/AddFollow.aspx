@@ -15,50 +15,67 @@
     <form id="form1" runat="server">
         <div class="div_from_aoto">
             <div class="control-group">
-                        <label class="laber_from">随访表名称</label>
-                        <div class="controls">
-                            <asp:TextBox ID="follow_name" placeholder=" 请输入名称" class="input_from" runat="server"></asp:TextBox><p class="help-block"></p>
-                        </div>
-                    </div>
-            <div class="control-group">
-                        <label class="laber_from">标识</label>
-                        <div class="controls">
-                            <asp:TextBox ID="table_name" placeholder=" 请输入英文标识（10字符以内）" class="input_from" runat="server"></asp:TextBox><p class="help-block"></p>
-                        </div>
-                    </div>
-           
-            <div class="control-group">
-                <label class="laber_from"></label>
+                <label class="laber_from">随访表名称</label>
                 <div class="controls">
-                    <asp:Button ID="ShowBlockbtn" runat="server" class="btn btn-success" Text="添加控件" Style="width: 80px; font-size:12px; height:30px;" OnClientClick="return ShowBlock();" ></asp:Button>
-                    <asp:Button ID="ClearControls" runat="server" class="btn btn-success" Text="清空" Style="width: 80px; margin-left:20px; font-size:12px; height:30px;" OnClick="ClearControls_Click"></asp:Button>
+                    <asp:TextBox ID="follow_name" placeholder=" 请输入名称" class="input_from" runat="server"></asp:TextBox><p class="help-block"></p>
                 </div>
             </div>
-           
-         <div class="control-group" style=" width:500px; margin-left:30px; border: #ccc solid 5px;">
-              <div  class="control-group" style="width:100%;">
-                <div style="float:left;width:60px">
-                     <asp:Panel ID="LabelPanel" runat="server"></asp:Panel>
+            <div class="control-group">
+                <label class="laber_from">表分类</label>
+                <div class="controls">
+                    <asp:ScriptManager ID="ScriptManager2" runat="server">
+                    </asp:ScriptManager>
+                    <asp:UpdatePanel runat="server">
+                        <ContentTemplate>
+                            <asp:DropDownList ID="DiseaseType" runat="server" OnSelectedIndexChanged="DiseaseType_SelectedIndexChanged" AutoPostBack="true"
+                                Style="width: 22%; height: 35px; border: 1px solid #ccc;">
+                            </asp:DropDownList>
+                            <asp:DropDownList ID="CycleType" runat="server" Style="width: 22%; height: 35px; border: 1px solid #ccc; margin-left:10px">
+                            </asp:DropDownList>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                    <p class="help-block"></p>
                 </div>
-                <div style="float:left;width:60%;margin-left:20px;">
-                     <asp:Panel ID="ValuePanel" runat="server"> </asp:Panel>
-                </div>
-                 
             </div>
-             <div class="control-group"></div>
-         </div>
-           
+            <div class="control-group">
+                <label class="laber_from">标识</label>
+                <div class="controls">
+                    <asp:TextBox ID="table_name" placeholder=" 请输入英文标识（10字符以内）" class="input_from" runat="server"></asp:TextBox><p class="help-block"></p>
+                </div>
+            </div>
 
             <div class="control-group">
                 <label class="laber_from"></label>
                 <div class="controls">
-                    <asp:Button ID="Addbtn" runat="server" class="btn btn-success" Text="添加随访表" Style="width: 120px;" OnClick="Addbtn_Click"/>
-                    
+                    <asp:Button ID="ShowBlockbtn" runat="server" class="btn btn-success" Text="添加控件" Style="width: 80px; font-size: 12px; height: 30px;" OnClientClick="return ShowBlock();"></asp:Button>
+                    <asp:Button ID="ClearControls" runat="server" class="btn btn-success" Text="清空" Style="width: 80px; margin-left: 20px; font-size: 12px; height: 30px;" OnClick="ClearControls_Click"></asp:Button>
+                </div>
+            </div>
+
+            <div class="control-group" style="width: 500px; margin-left: 30px; border: #ccc solid 5px;">
+                <div class="control-group" style="width: 100%;">
+                    <div style="float: left; width: 60px">
+                        <asp:Panel ID="LabelPanel" runat="server"></asp:Panel>
+                    </div>
+                    <div style="float: left; width: 60%; margin-left: 20px;">
+                        <asp:Panel ID="ValuePanel" runat="server"></asp:Panel>
+                    </div>
+
+                </div>
+                <div class="control-group"></div>
+            </div>
+
+
+            <div class="control-group">
+                <label class="laber_from"></label>
+                <div class="controls">
+                    <asp:Button ID="Addbtn" runat="server" class="btn btn-success" Text="添加随访表" Style="width: 120px;" OnClick="Addbtn_Click" />
+
                 </div>
             </div>
         </div>
 
-        <div id="divNewBlock" style="border: solid 5px; background-color:#fff; padding: 10px; width: 600px; z-index: 1001; position: absolute; display: none; top: 30%; left: 30%; margin: -50px;">
+        <div id="divNewBlock" style="border: solid 5px; background-color: #fff; padding: 10px; width: 600px; z-index: 1001; position: absolute; display: none; top: 30%; left: 30%; margin: -50px;">
             <div style="padding: 3px 15px 3px 15px; text-align: left; vertical-align: middle;">
                 <div>
                     <asp:Button ID="BttCancel" runat="server" Text="关闭" BorderStyle="None" Style="float: right; width: 50px;" OnClientClick="return HideBlock();" />
@@ -79,32 +96,43 @@
                     <div class="control-group">
                         <label class="laber_from">候选项</label>
                         <div class="controls">
-                            <asp:TextBox ID="TxtCandidate"  placeholder="格式：男|女|不男不女（下拉框必填项）" class="input_from" runat="server"></asp:TextBox><p class="help-block"></p>
+                            <asp:TextBox ID="TxtCandidate" placeholder="格式：男|女|不男不女（下拉框必填项）" class="input_from" runat="server"></asp:TextBox><p class="help-block"></p>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="laber_from">控件类型</label>
                         <div class="controls">
-                            <asp:ScriptManager ID="ScriptManager1" runat="server">
-                            </asp:ScriptManager>
+                            
                             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                 <ContentTemplate>
-                                    <asp:DropDownList ID="ControlType" runat="server" Style="width: 22%; height: 35px; border: 1px solid #ccc;" AutoPostBack="true" >
+                                    <asp:DropDownList ID="ControlType" runat="server" Style="width: 22%; height: 35px; border: 1px solid #ccc;" AutoPostBack="true">
                                         <asp:ListItem Value="1" Selected="True" Text="单行输入框"></asp:ListItem>
                                         <asp:ListItem Value="2" Text="多行输入框"></asp:ListItem>
                                         <asp:ListItem Value="3" Text="下拉框"></asp:ListItem>
                                     </asp:DropDownList>
                                 </ContentTemplate>
-                                
+
                             </asp:UpdatePanel>
                             <p class="help-block"></p>
                         </div>
                     </div>
-
+                    <div class="control-group">
+                        <label class="laber_from">内容填写者</label>
+                        <div class="controls">
+                            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                                <ContentTemplate>
+                           <asp:DropDownList ID="WriteRole" runat="server" Style="width: 22%; height: 35px; border: 1px solid #ccc;" AutoPostBack="true">
+                                        <asp:ListItem Value="1" Selected="True" Text="医生"></asp:ListItem>
+                                        <asp:ListItem Value="2" Text="患者"></asp:ListItem>
+                                    </asp:DropDownList>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+                        </div>
+                    </div>
                     <div class="control-group">
                         <label class="laber_from"></label>
                         <div class="controls">
-                            <asp:Button ID="AddControl" runat="server" class="btn btn-success" Text="添加" Style="width: 120px;" OnClick="AddControl_Click"/>
+                            <asp:Button ID="AddControl" runat="server" class="btn btn-success" Text="添加" Style="width: 120px;" OnClick="AddControl_Click" />
                         </div>
                     </div>
 

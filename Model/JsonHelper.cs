@@ -17,12 +17,7 @@ namespace Model
         // TODO: Add constructor logic here
         //
     }
-    /// <summary>
-    /// 把对象序列化 JSON 字符串 
-    /// </summary>
-    /// <typeparam name="T">对象类型</typeparam>
-    /// <param name="obj">对象实体</param>
-    /// <returns>JSON字符串</returns>
+    
     public static string GetJson<T>(T obj)
     {
        
@@ -34,13 +29,7 @@ namespace Model
             return szJson;
         }
     }
-    /// <summary>
-    /// 把JSON字符串还原为对象
-    /// </summary>
-    /// <typeparam name="T">对象类型</typeparam>
-    /// <param name="szJson">JSON字符串</param>
-    /// <returns>对象实体</returns>
-    /// 
+    
     protected static T GetObject<T>()
     {
         if (typeof(T).IsValueType || typeof(T) == typeof(string))
