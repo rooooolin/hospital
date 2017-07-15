@@ -56,12 +56,14 @@ namespace BLL
 					new SqlParameter("@user_ID_Card", SqlDbType.VarChar,50),
                     new SqlParameter("@user_patient_number",SqlDbType.VarChar,50),
                     new SqlParameter("@user_phone",SqlDbType.VarChar,50),
+          
 					new SqlParameter("@user_birthday", SqlDbType.VarChar,50),
 					new SqlParameter("@user_work_address", SqlDbType.VarChar,50),
 					new SqlParameter("@user_is_married", SqlDbType.VarChar,10),
 					new SqlParameter("@user_contact", SqlDbType.VarChar,50),
 					new SqlParameter("@user_contact_rela", SqlDbType.VarChar,50),
-					new SqlParameter("@user_contact_phone", SqlDbType.VarChar,50)};
+					new SqlParameter("@user_contact_phone", SqlDbType.VarChar,50),
+                                        new SqlParameter("@user_sex",SqlDbType.VarChar,50)};
             parameters[0].Value = model.ID;
             parameters[1].Value = model.user_name;
             parameters[2].Value = model.user_ID_Card;
@@ -73,6 +75,7 @@ namespace BLL
             parameters[8].Value = model.user_contact;
             parameters[9].Value = model.user_contact_rela;
             parameters[10].Value = model.user_contact_phone;
+            parameters[11].Value = model.user_sex;
 
             int count = sqlcon.excuteCommand_return_int("update_patientinfo", CommandType.StoredProcedure, parameters);
             return count;

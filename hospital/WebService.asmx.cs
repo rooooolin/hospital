@@ -69,6 +69,7 @@ namespace hospital
             model.user_ID_Card = u_idcard;
             model.user_patient_number = u_patient_number;
             model.user_phone = u_phone;
+            model.user_sex = u_sex;
             model.user_birthday = u_birthday;
             model.user_work_address = u_work_address;
             model.user_is_married =u_is_married;
