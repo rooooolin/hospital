@@ -29,13 +29,13 @@ namespace hospital
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
     // [System.Web.Script.Services.ScriptService]
-    
+
     public class WebService : System.Web.Services.WebService
     {
 
 
         [WebMethod(Description = "输入患者(或医生)手机号,密码,以及用户角色ID(患者=3,医生=2)。登录成功返回患者(或医生)ID,登录失败返回0。")]
-        public string login(string u_phone,string u_passwd,string client_id,int u_roleId)
+        public string login(string u_phone, string u_passwd, string client_id, int u_roleId)
         {
             string u_pwd = FormsAuthentication.HashPasswordForStoringInConfigFile(FormsAuthentication.HashPasswordForStoringInConfigFile(u_passwd, "MD5"), "MD5");
             bll_patient user = new bll_patient();
@@ -43,12 +43,12 @@ namespace hospital
             model.user_password = u_pwd;
             model.user_roleid = u_roleId;
             model.user_phone = u_phone;
-            int  result = user.user_login(model);
-            return result != 0 ? result.ToString() : "0"; 
+            int result = user.user_login(model);
+            return result != 0 ? result.ToString() : "0";
         }
 
-        [WebMethod(Description="输入患者(或医生)ID和新密码，以及用户角色ID(患者=3,医生=2)。修改成功修改返回1，失败则返回0")]
-        public string modify_password(string u_id, string u_password,int u_roldId)
+        [WebMethod(Description = "输入患者(或医生)ID和新密码，以及用户角色ID(患者=3,医生=2)。修改成功修改返回1，失败则返回0")]
+        public string modify_password(string u_id, string u_password, int u_roldId)
         {
             model_patient_info model = new model_patient_info();
             model.ID = Int32.Parse(u_id);
@@ -72,7 +72,7 @@ namespace hospital
             model.user_sex = u_sex;
             model.user_birthday = u_birthday;
             model.user_work_address = u_work_address;
-            model.user_is_married =u_is_married;
+            model.user_is_married = u_is_married;
             model.user_contact = u_contact;
             model.user_contact_rela = u_contact_rela;
             model.user_contact_phone = u_contact_phone;
@@ -85,7 +85,7 @@ namespace hospital
         {
             DataSet ds = new DataSet();
             Sqlcmd sqlcmd = new Sqlcmd();
-            ds = sqlcmd.getCommonDatads("Disease","*"," 1=1");
+            ds = sqlcmd.getCommonDatads("Disease", "*", " 1=1");
             string return_str = "[";
             if (ds != null)
             {
@@ -94,13 +94,13 @@ namespace hospital
                     string temp_str = "{";
                     temp_str += "\"DiseaseID\":\"" + ds.Tables[0].Rows[i]["DiseaseID"].ToString() + "\",";
                     temp_str += "\"disease_name\":\"" + ds.Tables[0].Rows[i]["disease_name"].ToString() + "\"";
-                    
+
                     if (i < ds.Tables[0].Rows.Count - 1)
                         temp_str += "},";
                     else
                         temp_str += "}";
 
-                    return_str += temp_str; 
+                    return_str += temp_str;
                 }
             }
             return_str += "]";
@@ -125,7 +125,7 @@ namespace hospital
                     ds2 = sqlcmd.getCommonDatads("FollowCycle", "*", " CycleID=" + cycle_id);
                     if (ds2.Tables[0].Rows.Count > 0)
                     {
-                        temp_str += "\"cycle\":\"" + ds2.Tables[0].Rows[0]["cycle_name"].ToString() + "\""; 
+                        temp_str += "\"cycle\":\"" + ds2.Tables[0].Rows[0]["cycle_name"].ToString() + "\"";
                     }
                     if (i < ds.Tables[0].Rows.Count - 1)
                         temp_str += "},";
@@ -136,12 +136,12 @@ namespace hospital
                 }
             }
             return_str += "]";
-            return return_str; 
+            return return_str;
         }
         [WebMethod(Description = "患者表搜索。输入需要搜索的字段,以及搜索内容。搜索成功返回相关字符串，失败返回0")]
         public string patient_search(string filed, string content)
         {
-            DataSet ds=new DataSet();
+            DataSet ds = new DataSet();
             bll_search search = new bll_search();
 
             ds = search.fully_search(filed, content);
@@ -153,7 +153,7 @@ namespace hospital
                 {
                     string temp_str = "{";
                     temp_str += "\"ID\":\"" + ds.Tables[0].Rows[i]["ID"].ToString() + "\",";
-                    temp_str += "\"user_name\":\""+ds.Tables[0].Rows[i]["user_name"].ToString()+"\",";
+                    temp_str += "\"user_name\":\"" + ds.Tables[0].Rows[i]["user_name"].ToString() + "\",";
                     temp_str += "\"user_phone\":\"" + ds.Tables[0].Rows[i]["user_phone"].ToString() + "\",";
                     temp_str += "\"user_patient_number\":\"" + ds.Tables[0].Rows[i]["user_patient_number"].ToString() + "\"";
                     if (i < ds.Tables[0].Rows.Count - 1)
@@ -189,7 +189,7 @@ namespace hospital
         }
 
         [WebMethod(Description = "医生/患者查看与自身相关的所有随访记录")]
-        public string get_follow_record(int role_id,int id)
+        public string get_follow_record(int role_id, int id)
         {
             string tables_str = "";
             bll_follow follow = new bll_follow();
@@ -216,13 +216,33 @@ namespace hospital
                     temp_str += "\"record_title\":\"" + ds.Tables[0].Rows[i]["record_title"].ToString() + "\",";
                     if (role_id == 2)
                     {
-                        int p_id = int.Parse(ds.Tables[0].Rows[i]["p_id"].ToString());
-                        DataSet ds2 = new DataSet();
-                        ds2 = sqlcmd.getCommonDatads("PatientInfo", "*", " ID=" + p_id);
-                        if (ds2.Tables[0].Rows.Count > 0)
+                        string p_id_str = ds.Tables[0].Rows[i]["p_id"].ToString();
+                        if (p_id_str.IndexOf(',') > -1)
                         {
-                            temp_str += "\"p_id\":\"" + ds2.Tables[0].Rows[0]["ID"].ToString() + "\",";
-                            temp_str += "\"user_name\":\"" + ds2.Tables[0].Rows[0]["user_name"].ToString() + "\"";
+                            string[] p_id_list = p_id_str.Split(new char[1] { ',' });
+                            int count_index = 0;
+                            foreach (string p_id in p_id_list)
+                            {
+                                DataSet ds2 = new DataSet();
+                                ds2 = sqlcmd.getCommonDatads("PatientInfo", "*", " ID=" + int.Parse(p_id));
+                                if (ds2 != null)
+                                {
+                                    temp_str += "\"p_id_"+count_index+"\":\"" + ds2.Tables[0].Rows[0]["ID"].ToString() + "\",";
+                                    temp_str += "\"user_name_" + count_index + "\":\"" + ds2.Tables[0].Rows[0]["user_name"].ToString() + "\",";
+                                }
+                                count_index++;
+                            }
+                            temp_str = temp_str.TrimEnd(',');
+                        }
+                        else
+                        {
+                            DataSet ds2 = new DataSet();
+                            ds2 = sqlcmd.getCommonDatads("PatientInfo", "*", " ID=" + int.Parse(p_id_str));
+                            if (ds2 != null)
+                            {
+                                temp_str += "\"p_id\":\"" + ds2.Tables[0].Rows[0]["ID"].ToString() + "\",";
+                                temp_str += "\"user_name\":\"" + ds2.Tables[0].Rows[0]["user_name"].ToString() + "\"";
+                            }
                         }
                     }
                     else if (role_id == 3)
@@ -234,7 +254,7 @@ namespace hospital
                         {
                             temp_str += "\"d_id\":\"" + ds2.Tables[0].Rows[0]["ID"].ToString() + "\",";
                             temp_str += "\"doctor_name\":\"" + ds2.Tables[0].Rows[0]["doctor_name"].ToString() + "\"";
-                        } 
+                        }
                     }
                     if (i < ds.Tables[0].Rows.Count - 1)
                         temp_str += "},";
@@ -245,18 +265,18 @@ namespace hospital
                 }
             }
             return_str += "]";
-            return return_str; 
+            return return_str;
         }
-        [WebMethod(Description="通过患者ID获取患者所有信息")]
+        [WebMethod(Description = "通过患者ID获取患者所有信息")]
         public string get_patientinfo(int u_id)
         {
-           
-                bll_patient user = new bll_patient();
-                model_patient_info model = new model_patient_info();
-                string id = u_id.ToString();
-                model = user.get_model(int.Parse(id));
-                return JsonHelper.GetJson<model_patient_info>(model);
-          
+
+            bll_patient user = new bll_patient();
+            model_patient_info model = new model_patient_info();
+            string id = u_id.ToString();
+            model = user.get_model(int.Parse(id));
+            return JsonHelper.GetJson<model_patient_info>(model);
+
         }
         [WebMethod(Description = "通过医生ID获取医生所有信息")]
         public string get_doctorinfo(int d_id)
@@ -271,7 +291,7 @@ namespace hospital
         }
 
         [WebMethod(Description = "添加医患从属关系。输入为医生ID和患者ID,以及可选备注。成功添加返回1,失败则返回0")]
-        public string add_dp_map(int d_id,int p_id,string remarks)
+        public string add_dp_map(int d_id, int p_id, string remarks)
         {
             bll_dpmap bpmap = new bll_dpmap();
             return bpmap.add_map(d_id, p_id, remarks) != 0 ? "1" : "0";
@@ -283,16 +303,16 @@ namespace hospital
             bll_doctor doctor = new bll_doctor();
             bll_patient patient = new bll_patient();
             DataSet ds = doctor.get_dpatient(d_id);
-            string return_str="[";
+            string return_str = "[";
             var json_object = new JObject();
             model_patient_tolist model = new model_patient_tolist();
             if (ds != null)
             {
-                
+
                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                 {
                     return_str += JsonHelper.GetJson<model_patient_tolist>(patient.model_tolist(int.Parse(ds.Tables[0].Rows[i]["p_id"].ToString())));
-                    if (i < ds.Tables[0].Rows.Count-1)
+                    if (i < ds.Tables[0].Rows.Count - 1)
                         return_str += ",";
                 }
             }
@@ -304,7 +324,7 @@ namespace hospital
             //return JsonHelper.GetJson<model_doctor_info>(model);
 
         }
-       
+
         [WebMethod(Description = "通过患者ID获取该患者的所有病例")]
         public string get_patient_case(int p_id)
         {
@@ -315,7 +335,7 @@ namespace hospital
             {
                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                 {
-                    return_str += "{\"title\":\"" + ds.Tables[0].Rows[i]["case_title"].ToString() + "\",\"brief\":\"" + ds.Tables[0].Rows[i]["case_brief"].ToString() + "\",\"p_id\":\"" + ds.Tables[0].Rows[i]["p_id"].ToString() + "\",\"d_id\":\"" + ds.Tables[0].Rows[i]["d_id"].ToString() + "\",\"file_path\":\""+ds.Tables[0].Rows[i]["case_path"].ToString() + "\"}";
+                    return_str += "{\"title\":\"" + ds.Tables[0].Rows[i]["case_title"].ToString() + "\",\"brief\":\"" + ds.Tables[0].Rows[i]["case_brief"].ToString() + "\",\"p_id\":\"" + ds.Tables[0].Rows[i]["p_id"].ToString() + "\",\"d_id\":\"" + ds.Tables[0].Rows[i]["d_id"].ToString() + "\",\"file_path\":\"" + ds.Tables[0].Rows[i]["case_path"].ToString() + "\"}";
                     if (i < ds.Tables[0].Rows.Count - 1)
                         return_str += ",";
                 }
@@ -328,11 +348,11 @@ namespace hospital
         public string delete(string table_name, string id_list)
         {
             Sqlcmd sqlcmd = new Sqlcmd();
-            string[] list_ = id_list.Split(new char[1]{','});
+            string[] list_ = id_list.Split(new char[1] { ',' });
             int result_cunt = 0;
             foreach (string id in list_)
             {
-                int result=sqlcmd.CommonDeleteColumns(table_name, " where ID= " + int.Parse(id));
+                int result = sqlcmd.CommonDeleteColumns(table_name, " where ID= " + int.Parse(id));
                 if (result != 0)
                 {
                     result_cunt++;
@@ -361,7 +381,7 @@ namespace hospital
             }
             return_str += "]";
             return return_str;
-            
+
 
         }
         [WebMethod(Description = "添加自定义分组")]
@@ -374,10 +394,10 @@ namespace hospital
             model.p_id_list = p_id_list;
             model.remarks = remarks;
             bll_group group = new bll_group();
-            return group.add_group(model)!=0?"1":"0";
+            return group.add_group(model) != 0 ? "1" : "0";
         }
         [WebMethod(Description = "更新自定义分组")]
-        public string update_group(int group_id,int d_id, string group_name, string group_number, string p_id_list, string remarks)
+        public string update_group(int group_id, int d_id, string group_name, string group_number, string p_id_list, string remarks)
         {
             model_group model = new model_group();
             model.ID = group_id;
@@ -417,7 +437,7 @@ namespace hospital
                 }
             }
             return_str += "]";
-            return return_str; 
+            return return_str;
         }
         //public string modify_userinfo(int[] pos,string[] info_list)
         //{
@@ -442,6 +462,6 @@ namespace hospital
         //    return user.mobile_update_info(model_names, map) != 0 ? "1" : "0";
         //}
 
-       
+
     }
 }
