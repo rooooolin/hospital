@@ -29,7 +29,7 @@ namespace hospital.Case
                     Caseid = int.Parse(Request.QueryString["case_id"].ToString());
                     bll_doctor doctor = new bll_doctor();
                     DataSet ds = doctor.get_doc_name();
-                    if (ds.Tables[0].Rows.Count > 0)
+                    if (ds != null)
                     {
                         for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                         {
@@ -46,7 +46,7 @@ namespace hospital.Case
                     }
                     bll_case bcase = new bll_case();
                     DataSet bds = bcase.get_info(Caseid,Paid,1);
-                    if (bds.Tables[0].Rows.Count > 0)
+                    if (bds != null)
                     {
                         this.case_title.Text = bds.Tables[0].Rows[0]["case_title"].ToString();
                         this.case_brief.Text = bds.Tables[0].Rows[0]["case_brief"].ToString();

@@ -21,7 +21,7 @@ namespace hospital.Follow
                 {
                     disease_id = int.Parse(Request.QueryString["disease_id"].ToString());
                     DataSet ds = sqlcmd.getCommonDatads("Disease", "*", " DiseaseID=" + disease_id);
-                    if (ds.Tables[0].Rows.Count > 0)
+                    if (ds != null)
                     {
                         DiseaseT.Text = ds.Tables[0].Rows[0]["disease_name"].ToString();
                     }

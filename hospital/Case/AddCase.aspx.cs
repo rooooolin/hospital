@@ -25,7 +25,7 @@ namespace hospital.Case
                     Paid = int.Parse(Request.QueryString["id"].ToString());
                     bll_doctor doctor = new bll_doctor();
                     DataSet ds = doctor.get_doc_name();
-                    if (ds.Tables[0].Rows.Count > 0)
+                    if (ds != null)
                     {
                         for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                         {

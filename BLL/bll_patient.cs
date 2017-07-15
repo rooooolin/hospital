@@ -58,7 +58,7 @@ namespace BLL
                     new SqlParameter("@user_phone",SqlDbType.VarChar,50),
 					new SqlParameter("@user_birthday", SqlDbType.VarChar,50),
 					new SqlParameter("@user_work_address", SqlDbType.VarChar,50),
-					new SqlParameter("@user_is_married", SqlDbType.Bit),
+					new SqlParameter("@user_is_married", SqlDbType.VarChar,10),
 					new SqlParameter("@user_contact", SqlDbType.VarChar,50),
 					new SqlParameter("@user_contact_rela", SqlDbType.VarChar,50),
 					new SqlParameter("@user_contact_phone", SqlDbType.VarChar,50)};
@@ -147,7 +147,7 @@ namespace BLL
                 }
                 if (ds.Tables[0].Rows[0]["user_is_married"].ToString() != "")
                 {
-                    model.user_is_married = Boolean.Parse(ds.Tables[0].Rows[0]["user_is_married"].ToString());
+                    model.user_is_married = ds.Tables[0].Rows[0]["user_is_married"].ToString();
                 }
                 if (ds.Tables[0].Rows[0]["user_contact"].ToString() != "")
                 {

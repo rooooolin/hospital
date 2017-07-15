@@ -53,6 +53,7 @@
     <Compile Include="model_patient_info.cs" />
     <Compile Include="model_patient_group.cs" />
     <Compile Include="model_patient_tolist.cs" />
+    <Compile Include="model_pushlog.cs" />
     <Compile Include="model_role.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

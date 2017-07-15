@@ -1,0 +1,8 @@
+D:\Documents\GitHub\hospital\GPush\bin\Debug\GPush.dll
+D:\Documents\GitHub\hospital\GPush\bin\Debug\GPush.pdb
+D:\Documents\GitHub\hospital\GPush\bin\Debug\GetuiServerApiSDK.dll
+D:\Documents\GitHub\hospital\GPush\bin\Debug\Google.ProtocolBuffers.dll
+D:\Documents\GitHub\hospital\GPush\bin\Debug\log4net.dll
+D:\Documents\GitHub\hospital\GPush\obj\Debug\GPush.dll
+D:\Documents\GitHub\hospital\GPush\obj\Debug\GPush.pdb
+D:\Documents\GitHub\hospital\GPush\obj\Debug\GPush.csprojResolveAssemblyReference.cache

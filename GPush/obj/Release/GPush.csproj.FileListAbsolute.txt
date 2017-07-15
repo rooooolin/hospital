@@ -1,0 +1,7 @@
+D:\Documents\GitHub\hospital\GPush\bin\Release\GPush.dll
+D:\Documents\GitHub\hospital\GPush\bin\Release\GPush.pdb
+D:\Documents\GitHub\hospital\GPush\bin\Release\GetuiServerApiSDK.dll
+D:\Documents\GitHub\hospital\GPush\bin\Release\Google.ProtocolBuffers.dll
+D:\Documents\GitHub\hospital\GPush\bin\Release\log4net.dll
+D:\Documents\GitHub\hospital\GPush\obj\Release\GPush.dll
+D:\Documents\GitHub\hospital\GPush\obj\Release\GPush.pdb

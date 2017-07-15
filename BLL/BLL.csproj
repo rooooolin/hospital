@@ -51,6 +51,7 @@
     <Compile Include="bll_dpmap.cs" />
     <Compile Include="bll_follow.cs" />
     <Compile Include="bll_group.cs" />
+    <Compile Include="bll_push.cs" />
     <Compile Include="bll_role.cs" />
     <Compile Include="bll_patient.cs" />
     <Compile Include="bll_search.cs" />

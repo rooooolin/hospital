@@ -130,5 +130,31 @@ namespace BLL
             else
                 return null;
         }
+        public DataSet get_follow_record(int role_id,string[] tables,int id)
+        {
+            Sqlcmd sqlcmd=new Sqlcmd();
+            DataTable dt = new DataTable();
+            foreach (string table in tables)
+            {
+                int index = table.IndexOf("Follow_");
+                if (index > -1)
+                {
+                    DataTable dt_temp = new DataTable();
+                    if(role_id == 2)
+                        dt_temp = sqlcmd.getCommonData(table,"*"," d_id ="+id);
+                    else if(role_id ==3)
+                        dt_temp = sqlcmd.getCommonData(table,"*"," p_id ="+id);
+                    dt.Merge(dt_temp);
+                }
+            }
+            DataSet ds = new DataSet();
+            ds.Merge(dt.Copy());
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return ds;
+            }
+            else
+                return null;
+        }
     }
 }

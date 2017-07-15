@@ -43,7 +43,7 @@ namespace hospital.Case
                 user_sex.SelectedItem.Text = model.user_sex;
                 user_birthday.Text = model.user_birthday;
                 user_work_address.Text = model.user_work_address;
-                user_is_married.SelectedValue=model.user_is_married?"1":"0";
+                user_is_married.SelectedValue=model.user_is_married=="已婚"?"1":"0";
                 user_contact.Text = model.user_contact;
                 user_contact_rela.Text = model.user_contact_rela;
                 user_contact_phone.Text = model.user_contact_phone;
@@ -62,10 +62,10 @@ namespace hospital.Case
             model.user_work_address = "'" + user_work_address.Text + "'";
             if (user_is_married.SelectedValue == "1")
             {
-                model.user_is_married = true;
+                model.user_is_married = "已婚";
             }
             else
-                model.user_is_married = false;
+                model.user_is_married = "未婚";
             model.user_contact = "'" + user_contact.Text + "'";
             model.user_contact_rela = "'" + user_contact_rela.Text + "'";
             model.user_contact_phone = "'" + user_contact_phone.Text + "'";

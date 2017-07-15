@@ -122,8 +122,8 @@
                             <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                                 <ContentTemplate>
                            <asp:DropDownList ID="WriteRole" runat="server" Style="width: 22%; height: 35px; border: 1px solid #ccc;" AutoPostBack="true">
-                                        <asp:ListItem Value="1" Selected="True" Text="医生"></asp:ListItem>
-                                        <asp:ListItem Value="2" Text="患者"></asp:ListItem>
+                                        <asp:ListItem Value="2" Selected="True" Text="医生"></asp:ListItem>
+                                        <asp:ListItem Value="3" Text="患者"></asp:ListItem>
                                     </asp:DropDownList>
                                     </ContentTemplate>
                                 </asp:UpdatePanel>

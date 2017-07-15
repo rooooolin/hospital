@@ -46,9 +46,9 @@
                     <td width="5%"><asp:Label ID="ID" runat="server" Text='<%#Eval("ID")%>'></asp:Label></td>
                      <td width="20%"><asp:Label ID="record_title" runat="server" Text='<%#Eval("record_title") %>'></asp:Label></td>
                     <td width="20%"><asp:Label ID="follow_time" runat="server" Text='<%#Eval("follow_time") %>'></asp:Label></td>
-                    <td width="20%"><asp:Label ID="table_name_iden" runat="server" Text='<%#get_table((string)Eval("table_name_iden")) %>'></asp:Label></td>
+                    <td width="20%"><asp:Label ID="table_name_iden" runat="server" Text='<%#get_table((string)Eval("table_name_iden")) %>'></asp:Label><asp:Label ID="table_name_iden2" Visible="false" runat="server" Text='<%# Eval("table_name_iden") %>'></asp:Label></td>
                   <td width="10%"><asp:Label ID="doctor_name" runat="server" Text='<%#Eval("doctor_name") %>'></asp:Label></td> 
-                    <td width="10%"><asp:Label ID="user_name" runat="server" Text='<%#Eval("user_name") %>'></asp:Label></td>
+                    <td width="10%"><asp:Label ID="user_name" runat="server" Text='<%#get_user_name((string)Eval("p_id")) %>'></asp:Label></td>
                     <td width="10%"><a href="CheckFollowRecord.aspx?id=<%#get_table_id((string)Eval("table_name_iden")) %>&p_id=<%#Eval("p_id") %>&record_id=<%#Eval("ID")%>" target="_blank">查看</a>&nbsp;&nbsp;&nbsp;&nbsp;
                        </td>
                 </tr>

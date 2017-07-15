@@ -136,6 +136,7 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="WebForm1.aspx" />
     <Content Include="WebService.asmx" />
     <Content Include="welcom.aspx" />
   </ItemGroup>
@@ -281,6 +282,13 @@
     <Compile Include="Users\UserList.aspx.designer.cs">
       <DependentUpon>UserList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebService.asmx.cs">
       <DependentUpon>WebService.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -317,6 +325,10 @@
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{364c3dad-f922-484e-bde0-e821dea51167}</Project>
       <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GPush\GPush.csproj">
+      <Project>{b619c9a7-4add-4238-b60c-dc8beb49e129}</Project>
+      <Name>GPush</Name>
     </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{58104b3a-b69a-4f95-a808-8e1b857af3e1}</Project>

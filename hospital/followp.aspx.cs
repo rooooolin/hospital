@@ -36,7 +36,7 @@ namespace hospital
                 bll_follow follow = new bll_follow();
                 DataSet ds = new DataSet();
                 ds = follow.get_table_byID(id);
-                if (ds.Tables[0].Rows.Count > 0)
+                if (ds != null)
                 {
                     table_name = ds.Tables[0].Rows[0]["table_name"].ToString();
                     get_follow_record_alr(table_name);
@@ -94,7 +94,7 @@ namespace hospital
         {
             Sqlcmd sqlcmd = new Sqlcmd();
             DataSet ds = sqlcmd.getCommonDatads("Follow_"+table_name,"*"," ID ="+ follow_id);
-            if (ds.Tables[0].Rows.Count > 0)
+            if (ds != null)
             {
                 record_title.Text = ds.Tables[0].Rows[0]["record_title"].ToString();
                 follow_time.Text = ds.Tables[0].Rows[0]["follow_time"].ToString();

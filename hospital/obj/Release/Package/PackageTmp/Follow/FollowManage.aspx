@@ -45,7 +45,7 @@
                     <td width="10%"><asp:Label ID="table_name" runat="server" Text='<%#Eval("table_name") %>'></asp:Label></td>
                     <td width="60%"><asp:Label ID="json_filed" runat="server" Text='<%#get_filed((string)Eval("json_filed")) %>'></asp:Label></td>
                    
-                    <td width="10%"><a href="TextJump.aspx?id=<%#Eval("ID") %>&follow_name=<%# get_encode((string)Eval("follow_name")) %>&role_id=1" target="_blank">添加随访记录</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <td width="10%"><a href="TextJump.aspx?id=<%#Eval("ID") %>&follow_name=<%# get_encode((string)Eval("follow_name")) %>&role_id=2" target="_blank">添加随访记录</a>&nbsp;&nbsp;&nbsp;&nbsp;
                        </td>
                 </tr>
                

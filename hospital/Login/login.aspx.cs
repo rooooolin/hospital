@@ -30,7 +30,7 @@ namespace hospital.Login
             {
                 bll_role role = new bll_role();
                 DataSet ds = role.get_role_model();
-                if (ds.Tables[0].Rows.Count > 0)
+                if (ds != null)
                 {
                     for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                     {

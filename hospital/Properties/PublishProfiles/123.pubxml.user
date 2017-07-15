@@ -12,16 +12,28 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/BLL.dll">
-      <publishTime>07/07/2017 14:08:27</publishTime>
+      <publishTime>07/15/2017 17:10:40</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>07/07/2017 14:08:26</publishTime>
+      <publishTime>07/15/2017 17:10:40</publishTime>
+    </File>
+    <File Include="bin/GetuiServerApiSDK.dll">
+      <publishTime>07/15/2017 11:10:29</publishTime>
+    </File>
+    <File Include="bin/Google.ProtocolBuffers.dll">
+      <publishTime>07/15/2017 11:10:29</publishTime>
+    </File>
+    <File Include="bin/GPush.dll">
+      <publishTime>07/15/2017 17:10:40</publishTime>
     </File>
     <File Include="bin/hospital.dll">
-      <publishTime>07/07/2017 15:47:39</publishTime>
+      <publishTime>07/15/2017 17:10:41</publishTime>
+    </File>
+    <File Include="bin/log4net.dll">
+      <publishTime>07/15/2017 11:10:29</publishTime>
     </File>
     <File Include="bin/Model.dll">
-      <publishTime>07/07/2017 14:08:26</publishTime>
+      <publishTime>07/15/2017 17:10:40</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>02/14/2017 00:30:50</publishTime>
@@ -60,7 +72,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/03/2017 12:48:00</publishTime>
     </File>
     <File Include="follow.aspx">
-      <publishTime>07/07/2017 13:40:54</publishTime>
+      <publishTime>07/15/2017 14:08:50</publishTime>
     </File>
     <File Include="Follow/AddCycle.aspx">
       <publishTime>07/05/2017 17:09:46</publishTime>
@@ -69,16 +81,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/05/2017 16:13:25</publishTime>
     </File>
     <File Include="Follow/AddFollow.aspx">
-      <publishTime>07/07/2017 11:26:48</publishTime>
+      <publishTime>07/15/2017 13:28:35</publishTime>
     </File>
     <File Include="Follow/CheckFollowRecord.aspx">
       <publishTime>06/15/2017 22:06:49</publishTime>
     </File>
     <File Include="Follow/FollowManage.aspx">
-      <publishTime>07/07/2017 11:17:25</publishTime>
+      <publishTime>07/15/2017 13:30:26</publishTime>
     </File>
     <File Include="Follow/FollowRecordManage.aspx">
-      <publishTime>07/07/2017 11:20:52</publishTime>
+      <publishTime>07/15/2017 15:46:44</publishTime>
     </File>
     <File Include="Follow/TextJump.aspx">
       <publishTime>06/16/2017 09:49:03</publishTime>
@@ -256,6 +268,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Web.sitemap">
       <publishTime>06/27/2017 17:09:36</publishTime>
+    </File>
+    <File Include="WebForm1.aspx">
+      <publishTime>07/15/2017 17:01:09</publishTime>
     </File>
     <File Include="WebService.asmx">
       <publishTime>06/12/2017 16:36:45</publishTime>

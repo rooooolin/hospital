@@ -21,7 +21,7 @@ namespace hospital.Follow
         {
             if (!IsPostBack)
             {
-                follow_recoed_list(); 
+                follow_recoed_list();
             }
         }
         public string get_table(string table_name_iden)
@@ -29,10 +29,10 @@ namespace hospital.Follow
             DataSet ds = new DataSet();
             bll_follow follow = new bll_follow();
             ds = follow.get_table_byname(table_name_iden);
-            string return_str="";
-            if (ds.Tables[0].Rows.Count > 0)
+            string return_str = "";
+            if (ds != null)
             {
-                return_str= ds.Tables[0].Rows[0]["follow_name"].ToString();
+                return_str = ds.Tables[0].Rows[0]["follow_name"].ToString();
             }
             return return_str;
         }
@@ -41,8 +41,8 @@ namespace hospital.Follow
             DataSet ds = new DataSet();
             bll_follow follow = new bll_follow();
             ds = follow.get_table_byname(table_name_iden);
-            int table_id=0 ;
-            if (ds.Tables[0].Rows.Count > 0)
+            int table_id = 0;
+            if (ds != null)
             {
                 table_id = int.Parse(ds.Tables[0].Rows[0]["ID"].ToString());
             }
@@ -70,13 +70,42 @@ namespace hospital.Follow
                 if (index > -1)
                 {
                     DataTable dt_temp = new DataTable();
-                    dt_temp = sqlcmd.TriJoinPageIndexdt(table, "DoctorInfo", "PatientInfo", "m.ID,m.record_title,m.follow_time,m.table_name_iden,m.p_id,m.d_id,a.doctor_name,b.user_name", "a.ID=m.d_id","b.ID=m.p_id");
+                    dt_temp = sqlcmd.getCommonJoinData( table + " as a left join DoctorInfo as b","*", "b.ID=a.d_id");
                     dt.Merge(dt_temp);
                 }
             }
             DataSet ds = new DataSet();
             ds.Merge(dt.Copy());
             this.PageInfo.InnerHtml = PageIndex.GetPageNum(ds, FollowRecordRepeter, pagesize);
+        }
+        protected string get_user_name(string p_id_list_str)
+        {
+            string user_name="";
+            if (p_id_list_str.IndexOf(',') > -1)
+            {
+                string[] p_id_list = p_id_list_str.Split(new char[1] { ',' });
+                foreach (string p_id in p_id_list)
+                {
+                    DataSet ds = new DataSet();
+                    ds = sqlcmd.getCommonDatads("PatientInfo", "user_name", " ID =" + int.Parse(p_id));
+                    if (ds != null)
+                    {
+                        user_name += ds.Tables[0].Rows[0]["user_name"].ToString() + ",";
+                    }
+                }
+                user_name = user_name.TrimEnd(',');
+                
+            }
+            else
+            {
+                DataSet ds = new DataSet();
+                ds = sqlcmd.getCommonDatads("PatientInfo", "user_name", " ID =" + int.Parse(p_id_list_str));
+                if (ds != null)
+                {
+                    user_name = ds.Tables[0].Rows[0]["user_name"].ToString();
+                }
+            }
+            return user_name;
         }
         protected void DelBtn_Click(object sender, EventArgs e)
         {
@@ -86,9 +115,9 @@ namespace hospital.Follow
                 if (cb.Checked)
                 {
                     Label lb_id = (Label)FollowRecordRepeter.Items[i].FindControl("ID");
-                    Label table_id = (Label)FollowRecordRepeter.Items[i].FindControl("table_name_iden");
+                    Label table_id = (Label)FollowRecordRepeter.Items[i].FindControl("table_name_iden2");
 
-                    sqlcmd.CommonDeleteColumns(table_id.Text.ToString(), " where ID= " + lb_id.Text);
+                    sqlcmd.CommonDeleteColumns("Follow_" + table_id.Text.ToString(), " where ID= " + lb_id.Text);
 
 
                 }

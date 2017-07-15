@@ -21,3 +21,8 @@ D:\Documents\GitHub\hospital\hospital\obj\Debug\hospital.csprojResolveAssemblyRe
 D:\Documents\GitHub\hospital\hospital\obj\Debug\hospital.dll
 D:\Documents\GitHub\hospital\hospital\obj\Debug\hospital.pdb
 D:\Documents\GitHub\hospital\hospital\bin\hospital.dll.config
+D:\Documents\GitHub\hospital\hospital\bin\GPush.dll
+D:\Documents\GitHub\hospital\hospital\bin\GetuiServerApiSDK.dll
+D:\Documents\GitHub\hospital\hospital\bin\Google.ProtocolBuffers.dll
+D:\Documents\GitHub\hospital\hospital\bin\log4net.dll
+D:\Documents\GitHub\hospital\hospital\bin\GPush.pdb

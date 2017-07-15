@@ -34,8 +34,8 @@ namespace hospital
     {
 
 
-        [WebMethod(Description = "输入患者(或医生)手机号和密码，以及用户角色ID(患者=3,医生=2)。登录成功返回患者(或医生)ID,登录失败返回0。")]
-        public string login(string u_phone,string u_passwd,int u_roleId)
+        [WebMethod(Description = "输入患者(或医生)手机号,密码,以及用户角色ID(患者=3,医生=2)。登录成功返回患者(或医生)ID,登录失败返回0。")]
+        public string login(string u_phone,string u_passwd,string client_id,int u_roleId)
         {
             string u_pwd = FormsAuthentication.HashPasswordForStoringInConfigFile(FormsAuthentication.HashPasswordForStoringInConfigFile(u_passwd, "MD5"), "MD5");
             bll_patient user = new bll_patient();
@@ -71,10 +71,7 @@ namespace hospital
             model.user_phone = u_phone;
             model.user_birthday = u_birthday;
             model.user_work_address = u_work_address;
-            if (u_is_married != "" || u_is_married != null)
-            {
-                model.user_is_married = Boolean.Parse(u_is_married);
-            }
+            model.user_is_married =u_is_married;
             model.user_contact = u_contact;
             model.user_contact_rela = u_contact_rela;
             model.user_contact_phone = u_contact_phone;
@@ -89,13 +86,13 @@ namespace hospital
             Sqlcmd sqlcmd = new Sqlcmd();
             ds = sqlcmd.getCommonDatads("Disease","*"," 1=1");
             string return_str = "[";
-            if (ds.Tables[0].Rows.Count > 0)
+            if (ds != null)
             {
                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                 {
                     string temp_str = "{";
                     temp_str += "\"DiseaseID\":\"" + ds.Tables[0].Rows[i]["DiseaseID"].ToString() + "\",";
-                    temp_str += "\"disease_name\":\"" + ds.Tables[0].Rows[i]["disease_name"].ToString() + "\",";
+                    temp_str += "\"disease_name\":\"" + ds.Tables[0].Rows[i]["disease_name"].ToString() + "\"";
                     
                     if (i < ds.Tables[0].Rows.Count - 1)
                         temp_str += "},";
@@ -115,7 +112,7 @@ namespace hospital
             Sqlcmd sqlcmd = new Sqlcmd();
             ds = sqlcmd.getCommonDatads("FollowManage", "*", " disease_id=" + disease_id);
             string return_str = "[";
-            if (ds.Tables[0].Rows.Count > 0)
+            if (ds != null)
             {
                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                 {
@@ -127,7 +124,7 @@ namespace hospital
                     ds2 = sqlcmd.getCommonDatads("FollowCycle", "*", " CycleID=" + cycle_id);
                     if (ds2.Tables[0].Rows.Count > 0)
                     {
-                        temp_str += "\"cycle\":\"" + ds2.Tables[0].Rows[0]["cycle_name"].ToString() + "\","; 
+                        temp_str += "\"cycle\":\"" + ds2.Tables[0].Rows[0]["cycle_name"].ToString() + "\""; 
                     }
                     if (i < ds.Tables[0].Rows.Count - 1)
                         temp_str += "},";
@@ -148,7 +145,7 @@ namespace hospital
 
             ds = search.fully_search(filed, content);
 
-            if (ds.Tables[0].Rows.Count > 0)
+            if (ds != null)
             {
                 string return_str = "[";
                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
@@ -190,6 +187,65 @@ namespace hospital
             return doctor.update_info(model) != 0 ? "1" : "0";
         }
 
+        [WebMethod(Description = "医生/患者查看与自身相关的所有随访记录")]
+        public string get_follow_record(int role_id,int id)
+        {
+            string tables_str = "";
+            bll_follow follow = new bll_follow();
+            DataSet ds_tables = follow.get_tables();
+            if (ds_tables.Tables[0].Rows.Count > 0)
+            {
+
+                for (int i = 0; i < ds_tables.Tables[0].Rows.Count; i++)
+                {
+                    tables_str += ds_tables.Tables[0].Rows[i]["Name"].ToString() + ",";
+                }
+            }
+            tables_str = tables_str.TrimEnd(',');
+            string[] tables = tables_str.Split(new char[1] { ',' });
+            DataSet ds = follow.get_follow_record(role_id, tables, id);
+            string return_str = "[";
+            if (ds != null)
+            {
+                Sqlcmd sqlcmd = new Sqlcmd();
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    string temp_str = "{";
+                    temp_str += "\"ID\":\"" + ds.Tables[0].Rows[i]["ID"].ToString() + "\",";
+                    temp_str += "\"record_title\":\"" + ds.Tables[0].Rows[i]["record_title"].ToString() + "\",";
+                    if (role_id == 2)
+                    {
+                        int p_id = int.Parse(ds.Tables[0].Rows[i]["p_id"].ToString());
+                        DataSet ds2 = new DataSet();
+                        ds2 = sqlcmd.getCommonDatads("PatientInfo", "*", " ID=" + p_id);
+                        if (ds2.Tables[0].Rows.Count > 0)
+                        {
+                            temp_str += "\"p_id\":\"" + ds2.Tables[0].Rows[0]["ID"].ToString() + "\",";
+                            temp_str += "\"user_name\":\"" + ds2.Tables[0].Rows[0]["user_name"].ToString() + "\"";
+                        }
+                    }
+                    else if (role_id == 3)
+                    {
+                        int d_id = int.Parse(ds.Tables[0].Rows[i]["d_id"].ToString());
+                        DataSet ds2 = new DataSet();
+                        ds2 = sqlcmd.getCommonDatads("DoctorInfo", "*", " ID=" + d_id);
+                        if (ds2.Tables[0].Rows.Count > 0)
+                        {
+                            temp_str += "\"d_id\":\"" + ds2.Tables[0].Rows[0]["ID"].ToString() + "\",";
+                            temp_str += "\"doctor_name\":\"" + ds2.Tables[0].Rows[0]["doctor_name"].ToString() + "\"";
+                        } 
+                    }
+                    if (i < ds.Tables[0].Rows.Count - 1)
+                        temp_str += "},";
+                    else
+                        temp_str += "}";
+
+                    return_str += temp_str;
+                }
+            }
+            return_str += "]";
+            return return_str; 
+        }
         [WebMethod(Description="通过患者ID获取患者所有信息")]
         public string get_patientinfo(int u_id)
         {
@@ -229,7 +285,7 @@ namespace hospital
             string return_str="[";
             var json_object = new JObject();
             model_patient_tolist model = new model_patient_tolist();
-            if (ds.Tables[0].Rows.Count > 0)
+            if (ds != null)
             {
                 
                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
@@ -254,7 +310,7 @@ namespace hospital
             bll_case bcase = new bll_case();
             DataSet ds = bcase.get_info(0, p_id, 2);
             string return_str = "[";
-            if (ds.Tables[0].Rows.Count > 0)
+            if (ds != null)
             {
                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                 {
@@ -293,7 +349,7 @@ namespace hospital
             var json_object = new JObject();
             model_doctor_tolist model = new model_doctor_tolist();
             string return_str = "[";
-            if (ds.Tables[0].Rows.Count > 0)
+            if (ds != null)
             {
                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                 {
@@ -349,7 +405,7 @@ namespace hospital
             string return_str = "[";
             var json_object = new JObject();
             model_group model = new model_group();
-            if (ds.Tables[0].Rows.Count > 0)
+            if (ds != null)
             {
 
                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++)

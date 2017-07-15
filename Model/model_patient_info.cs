@@ -18,7 +18,7 @@ namespace Model
         private string _user_sex;
         private string _user_birthday;
         private string _user_work_address;
-        private Boolean _user_is_married;
+        private string _user_is_married;
         private string _user_contact;
         private string _user_contact_rela;
         private string _user_contact_phone;
@@ -73,7 +73,7 @@ namespace Model
             set { _user_work_address = value; }
             get { return _user_work_address; }
         }
-        public Boolean user_is_married
+        public string user_is_married
         {
             set { _user_is_married = value; }
             get { return _user_is_married; }

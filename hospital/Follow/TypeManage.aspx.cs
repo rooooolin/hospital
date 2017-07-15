@@ -19,7 +19,7 @@ namespace hospital.Follow
             if (!IsPostBack)
             {
                 DataSet ds = sqlcmd.getCommonDatads("Disease","*","1=1");
-                if (ds.Tables[0].Rows.Count > 0)
+                if (ds != null)
                 {
                     for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                     {

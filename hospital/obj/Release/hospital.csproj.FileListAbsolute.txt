@@ -10,3 +10,8 @@ D:\Documents\GitHub\hospital\hospital\obj\Release\hospital.csprojResolveAssembly
 D:\Documents\GitHub\hospital\hospital\obj\Release\hospital.dll
 D:\Documents\GitHub\hospital\hospital\obj\Release\hospital.pdb
 D:\Documents\GitHub\hospital\hospital\bin\hospital.dll.config
+D:\Documents\GitHub\hospital\hospital\bin\GPush.dll
+D:\Documents\GitHub\hospital\hospital\bin\GetuiServerApiSDK.dll
+D:\Documents\GitHub\hospital\hospital\bin\Google.ProtocolBuffers.dll
+D:\Documents\GitHub\hospital\hospital\bin\log4net.dll
+D:\Documents\GitHub\hospital\hospital\bin\GPush.pdb

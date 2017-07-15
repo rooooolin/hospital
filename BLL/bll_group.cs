@@ -55,7 +55,7 @@ namespace BLL
 
             Model.model_group model = new Model.model_group();
             DataSet ds = sqlcon.excuteSelect_return_dataSet("get_group_model", CommandType.StoredProcedure, parameters);
-            if (ds.Tables[0].Rows.Count > 0)
+            if (ds != null)
             {
                 if (ds.Tables[0].Rows[0]["id"].ToString() != "")
                 {
@@ -103,7 +103,7 @@ namespace BLL
             sp[2].Value = "d_id=" + d_id;
             
             DataSet ds = sqlcon.excuteSelect_return_dataSet("general_get_data", CommandType.StoredProcedure, sp);
-            if (ds.Tables[0].Rows.Count > 0)
+            if (ds != null)
             {
 
                 return ds;
