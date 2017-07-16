@@ -204,6 +204,7 @@ namespace hospital
             }
             tables_str = tables_str.TrimEnd(',');
             string[] tables = tables_str.Split(new char[1] { ',' });
+        
             DataSet ds = follow.get_follow_record(role_id, tables, id);
             string return_str = "[";
             if (ds != null)
@@ -293,13 +294,17 @@ namespace hospital
         [WebMethod(Description = "添加医患从属关系。输入为医生ID和患者ID,以及可选备注。成功添加返回1,失败则返回0")]
         public string add_dp_map(int d_id, int p_id, string remarks)
         {
-            
-            bll_dpmap bpmap = new bll_dpmap();
-            DataSet ds = bpmap.get_map(d_id, p_id);
-            if (ds == null)
-                return bpmap.add_map(d_id, p_id, remarks) != 0 ? "1" : "0";
-            else
+            if (d_id == 0 || p_id == 0)
                 return "0";
+            else {
+                bll_dpmap bpmap = new bll_dpmap();
+                DataSet ds = bpmap.get_map(d_id, p_id);
+                if (ds == null)
+                    return bpmap.add_map(d_id, p_id, remarks) != 0 ? "1" : "0";
+                else
+                    return "0";
+            }
+            
         }
         [WebMethod(Description = "通过医生ID获取该医生下所有患者信息")]
         public string get_dpatient_list(int d_id)

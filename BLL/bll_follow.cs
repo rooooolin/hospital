@@ -141,9 +141,9 @@ namespace BLL
                 {
                     DataTable dt_temp = new DataTable();
                     if(role_id == 2)
-                        dt_temp = sqlcmd.getCommonData(table,"*"," d_id ="+id);
+                        dt_temp = sqlcmd.getCommonData(table,"*"," d_id ='"+id+"'");
                     else if(role_id ==3)
-                        dt_temp = sqlcmd.getCommonData(table,"*"," p_id ="+id);
+                        dt_temp = sqlcmd.getCommonData(table,"*"," p_id ='"+id+"'");
                     dt.Merge(dt_temp);
                 }
             }
