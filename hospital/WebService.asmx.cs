@@ -215,6 +215,7 @@ namespace hospital
                     string temp_str = "{";
                     temp_str += "\"ID\":\"" + ds.Tables[0].Rows[i]["ID"].ToString() + "\",";
                     temp_str += "\"record_title\":\"" + ds.Tables[0].Rows[i]["record_title"].ToString() + "\",";
+                    temp_str += "\"follow_time\":\"" + ds.Tables[0].Rows[i]["follow_time"].ToString() + "\",";
                     if (role_id == 2)
                     {
                         string p_id_str = ds.Tables[0].Rows[i]["p_id"].ToString();
