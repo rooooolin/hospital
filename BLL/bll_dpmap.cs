@@ -24,5 +24,21 @@ namespace BLL
             paramter[2].Value = remarks;
             return sqlcon.excuteCommand_return_int("add_dpmap", CommandType.StoredProcedure, paramter);
         }
+        public DataSet get_map(int d_id, int p_id)
+        {
+            SqlParameter[] paramter ={
+                                        new SqlParameter("@d_id",SqlDbType.Int,4),
+                                        new SqlParameter("@p_id",SqlDbType.Int,4)
+                                    };
+            paramter[0].Value = d_id;
+            paramter[1].Value = p_id;
+            DataSet ds = sqlcon.excuteSelect_return_dataSet("get_dpmap", CommandType.StoredProcedure, paramter);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return ds;
+            }
+            else
+                return null;
+        }
     }
 }
