@@ -209,6 +209,7 @@ namespace hospital
             if (RadioTarget.SelectedItem.Text == "单人")
             {
                 insert_values += d_id + "," + FollowTarget.SelectedValue;
+                p_id_list_str = FollowTarget.SelectedValue;
             }
 
             else if (RadioTarget.SelectedItem.Text == "组员")

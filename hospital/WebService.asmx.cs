@@ -213,9 +213,13 @@ namespace hospital
                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                 {
                     string temp_str = "{";
-                    temp_str += "\"ID\":\"" + ds.Tables[0].Rows[i]["ID"].ToString() + "\",";
+                    temp_str += "\"follow_id\":\"" + ds.Tables[0].Rows[i]["ID"].ToString() + "\",";
                     temp_str += "\"record_title\":\"" + ds.Tables[0].Rows[i]["record_title"].ToString() + "\",";
                     temp_str += "\"follow_time\":\"" + ds.Tables[0].Rows[i]["follow_time"].ToString() + "\",";
+                    string table_name = ds.Tables[0].Rows[i]["table_name_iden"].ToString();
+                    DataSet ds_table_name = sqlcmd.getCommonDatads("FollowManage", "ID", " table_name='"+table_name+"'");
+                    if(ds_table_name.Tables[0].Rows.Count>0)
+                        temp_str += "\"table_id\":\"" + ds_table_name.Tables[0].Rows[0]["ID"].ToString() + "\",";
                     if (role_id == 2)
                     {
                         string p_id_str = ds.Tables[0].Rows[i]["p_id"].ToString();

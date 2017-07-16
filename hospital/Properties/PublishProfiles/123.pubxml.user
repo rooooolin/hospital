@@ -12,7 +12,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/BLL.dll">
-      <publishTime>07/16/2017 16:38:34</publishTime>
+      <publishTime>07/16/2017 19:49:17</publishTime>
     </File>
     <File Include="bin/DAL.dll">
       <publishTime>07/15/2017 17:10:40</publishTime>
@@ -27,7 +27,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/15/2017 17:10:40</publishTime>
     </File>
     <File Include="bin/hospital.dll">
-      <publishTime>07/16/2017 17:18:08</publishTime>
+      <publishTime>07/16/2017 19:49:18</publishTime>
     </File>
     <File Include="bin/log4net.dll">
       <publishTime>07/15/2017 11:10:29</publishTime>
@@ -270,7 +270,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/27/2017 17:09:36</publishTime>
     </File>
     <File Include="WebForm1.aspx">
-      <publishTime>07/15/2017 17:01:09</publishTime>
+      <publishTime>07/16/2017 19:31:44</publishTime>
     </File>
     <File Include="WebService.asmx">
       <publishTime>06/12/2017 16:36:45</publishTime>

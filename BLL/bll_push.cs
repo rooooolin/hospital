@@ -27,7 +27,7 @@ namespace BLL
             parameter[2].Value = model.push_time;
             parameter[3].Value = model.result;
             parameter[4].Value = model.remarks;
-            return sqlcon.excuteCommand_return_int("add_group", CommandType.StoredProcedure, parameter);
+            return sqlcon.excuteCommand_return_int("add_push_log", CommandType.StoredProcedure, parameter);
         }
     }
 }
