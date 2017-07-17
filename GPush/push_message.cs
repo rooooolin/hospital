@@ -14,21 +14,16 @@ namespace GPush
 {
     public class push_message
     {
-        public static string PushMessageToSingle(string ALIAS)
+        public static string PushMessageToSingle(String APPID, String APPKEY, String MASTERSECRET, string ALIAS, string title, string text, string transmission_content)
         {
 
             String pushResult = "";
             String HOST = "http://sdk.open.api.igexin.com/apiex.htm";
-
-
-            String APPID = "5n4ySmpwGy8E7vqVNVbVd3";
-            String APPKEY = "FnfWbe2vbF9Mpj9ZtwJ3NA";
-            String MASTERSECRET = "4bpSIpDZpY7XswOOrTxnD1";
             IGtPush push = new IGtPush(HOST, APPKEY, MASTERSECRET);
 
             //消息模版：TransmissionTemplate:透传模板
 
-            NotificationTemplate template = NotificationTemplateDemo();
+            NotificationTemplate template = NotificationTemplateDemo(APPID,APPKEY,title,text,transmission_content);
 
 
             // 单推消息模型
@@ -57,21 +52,19 @@ namespace GPush
             }
             return pushResult;
         }
-        public static string PushMessageToList(string alias_list_str)
+        public static string PushMessageToList(String APPID, String APPKEY, String MASTERSECRET, string alias_list_str, string title, string text, string transmission_content)
         {
             String HOST = "http://sdk.open.api.igexin.com/apiex.htm";
             String pushResult = "";
 
-            String APPID = "5n4ySmpwGy8E7vqVNVbVd3";
-            String APPKEY = "FnfWbe2vbF9Mpj9ZtwJ3NA";
-            String MASTERSECRET = "4bpSIpDZpY7XswOOrTxnD1";
+            
             // 推送主类（方式1，不可与方式2共存）
             IGtPush push = new IGtPush(HOST, APPKEY, MASTERSECRET);
             // 推送主类（方式2，不可与方式1共存）此方式可通过获取服务端地址列表判断最快域名后进行消息推送，每10分钟检查一次最快域名
             //IGtPush push = new IGtPush("",APPKEY,MASTERSECRET);
             ListMessage message = new ListMessage();
 
-            NotificationTemplate template = NotificationTemplateDemo();
+            NotificationTemplate template = NotificationTemplateDemo(APPID, APPKEY, title, text, transmission_content);
             // 用户当前不在线时，是否离线存储,可选
             message.IsOffline = true;
             // 离线有效时间，单位为毫秒，可选
@@ -101,15 +94,15 @@ namespace GPush
 
 
         //通知透传模板动作内容
-        public static NotificationTemplate NotificationTemplateDemo()
+        public static NotificationTemplate NotificationTemplateDemo(String APPID,String APPKEY,string title,string text, string transmission_content)
         {
             NotificationTemplate template = new NotificationTemplate();
-            template.AppId = "5n4ySmpwGy8E7vqVNVbVd3";
-            template.AppKey = "FnfWbe2vbF9Mpj9ZtwJ3NA";
+            template.AppId = APPID;
+            template.AppKey = APPKEY;
             //通知栏标题
-            template.Title = "随访通知";
+            template.Title = title;
             //通知栏内容     
-            template.Text = "您有一条新的随访通知";
+            template.Text = text;
             //通知栏显示本地图片
             template.Logo = "";
             //通知栏显示网络图标
@@ -117,7 +110,7 @@ namespace GPush
             //应用启动类型，1：强制应用启动  2：等待应用启动
             template.TransmissionType = "1";
             //透传内容  
-            template.TransmissionContent = "请填写透传内容";
+            template.TransmissionContent = transmission_content;
             //接收到消息是否响铃，true：响铃 false：不响铃   
             template.IsRing = true;
             //接收到消息是否震动，true：震动 false：不震动   

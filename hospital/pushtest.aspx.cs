@@ -8,7 +8,7 @@ using GPush;
 
 namespace hospital
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class pushtest : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -17,7 +17,7 @@ namespace hospital
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            string result=push_message.PushMessageToSingle("a1234");
+            string result=push_message.PushMessageToSingle(APPID.Text.ToString(),APPKEY.Text.ToString(),MASTERSECRET.Text.ToString(),ALIAS.Text.ToString(),Title.Text.ToString(),Text.Text.ToString(),TransmissionContent.Text.ToString());
             this.Label1.Text = result;
         }
 

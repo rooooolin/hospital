@@ -136,7 +136,7 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="WebForm1.aspx" />
+    <Content Include="pushtest.aspx" />
     <Content Include="WebService.asmx" />
     <Content Include="welcom.aspx" />
   </ItemGroup>
@@ -282,12 +282,12 @@
     <Compile Include="Users\UserList.aspx.designer.cs">
       <DependentUpon>UserList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="pushtest.aspx.cs">
+      <DependentUpon>pushtest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="pushtest.aspx.designer.cs">
+      <DependentUpon>pushtest.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebService.asmx.cs">
       <DependentUpon>WebService.asmx</DependentUpon>

@@ -225,11 +225,11 @@ namespace hospital
                 string push_result = "";
                 if (RadioTarget.SelectedItem.Text == "单人")
                 {
-                    push_result=push_message.PushMessageToSingle(get_push_target());
+                    push_result = push_message.PushMessageToSingle("CuAQ3h9MP39OHtOx8bdzu3", "3TitJm47Og9xT7JeQYfj11","FzCOYUbsaN9dulGHd1my75",get_push_target(),"随访通知","您有一条新的随访通知","透穿内容");
                 }
                 else if (RadioTarget.SelectedItem.Text == "组员")
                 {
-                    push_result=push_message.PushMessageToList(get_push_target());
+                    push_result = push_message.PushMessageToList("CuAQ3h9MP39OHtOx8bdzu3", "3TitJm47Og9xT7JeQYfj11", "FzCOYUbsaN9dulGHd1my75", get_push_target(), "随访通知", "您有一条新的随访通知", "透穿内容");
                 }
                 bll_push push=new bll_push();
                 model_pushlog model=new model_pushlog();
