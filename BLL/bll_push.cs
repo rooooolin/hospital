@@ -18,7 +18,7 @@ namespace BLL
                                          new SqlParameter("@activator",SqlDbType.VarChar,50),
                                          new SqlParameter("@target",SqlDbType.VarChar,100),
                                          new SqlParameter("@push_time",SqlDbType.VarChar,50),
-                                         new SqlParameter("@result",SqlDbType.VarChar,50),
+                                         new SqlParameter("@result",SqlDbType.VarChar,150),
                                          new SqlParameter("@remarks",SqlDbType.VarChar,500)
 
                                      };
