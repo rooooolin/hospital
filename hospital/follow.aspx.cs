@@ -33,7 +33,7 @@ namespace hospital
                 if (Request.QueryString["d_id"] != null)
                 {
                     d_id = int.Parse(Request.QueryString["d_id"].ToString());
-                    if (role_id == 1)
+                    if (role_id == 2)
                     {
                         get_target(d_id);
                     }
