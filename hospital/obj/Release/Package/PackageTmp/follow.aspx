@@ -11,9 +11,9 @@
     <meta name="format-detection" content="telephone=no" />
     <title>添加随访记录</title>
     <link rel="stylesheet" href="../Js/dist/pikaday-package.css" />
-    <link href="Css/form.min.css" type="text/css" rel="stylesheet" />
-  <script src="../Js/dist/dependencies/pikaday-responsive-modernizr.js"></script>
-    <style type="text/css">
+    <link rel="stylesheet" type="text/css" href="Css/style.css" />
+    <script src="../Js/dist/dependencies/pikaday-responsive-modernizr.js"></script>
+     <style type="text/css">
         #bottom_info {
             position: relative;
             top: -3.8em;
@@ -51,63 +51,60 @@
     </style>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div class="form_ctrl page_head">
-            <h2>添加随访记录</h2>
-        </div>
-        <div class="form_ctrl page_text">
-            <p> </p>
-        </div>
-        <div class="form_ctrl form_select">
-            <label class="ctrl_title">推送目标<asp:RadioButtonList ID="RadioTarget" OnSelectedIndexChanged="RadioTarget_SelectedIndexChanged" AutoPostBack="true" runat="server">
-                <asp:ListItem selected="true">单人</asp:ListItem>
-                <asp:ListItem>组员</asp:ListItem>
-   
-                                          </asp:RadioButtonList>
-            <asp:DropDownList ID="FollowTarget" runat="server"  AutoPostBack="true" ></asp:DropDownList>
-            
-            <div></div>
-        </div>
-        <div class="form_ctrl input_text">
-            <label class="ctrl_title">标题</label>
-           <asp:TextBox type="text" ID="record_title" placeholder=" 请输入标题"   runat="server"></asp:TextBox>
-            <label style="color:red">
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
-            ErrorMessage="标题不能为空！" ControlToValidate="record_title"></asp:RequiredFieldValidator></label>
-        </div>
-        <div class="form_ctrl input_text">
-            <label class="ctrl_title">随访时间</label>
-           <asp:TextBox type="text" ID="follow_time"   placeholder=" 请输入时间"  runat="server"></asp:TextBox>
-            <label style="color:red">
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-            ErrorMessage="随访时间不能为空！" ControlToValidate="follow_time"></asp:RequiredFieldValidator></label>
-        </div>
-        <script src="../Js/dist/dependencies/jquery.min.js"></script>
-<script src="../Js/dist/dependencies/moment.min.js"></script>
-<script src="../Js/dist/dependencies/pikaday.min.js"></script>
-<script src="../Js/dist/pikaday-responsive.js"></script>
+    <form id="form1" runat="server" width="100%" class="bootstrap-frm">
+           <h1>随访表</h1>
+            <label>
+                <label class="layer" width="100%">推送目标</label>
+                <asp:RadioButtonList ID="RadioTarget" OnSelectedIndexChanged="RadioTarget_SelectedIndexChanged" AutoPostBack="true" runat="server">
+                    <asp:ListItem Selected="true">单人</asp:ListItem>
+                    <asp:ListItem>组员</asp:ListItem>
 
-<script>
-    var $date1 = $("#follow_time");
-    var instance1 = pikadayResponsive($date1);
-    $date1.on("change", function () {
-        $("#output1").html($(this).val());
-    });
+                </asp:RadioButtonList>
 
-    $("#clear").click(function () {
-        instance3.setDate(null);
-    });
 
-    $("#today").click(function () {
-        instance3.setDate(moment());
-    });
+            </label>
+            <label>
+                <label class="layer"></label>
+                <asp:DropDownList ID="FollowTarget" style="width:100%" runat="server" AutoPostBack="true"></asp:DropDownList>
+            </label>
+            <br />
+            <label>
+                <label class="layer">标题</label>
+                <asp:TextBox type="text" Style="width: 100%" ID="record_title" placeholder=" 请输入标题" runat="server"></asp:TextBox>
 
-</script>
-         <asp:Panel ID="Controls_list" runat="server"></asp:Panel>
-        <div class="form_ctrl form_submit">
-            <asp:Button ID="SubmitBtn" type="submit" runat="server" Text="提交" OnClick="SubmitBtn_Click" />
-           
-        </div>
+            </label>
+            <label>
+                <label class="layer">随访时间</label>
+                <asp:TextBox type="text" ID="follow_time" Style="width: 100%" placeholder=" 请输入时间" runat="server"></asp:TextBox>
+
+
+            </label>
+            <script src="../Js/dist/dependencies/jquery.min.js"></script>
+            <script src="../Js/dist/dependencies/moment.min.js"></script>
+            <script src="../Js/dist/dependencies/pikaday.min.js"></script>
+            <script src="../Js/dist/pikaday-responsive.js"></script>
+
+            <script>
+                var $date1 = $("#follow_time");
+                var instance1 = pikadayResponsive($date1);
+                $date1.on("change", function () {
+                    $("#output1").html($(this).val());
+                });
+
+                $("#clear").click(function () {
+                    instance3.setDate(null);
+                });
+
+                $("#today").click(function () {
+                    instance3.setDate(moment());
+                });
+
+            </script>
+            <asp:Panel ID="Controls_list" runat="server"></asp:Panel>
+            <div>
+                <asp:Button ID="SubmitBtn" type="submit" runat="server" Text="提交" OnClick="SubmitBtn_Click" />
+
+            </div>
     </form>
 </body>
 </html>

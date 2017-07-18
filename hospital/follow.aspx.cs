@@ -21,6 +21,7 @@ namespace hospital
         public static int d_id;
         public static int role_id;
         public static string p_id_list_str;
+        public static int table_id;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -49,6 +50,7 @@ namespace hospital
                 if (ds != null)
                 {
                     table_name = ds.Tables[0].Rows[0]["table_name"].ToString();
+                    table_id = int.Parse(ds.Tables[0].Rows[0]["ID"].ToString());
                     string json_str = ds.Tables[0].Rows[0]["json_filed"].ToString();
                     json_str = json_str.Replace("[", "").Replace("]", "").Replace("},{", "}*{");
                     string[] str_ = json_str.Split(new char[1] { '*' });
@@ -61,14 +63,15 @@ namespace hospital
                         {
                             if (model.control_type == "SingleLine" || model.control_type == "MutiLine")
                             {
-                                this.Controls_list.Controls.Add(new LiteralControl("<div class=\"form_ctrl input_text\">"));
+                                this.Controls_list.Controls.Add(new LiteralControl("<lable>"));
                                 Label lb = new Label();
                                 TextBox tb = new TextBox();
                                 lb.ID = "lb_" + model.ID;
                                 lb.Text = model.control_name;
-                                lb.Attributes.Add("class", "ctrl_title");
+                                lb.Attributes.Add("class", "layer");
                                 tb.ID = model.ID;
                                 tb.Attributes.Add("placeholder", "请输入" + model.control_name);
+                                tb.Attributes.Add("style", "width:100%");
                                 tb.Attributes.Add("type", "text");
                                 if (model.control_type == "MutiLine")
                                     tb.TextMode = TextBoxMode.MultiLine;
@@ -79,20 +82,21 @@ namespace hospital
 
                             else if (model.control_type == "DropDownList")
                             {
-                                this.Controls_list.Controls.Add(new LiteralControl("<div class=\"form_ctrl form_select\">"));
+                                this.Controls_list.Controls.Add(new LiteralControl("<lable>"));
                                 DropDownList dpd = new DropDownList();
                                 Label lb = new Label();
                                 lb.ID = "lb_" + model.ID;
                                 lb.Text = model.control_name;
-                                lb.Attributes.Add("class", "ctrl_title");
+                                lb.Attributes.Add("class", "layer");
                                 dpd.ID = model.ID;
+                                dpd.Attributes.Add("style", "width:100%");
                                 string[] dpd_item_list = model.control_value.Split(new char[1] { '|' });
                                 foreach (string item in dpd_item_list)
                                     dpd.Items.Add(item);
                                 this.Controls_list.Controls.Add(lb);
                                 this.Controls_list.Controls.Add(dpd);
                             }
-                            this.Controls_list.Controls.Add(new LiteralControl("<p class=\"help-block\"></p></div></div>"));
+                            this.Controls_list.Controls.Add(new LiteralControl("</lable>"));
                         }
                     }
 
@@ -223,13 +227,15 @@ namespace hospital
 
                 int result = follow.add_follow_record("Follow_" + table_name, columns, insert_values);
                 string push_result = "";
+                string transmission_str = "{\"action\":\"d_push_p\",\"parameter\":\"table_id,follow_id\",\"value\":\""+table_id+","+result+"\"}";
+                
                 if (RadioTarget.SelectedItem.Text == "单人")
                 {
-                    push_result = push_message.PushMessageToSingle("CuAQ3h9MP39OHtOx8bdzu3", "3TitJm47Og9xT7JeQYfj11","FzCOYUbsaN9dulGHd1my75",get_push_target(),"随访通知","您有一条新的随访通知","透穿内容");
+                    push_result = push_message.PushMessageToSingle(get_push_target(), "随访通知", "您有一条新的随访通知", transmission_str,2);
                 }
                 else if (RadioTarget.SelectedItem.Text == "组员")
                 {
-                    push_result = push_message.PushMessageToList("CuAQ3h9MP39OHtOx8bdzu3", "3TitJm47Og9xT7JeQYfj11", "FzCOYUbsaN9dulGHd1my75", get_push_target(), "随访通知", "您有一条新的随访通知", "透穿内容");
+                    push_result = push_message.PushMessageToList(get_push_target(), "随访通知", "您有一条新的随访通知", transmission_str,2);
                 }
                 bll_push push=new bll_push();
                 model_pushlog model=new model_pushlog();

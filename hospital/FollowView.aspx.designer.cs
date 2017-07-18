@@ -10,7 +10,7 @@
 namespace hospital {
     
     
-    public partial class follow {
+    public partial class FollowView {
         
         /// <summary>
         /// form1 control.
@@ -20,24 +20,6 @@ namespace hospital {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
-        /// RadioTarget control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList RadioTarget;
-        
-        /// <summary>
-        /// FollowTarget control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList FollowTarget;
         
         /// <summary>
         /// record_title control.
@@ -65,14 +47,5 @@ namespace hospital {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel Controls_list;
-        
-        /// <summary>
-        /// SubmitBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SubmitBtn;
     }
 }

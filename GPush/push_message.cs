@@ -14,9 +14,23 @@ namespace GPush
 {
     public class push_message
     {
-        public static string PushMessageToSingle(String APPID, String APPKEY, String MASTERSECRET, string ALIAS, string title, string text, string transmission_content)
+        public static string PushMessageToSingle( string ALIAS, string title, string text, string transmission_content,int role_id)
         {
-
+            String APPID="";
+            String APPKEY="";
+            String MASTERSECRET="";
+            if (role_id == 2)
+            {
+                APPID = "CuAQ3h9MP39OHtOx8bdzu3";
+                APPKEY = "3TitJm47Og9xT7JeQYfj11";
+                MASTERSECRET = "FzCOYUbsaN9dulGHd1my75"; 
+            }
+            else if (role_id == 3)
+            {
+                APPID = "770lAMYDP86TVg1RQMQwA4";
+                APPKEY = "hDME2xorANAF0miHddCkU3";
+                MASTERSECRET = "PXrTN6Nrb66Sq5IrrZRud3";  
+            }
             String pushResult = "";
             String HOST = "http://sdk.open.api.igexin.com/apiex.htm";
             IGtPush push = new IGtPush(HOST, APPKEY, MASTERSECRET);
@@ -52,8 +66,23 @@ namespace GPush
             }
             return pushResult;
         }
-        public static string PushMessageToList(String APPID, String APPKEY, String MASTERSECRET, string alias_list_str, string title, string text, string transmission_content)
+        public static string PushMessageToList(string alias_list_str, string title, string text, string transmission_content, int role_id)
         {
+            String APPID = "";
+            String APPKEY = "";
+            String MASTERSECRET = "";
+            if (role_id == 2)
+            {
+                APPID = "CuAQ3h9MP39OHtOx8bdzu3";
+                APPKEY = "3TitJm47Og9xT7JeQYfj11";
+                MASTERSECRET = "FzCOYUbsaN9dulGHd1my75";
+            }
+            else if (role_id == 3)
+            {
+                APPID = "770lAMYDP86TVg1RQMQwA4";
+                APPKEY = "hDME2xorANAF0miHddCkU3";
+                MASTERSECRET = "PXrTN6Nrb66Sq5IrrZRud3";
+            }
             String HOST = "http://sdk.open.api.igexin.com/apiex.htm";
             String pushResult = "";
 
@@ -108,7 +137,7 @@ namespace GPush
             //通知栏显示网络图标
             template.LogoURL = "";
             //应用启动类型，1：强制应用启动  2：等待应用启动
-            template.TransmissionType = "1";
+            template.TransmissionType = "2";
             //透传内容  
             template.TransmissionContent = transmission_content;
             //接收到消息是否响铃，true：响铃 false：不响铃   

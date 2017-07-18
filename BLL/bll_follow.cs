@@ -75,12 +75,14 @@ namespace BLL
             SqlParameter[] paramter ={
                                         new SqlParameter("@table",SqlDbType.VarChar,50),
                                         new SqlParameter("@columns",SqlDbType.VarChar,200),
-                                        new SqlParameter("@values",SqlDbType.VarChar,1000)
+                                        new SqlParameter("@values",SqlDbType.VarChar,1000),
+                                        new SqlParameter("@Lastid",SqlDbType.Int,4)
                                     };
             paramter[0].Value = follow_table;
             paramter[1].Value = columns_list + "d_id,p_id";
             paramter[2].Value = values;
-            return sqlcon.excuteCommand_return_int("gengral_insert", CommandType.StoredProcedure, paramter); 
+            paramter[3].Direction = ParameterDirection.Output;
+            return sqlcon.follow_excuteCommand_return_int("add_follow", CommandType.StoredProcedure, paramter); 
         }
         public int update_follow_record(string follow_table, string columns_list, string condition)
         {

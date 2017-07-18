@@ -28,7 +28,7 @@ namespace hospital {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label record_title;
+        protected global::System.Web.UI.WebControls.TextBox record_title;
         
         /// <summary>
         /// follow_time control.
@@ -37,7 +37,7 @@ namespace hospital {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label follow_time;
+        protected global::System.Web.UI.WebControls.TextBox follow_time;
         
         /// <summary>
         /// Controls_list control.

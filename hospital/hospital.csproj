@@ -71,9 +71,11 @@
     <Content Include="Css\index.css" />
     <Content Include="Css\PageIndex.css" />
     <Content Include="Css\follow.css" />
+    <Content Include="Css\style.css" />
     <Content Include="Css\table.css" />
     <Content Include="follow.aspx" />
     <Content Include="followp.aspx" />
+    <Content Include="FollowView.aspx" />
     <Content Include="Follow\AddCycle.aspx" />
     <Content Include="Follow\AddDisease.aspx" />
     <Content Include="Follow\AddFollow.aspx" />
@@ -85,6 +87,7 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Images\add.png" />
     <Content Include="Images\base.png" />
+    <Content Include="Images\ee.jpg" />
     <Content Include="Images\minus.png" />
     <Content Include="Images\sctx.png" />
     <Content Include="Images\ubox-select.gif" />
@@ -136,7 +139,6 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="pushtest.aspx" />
     <Content Include="WebService.asmx" />
     <Content Include="welcom.aspx" />
   </ItemGroup>
@@ -175,6 +177,13 @@
     </Compile>
     <Compile Include="followp.aspx.designer.cs">
       <DependentUpon>followp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FollowView.aspx.cs">
+      <DependentUpon>FollowView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FollowView.aspx.designer.cs">
+      <DependentUpon>FollowView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Follow\AddCycle.aspx.cs">
       <DependentUpon>AddCycle.aspx</DependentUpon>
@@ -281,13 +290,6 @@
     </Compile>
     <Compile Include="Users\UserList.aspx.designer.cs">
       <DependentUpon>UserList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="pushtest.aspx.cs">
-      <DependentUpon>pushtest.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pushtest.aspx.designer.cs">
-      <DependentUpon>pushtest.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebService.asmx.cs">
       <DependentUpon>WebService.asmx</DependentUpon>

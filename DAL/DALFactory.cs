@@ -69,6 +69,47 @@ namespace DAL
             }
         }
 
+        public int follow_excuteCommand_return_int(string CommandText, CommandType type, SqlParameter[] pars)
+        {
+
+            SqlConnection conn = new SqlConnection(ConnStr);
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+            try
+            {
+
+                SqlCommand cmd = new SqlCommand(CommandText, conn);
+                cmd.CommandType = type;
+                if (pars != null && pars.Length > 0)
+                {
+                    foreach (SqlParameter p in pars)
+                    {
+                        cmd.Parameters.Add(p);
+
+
+                    }
+                }
+
+                cmd.ExecuteNonQuery();
+                int Lastid = Convert.ToInt32(cmd.Parameters["@Lastid"].Value);
+                return Lastid;
+
+            }
+            catch (Exception ex)
+            {
+
+                return 0;
+
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+
+        }
         public object selectSql_return_object(string command_text, CommandType type, SqlParameter[] sp)
         {
             SqlConnection con = new SqlConnection(ConnStr);
