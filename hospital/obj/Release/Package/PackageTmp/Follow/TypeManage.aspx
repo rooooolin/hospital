@@ -54,7 +54,7 @@
                      <td width="30%"><asp:Label ID="disease_name" runat="server" Text='<%#Eval("disease_name") %>'></asp:Label></td>
                     <td width="50%"><asp:Label ID="cycle_name" runat="server" Text='<%#Eval("cycle_name") %>'></asp:Label></td>
                    
-                    <td width="10%"><a href="AddCycle.aspx?disease_id=<%# Eval("DiseaseID") %>" target="_blank">添加周期</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <td width="10%"><a href="AddCycle.aspx?disease_id=<%# Eval("DiseaseID") %>">添加周期</a>&nbsp;&nbsp;&nbsp;&nbsp;
                        </td>
                 </tr>
                

@@ -111,7 +111,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/16/2017 09:49:03</publishTime>
     </File>
     <File Include="Follow/TypeManage.aspx">
-      <publishTime>07/05/2017 17:27:47</publishTime>
+      <publishTime>07/21/2017 13:08:25</publishTime>
     </File>
     <File Include="followp.aspx">
       <publishTime>07/19/2017 19:15:22</publishTime>
