@@ -38,7 +38,7 @@ namespace hospital.Case
         protected void UploadFileBtn_Click(object sender, EventArgs e)
         {
             UploadFile uploadFileObj = new UploadFile();
-            uploadFileObj.MaxFileSize = 10240;
+            uploadFileObj.MaxFileSize = 10485760;
             uploadFileObj.FileType = "jpg|png|pdf";
 
             string uploadPath = Server.MapPath("~/UploadFiles/Case/");
@@ -60,15 +60,23 @@ namespace hospital.Case
 
         protected void AddBtn_Click(object sender, EventArgs e)
         {
-            bll_case bcase =new bll_case();
-            int result=bcase.AddCase(case_title.Text,case_brief.Text,Paid, DocID, file_name);
-            if (result != 0)
+            if (file_name == "")
             {
-                Response.Write("<script>alert('添加成功')</script>");
+                Response.Write("<script>alert('请先上传文件')</script>");
             }
             else
             {
-                Response.Write("<script>alert('添加失败')</script>");
+
+                bll_case bcase =new bll_case();
+                int result=bcase.AddCase(case_title.Text,case_brief.Text,Paid, DocID, file_name);
+                if (result != 0)
+                {
+                    Response.Write("<script>alert('添加成功')</script>");
+                }
+                else
+                {
+                    Response.Write("<script>alert('添加失败')</script>");
+                }
             }
         }
     }

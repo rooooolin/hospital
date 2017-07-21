@@ -40,6 +40,7 @@ namespace hospital.Users
                     Label lb = (Label)DoctorRepeter.Items[i].FindControl("ID");
 
                     sqlcmd.CommonDeleteColumns("DoctorInfo", " where ID= " + lb.Text);
+                    sqlcmd.CommonDeleteColumns("DPMap", " WHERE d_id =" + lb.Text);
                 }
             }
             doctor_list();

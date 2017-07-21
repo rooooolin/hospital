@@ -12,10 +12,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/BLL.dll">
-      <publishTime>07/20/2017 12:12:01</publishTime>
+      <publishTime>07/21/2017 11:30:56</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>07/20/2017 12:12:00</publishTime>
+      <publishTime>07/21/2017 11:30:56</publishTime>
     </File>
     <File Include="bin/GetuiServerApiSDK.dll">
       <publishTime>07/15/2017 11:10:29</publishTime>
@@ -27,7 +27,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/18/2017 13:49:44</publishTime>
     </File>
     <File Include="bin/hospital.dll">
-      <publishTime>07/20/2017 12:12:02</publishTime>
+      <publishTime>07/21/2017 11:30:57</publishTime>
     </File>
     <File Include="bin/log4net.dll">
       <publishTime>07/15/2017 11:10:29</publishTime>
@@ -42,7 +42,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/31/2017 15:53:42</publishTime>
     </File>
     <File Include="Case/CaseManage.aspx">
-      <publishTime>06/01/2017 10:26:26</publishTime>
+      <publishTime>07/21/2017 11:03:28</publishTime>
     </File>
     <File Include="Case/ModifyCase.aspx">
       <publishTime>05/31/2017 15:54:20</publishTime>
@@ -56,8 +56,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Css/bootstrap.css">
       <publishTime>05/03/2017 12:48:00</publishTime>
     </File>
+    <File Include="Css/bootstrap.min.css">
+      <publishTime>07/21/2017 10:30:54</publishTime>
+    </File>
     <File Include="Css/follow.css">
       <publishTime>06/15/2017 14:56:53</publishTime>
+    </File>
+    <File Include="Css/font-awesome.min.css">
+      <publishTime>07/21/2017 10:30:54</publishTime>
     </File>
     <File Include="Css/form.min.css">
       <publishTime>06/16/2017 15:48:49</publishTime>
@@ -65,17 +71,23 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Css/index.css">
       <publishTime>05/03/2017 12:48:00</publishTime>
     </File>
+    <File Include="Css/jquery.circliful.css">
+      <publishTime>07/21/2017 10:30:54</publishTime>
+    </File>
     <File Include="Css/PageIndex.css">
       <publishTime>05/03/2017 12:48:00</publishTime>
     </File>
     <File Include="Css/style.css">
-      <publishTime>07/19/2017 21:48:24</publishTime>
+      <publishTime>07/21/2017 09:35:55</publishTime>
+    </File>
+    <File Include="Css/stylewelcome.css">
+      <publishTime>07/21/2017 10:30:54</publishTime>
     </File>
     <File Include="Css/table.css">
       <publishTime>05/03/2017 12:48:00</publishTime>
     </File>
     <File Include="follow.aspx">
-      <publishTime>07/18/2017 13:20:24</publishTime>
+      <publishTime>07/21/2017 09:34:47</publishTime>
     </File>
     <File Include="Follow/AddCycle.aspx">
       <publishTime>07/05/2017 17:09:46</publishTime>
@@ -90,10 +102,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/15/2017 22:06:49</publishTime>
     </File>
     <File Include="Follow/FollowManage.aspx">
-      <publishTime>07/20/2017 12:11:52</publishTime>
+      <publishTime>07/21/2017 09:36:23</publishTime>
     </File>
     <File Include="Follow/FollowRecordManage.aspx">
-      <publishTime>07/19/2017 11:02:49</publishTime>
+      <publishTime>07/21/2017 10:50:33</publishTime>
     </File>
     <File Include="Follow/TextJump.aspx">
       <publishTime>06/16/2017 09:49:03</publishTime>
@@ -131,11 +143,26 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Images/ee.jpg">
       <publishTime>07/18/2017 13:49:18</publishTime>
     </File>
+    <File Include="Images/ico.png">
+      <publishTime>07/21/2017 11:26:29</publishTime>
+    </File>
     <File Include="Images/minus.png">
       <publishTime>06/16/2017 10:39:10</publishTime>
     </File>
     <File Include="Images/sctx.png">
       <publishTime>06/16/2017 10:39:10</publishTime>
+    </File>
+    <File Include="Images/stats1.png">
+      <publishTime>07/21/2017 11:26:29</publishTime>
+    </File>
+    <File Include="Images/stats2.png">
+      <publishTime>07/21/2017 11:26:29</publishTime>
+    </File>
+    <File Include="Images/stats3.png">
+      <publishTime>07/21/2017 11:26:29</publishTime>
+    </File>
+    <File Include="Images/stats4.png">
+      <publishTime>07/21/2017 11:26:29</publishTime>
     </File>
     <File Include="Images/ubox-select.gif">
       <publishTime>06/15/2017 14:50:08</publishTime>
@@ -145,6 +172,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="index.aspx">
       <publishTime>07/07/2017 13:45:03</publishTime>
+    </File>
+    <File Include="Js/admin.js">
+      <publishTime>07/21/2017 10:33:32</publishTime>
+    </File>
+    <File Include="Js/bootstrap.min.js">
+      <publishTime>07/21/2017 10:33:32</publishTime>
     </File>
     <File Include="Js/common.js">
       <publishTime>05/03/2017 12:48:00</publishTime>
@@ -170,11 +203,23 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Js/function.js">
       <publishTime>05/03/2017 12:48:00</publishTime>
     </File>
+    <File Include="Js/highcharts.js">
+      <publishTime>07/21/2017 10:33:32</publishTime>
+    </File>
+    <File Include="Js/jquery-1.10.2.min.js">
+      <publishTime>07/21/2017 10:32:05</publishTime>
+    </File>
     <File Include="Js/jquery-1.6.4.min.js">
       <publishTime>05/03/2017 12:48:00</publishTime>
     </File>
+    <File Include="Js/jquery-1.9.1.min.js">
+      <publishTime>07/21/2017 10:33:32</publishTime>
+    </File>
     <File Include="Js/jquery-2.1.4.min.js">
       <publishTime>06/15/2017 21:34:10</publishTime>
+    </File>
+    <File Include="Js/jquery.circliful.min.js">
+      <publishTime>07/21/2017 10:32:05</publishTime>
     </File>
     <File Include="Js/jquery.js">
       <publishTime>05/03/2017 12:48:00</publishTime>
@@ -267,19 +312,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/31/2017 15:50:27</publishTime>
     </File>
     <File Include="Users/DoctorList.aspx">
-      <publishTime>07/19/2017 11:29:40</publishTime>
+      <publishTime>07/21/2017 10:26:24</publishTime>
     </File>
     <File Include="Users/ModifyInfo.aspx">
       <publishTime>05/31/2017 14:38:04</publishTime>
     </File>
     <File Include="Users/UserList.aspx">
-      <publishTime>06/10/2017 21:46:26</publishTime>
+      <publishTime>07/21/2017 10:27:12</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/20/2017 12:12:02</publishTime>
+      <publishTime>07/21/2017 10:14:07</publishTime>
     </File>
     <File Include="Web.sitemap">
-      <publishTime>06/27/2017 17:09:36</publishTime>
+      <publishTime>07/21/2017 10:25:35</publishTime>
     </File>
     <File Include="WebForm1.aspx">
       <publishTime>07/16/2017 19:31:44</publishTime>
@@ -288,7 +333,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/12/2017 16:36:45</publishTime>
     </File>
     <File Include="welcom.aspx">
-      <publishTime>05/03/2017 12:48:00</publishTime>
+      <publishTime>07/21/2017 11:30:17</publishTime>
     </File>
   </ItemGroup>
 </Project>

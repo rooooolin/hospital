@@ -97,7 +97,15 @@ namespace BLL
             DataTable dt = db.excuteSelect_return_dataTable(sql, CommandType.Text, pars);
             return dt;
         }
-
+        public DataTable getCommonCountDayData(string table, string columns, string condition)
+        {
+            SqlParameter[] pars = new SqlParameter[]{
+             new SqlParameter("@table",table),
+             new SqlParameter("@columns",columns), 
+             new SqlParameter("@condition",condition)
+          };
+            return db.excuteSelect_return_dataTable("getCommonCountDayData", CommandType.StoredProcedure, pars);
+        }
        
 
         public int CommonUpdate(string table, string columns, string condition)

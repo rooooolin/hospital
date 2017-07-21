@@ -42,7 +42,7 @@ namespace hospital.Case
                     Label lb = (Label)UserRepeter.Items[i].FindControl("ID");
 
                     sqlcmd.CommonDeleteColumns("PatientInfo", " where ID= " + lb.Text);
-
+                    sqlcmd.CommonDeleteColumns("DPMap", " WHERE p_id =" + lb.Text);
 
                 }
             }

@@ -311,6 +311,17 @@ namespace hospital
             }
             
         }
+        [WebMethod(Description = "删除医患关系。输入为医生ID和患者ID。成功删除返回1,否则返回0")]
+        public string delete_dp_map(int d_id, int p_id)
+        {
+            int result=0;
+            if (d_id != 0 && p_id != 0)
+            {
+                bll_dpmap dpmap = new bll_dpmap();
+                result = dpmap.delete_map(d_id, p_id);
+            }
+            return result != 0 ? "1" : "0";
+        }
         [WebMethod(Description = "通过医生ID获取该医生下所有患者信息")]
         public string get_dpatient_list(int d_id)
         {

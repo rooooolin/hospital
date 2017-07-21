@@ -3,5 +3,26 @@
   
     <siteMapNode url="" title=""  description="">
         <siteMapNode url="index.aspx" title="后台首页"  description="" />
+        <siteMapNode url="" title=""  description="病例管理">
+          <siteMapNode url="Case/AddCase.aspx" title="添加病例"  description="" />
+          <siteMapNode url="Case/CaseManage.aspx" title="病例列表"  description="" />
+          <siteMapNode url="Case/ModifyCase.aspx" title="修改病例"  description="" />
+        </siteMapNode>
+        <siteMapNode url="" title=""  description="随访管理">
+          <siteMapNode url="Follow/AddCycle.aspx" title="添加周期"  description="" />
+          <siteMapNode url="Follow/AddDisease.aspx" title="添加疾病"  description="" />
+          <siteMapNode url="Follow/AddFollow.aspx" title="添加随访样式表"  description="" />
+          <siteMapNode url="Follow/CheckFollowRecord.aspx" title="查看随访记录"  description="" />
+          <siteMapNode url="Follow/FollowManage.aspx" title="随访样式表管理"  description="" />
+          <siteMapNode url="Follow/FollowRecordManage.aspx" title="随访记录表管理"  description="" />
+          <siteMapNode url="Follow/TypeManage.aspx" title="表分类管理"  description="" />
+        </siteMapNode>
+        <siteMapNode url="" title=""  description="用户管理">
+          <siteMapNode url="Users/adminList.aspx" title="管理员列表"  description="" />
+          <siteMapNode url="Users/DoctorList.aspx" title="医生列表"  description="" />
+          <siteMapNode url="Users/ModifyInfo.aspx" title="修改信息"  description="" />
+          <siteMapNode url="Users/UserList.aspx" title="用户列表"  description="" />
+        </siteMapNode>
     </siteMapNode>
+  
 </siteMap>

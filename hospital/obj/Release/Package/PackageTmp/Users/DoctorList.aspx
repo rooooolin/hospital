@@ -73,7 +73,7 @@
                     <td width="10%"><asp:Label ID="doctor_unit" runat="server" Text='<%#Eval("doctor_unit") %>'></asp:Label></td>
                     <td width="5%"><asp:Label ID="doctor_depart_id" runat="server" Text='<%#Eval("doctor_depart_id") %>'></asp:Label></td>
                     <td width="5%"><asp:Label ID="doctor_state" runat="server" Text='<%# Int32.Parse(Eval("doctor_state").ToString())==1?"使用中":"X 已禁用" %>'></asp:Label></td>
-                    <td width="10%"><a href="ModifyInfo.aspx?id=<%#Eval("ID") %>">编辑</a>&nbsp;&nbsp;<asp:LinkButton Class="spebtn"  CommandName='<%#Eval("doctor_state") %>' CommandArgument='<%#Eval("ID")%>' ID="StateBtn" oncommand="StateBtn_Command" runat="server" Text='<%# Int32.Parse(Eval("doctor_state").ToString())==1?"禁用":"启用" %>'></asp:LinkButton></td>
+                    <td width="10%">&nbsp;&nbsp;<asp:LinkButton Class="spebtn"  CommandName='<%#Eval("doctor_state") %>' CommandArgument='<%#Eval("ID")%>' ID="StateBtn" oncommand="StateBtn_Command" runat="server" Text='<%# Int32.Parse(Eval("doctor_state").ToString())==1?"禁用":"启用" %>'></asp:LinkButton></td>
                 </tr>
                
 
