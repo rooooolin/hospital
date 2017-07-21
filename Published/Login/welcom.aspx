@@ -1,16 +1,16 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="welcom.aspx.cs" Inherits="hospital.welcom" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="welcom.aspx.cs" Inherits="hospital.Login.welcom" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link href="Css/bootstrap.min.css" rel="stylesheet" media="screen" />
-	<link href="Css/font-awesome.min.css" rel="stylesheet" media="screen" />
-	<link href="Css/stylewelcome.css" rel="stylesheet" type="text/css" />
-    <link href="Css/jquery.circliful.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="Js/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="Js/jquery.circliful.min.js"></script>
+    <link href="../Css/bootstrap.min.css" rel="stylesheet" media="screen" />
+	<link href="../Css/font-awesome.min.css" rel="stylesheet" media="screen" />
+	<link href="../Css/stylewelcome.css" rel="stylesheet" type="text/css" />
+    <link href="../Css/jquery.circliful.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../Js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="../Js/jquery.circliful.min.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -25,7 +25,7 @@
 							<p>医生总数</p>
 							<p class="stats-num"><a href="#"><asp:Label ID="DoctorCount" runat="server" Text="Label"></asp:Label></a></p>
 						</div>
-						<a href="Users/DoctorList.aspx" target="menuFrame" class="more clear"><span class="left">More</span> <i class="right fa fa-angle-right"></i></a>
+						<a href="../Users/DoctorList.aspx" target="menuFrame" class="more clear"><span class="left">More</span> <i class="right fa fa-angle-right"></i></a>
 					</div>
 				</div>
 				<div class="col-sm-3 ">
@@ -35,7 +35,7 @@
 							<p>用户总数</p>
 							<p class="stats-num"><a href="#"><asp:Label ID="UserCount" runat="server" Text="Label"></asp:Label></a></p>
 						</div>
-						<a href="Users/UserList.aspx" target="menuFrame" class="more clear"><span class="left">More</span> <i class="right fa fa-angle-right"></i></a>
+						<a href="../Users/UserList.aspx" target="menuFrame" class="more clear"><span class="left">More</span> <i class="right fa fa-angle-right"></i></a>
 					</div>
 				</div>
 				<div class="col-sm-3 ">
@@ -45,17 +45,17 @@
 							<p>随访样式表</p>
 							<p class="stats-num"><a href="#"><asp:Label ID="FollowTableCount" runat="server" Text="Label"></asp:Label></a></p>
 						</div>
-						<a href="Follow/FollowManage.aspx" target="menuFrame" class="more clear"><span class="left">More</span> <i class="right fa fa-angle-right"></i></a>
+						<a href="../Follow/FollowManage.aspx" target="menuFrame" class="more clear"><span class="left">More</span> <i class="right fa fa-angle-right"></i></a>
 					</div>
 				</div>
 				<div class="col-sm-3 ">
 					<div class="stats-panel stats-purple clear">
 						<div class="left"><img src="images/stats4.png" height="104" width="83" alt=""></div>
 						<div class="auto stats-txt">
-							<p>随访记录表</p>
-							<p class="stats-num"><a href="#"><asp:Label ID="FollowCount" runat="server" Text="Label"></asp:Label></a></p>
+							<p>病例数量</p>
+							<p class="stats-num"><a href="#"><asp:Label ID="CaseCount" runat="server" Text="Label"></asp:Label></a></p>
 						</div>
-						<a href="Follow/FollowRecordManage.aspx"  target="menuFrame" class="more clear"><span class="left">More</span> <i class="right fa fa-angle-right"></i></a>
+						<a href="../Case/CaseManage.aspx"  target="menuFrame" class="more clear"><span class="left">More</span> <i class="right fa fa-angle-right"></i></a>
 					</div>
 				</div>
 			</div>
@@ -147,7 +147,7 @@
 												<td><%#Eval("user_name") %></td>
 												<td><%#Eval("user_patient_number") %></td>
 												<td><asp:Label ID="user_state" runat="server" Text='<%# Int32.Parse(Eval("user_state").ToString())==1?"使用中":"X 已禁用" %>'></asp:Label></td>
-												<td><a href="../Case/AddCase.aspx?id=<%#Eval("ID") %>">添加病例</a>&nbsp;&nbsp;<a href="ModifyInfo.aspx?id=<%#Eval("ID") %>">编辑</a>&nbsp;&nbsp;</td>
+												<td><a href="../Case/AddCase.aspx?id=<%#Eval("ID") %>">添加病例</a>&nbsp;&nbsp;</td>
 											</tr>
                                                                     </ItemTemplate></asp:Repeater>
 											
@@ -173,7 +173,7 @@
 												<td><%#Eval("follow_name") %></td>
 												<td><%#Eval("table_name") %></td>
                                                 <td><asp:Label ID="json_filed" runat="server" Text='<%#get_filed((string)Eval("json_filed")) %>'></asp:Label></td>
-												<td><a href="TextJump.aspx?id=<%#Eval("ID") %>&follow_name=<%# get_encode((string)Eval("follow_name")) %>&role_id=2" target="_blank">添加随访记录</a></td>
+												<td><a href="../Follow/TextJump.aspx?id=<%#Eval("ID") %>&follow_name=<%# get_encode((string)Eval("follow_name")) %>&role_id=2" target="_blank">添加随访记录</a></td>
 											</tr>
                     </ItemTemplate></asp:Repeater>
 											
@@ -246,10 +246,10 @@
 
 
 
-        <script src="Js/jquery-1.9.1.min.js"></script> 
-	<script src="Js/bootstrap.min.js"></script> 
-	<script src="Js/highcharts.js"></script> 
-	<script src="Js/admin.js"></script>
+        <script src="../Js/jquery-1.9.1.min.js"></script> 
+	<script src="../Js/bootstrap.min.js"></script> 
+	<script src="../Js/highcharts.js"></script> 
+	<script src="../Js/admin.js"></script>
 	<script type="text/javascript">
 	    $(function () {
 	        $('#chart-container').highcharts({

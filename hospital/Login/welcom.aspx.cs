@@ -9,7 +9,7 @@ using DAL;
 using BLL;
 using Model;
 
-namespace hospital
+namespace hospital.Login
 {
     public partial class welcom : System.Web.UI.Page
     {
@@ -58,6 +58,7 @@ namespace hospital
         {
             DataTable dt = new DataTable();
             dt = sqlcmd.TriJoinPageIndexdt("Pcase", "PatientInfo", "DoctorInfo", "m.ID,m.p_id,a.user_name,a.user_patient_number,m.d_id,b.doctor_name,m.case_path", "a.ID = m.p_id", "b.ID=m.d_id order by m.ID desc");
+            CaseCount.Text = dt.Rows.Count.ToString();
             CaseRepeter.DataSource = dt.DefaultView;
             CaseRepeter.DataBind();
         }
@@ -85,11 +86,36 @@ namespace hospital
 
         private void getFollowCount()
         {
-            DataTable dt = sqlcmd.getCommonCountDayData("Follow_tnsec", colums, "1=1");
+            string tables_str = "";
+            bll_follow follow = new bll_follow();
+            DataSet ds_tables = follow.get_tables();
+            if (ds_tables.Tables[0].Rows.Count > 0)
+            {
+
+                for (int i = 0; i < ds_tables.Tables[0].Rows.Count; i++)
+                {
+                    tables_str += ds_tables.Tables[0].Rows[i]["Name"].ToString() + ",";
+                }
+            }
+            tables_str = tables_str.TrimEnd(',');
+            string[] tables = tables_str.Split(new char[1] { ',' });
+            DataTable dt = new DataTable();
+            foreach (string table in tables)
+            {
+                int index = table.IndexOf("Follow_");
+                if (index > -1)
+                {
+                    DataTable dt_temp = new DataTable();
+                    dt_temp = sqlcmd.getCommonCountDayData(table, colums, "1=1");
+                    dt.Merge(dt_temp);
+                }
+            }
+
             if (dt.Rows.Count > 0)
             {
 
                 RowsCount = dt.Rows.Count;
+                
                 if (RowsCount > 15)
                     RowsCount = 15;
                 for (int i = RowsCount - 1; i >= 0; i--)

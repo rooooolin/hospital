@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace hospital {
+namespace hospital.Login {
     
     
     public partial class index {

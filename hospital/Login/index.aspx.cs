@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace hospital
+namespace hospital.Login
 {
     public partial class index : System.Web.UI.Page
     {
@@ -18,13 +18,13 @@ namespace hospital
             }
             else
             {
-                Response.Redirect("Login/login.aspx");
+                Response.Redirect("login.aspx");
             }
         }
         protected void LoginOut_Click(object sender, EventArgs e)
         {
             System.Web.Security.FormsAuthentication.SignOut();
-            Response.Redirect("Login/login.aspx");
+            Response.Redirect("login.aspx");
         }
     }
 }

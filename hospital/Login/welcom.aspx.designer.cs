@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace hospital {
+namespace hospital.Login {
     
     
     public partial class welcom {
@@ -49,13 +49,13 @@ namespace hospital {
         protected global::System.Web.UI.WebControls.Label FollowTableCount;
         
         /// <summary>
-        /// FollowCount control.
+        /// CaseCount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label FollowCount;
+        protected global::System.Web.UI.WebControls.Label CaseCount;
         
         /// <summary>
         /// DoctorRepeter control.

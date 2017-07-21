@@ -61,7 +61,7 @@ namespace hospital.Login
                 {
                     FormsAuthentication.RedirectFromLoginPage(model.admin_name, false);
 
-                    Response.Redirect("../index.aspx");
+                    Response.Redirect("index.aspx");
                 }
                 else
                 {

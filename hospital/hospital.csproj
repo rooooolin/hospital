@@ -101,7 +101,7 @@
     <Content Include="Images\stats4.png" />
     <Content Include="Images\ubox-select.gif" />
     <Content Include="Images\voice.png" />
-    <Content Include="index.aspx" />
+    <Content Include="Login\index.aspx" />
     <Content Include="Js\admin.js" />
     <Content Include="Js\bootstrap.min.js" />
     <Content Include="Js\common.js" />
@@ -147,7 +147,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="WebService.asmx" />
-    <Content Include="welcom.aspx" />
+    <Content Include="Login\welcom.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Case\CaseManage.aspx.cs">
@@ -248,11 +248,11 @@
     <Compile Include="Follow\TypeManage.aspx.designer.cs">
       <DependentUpon>TypeManage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="index.aspx.cs">
+    <Compile Include="Login\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="index.aspx.designer.cs">
+    <Compile Include="Login\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login\login.aspx.cs">
@@ -302,11 +302,11 @@
       <DependentUpon>WebService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="welcom.aspx.cs">
+    <Compile Include="Login\welcom.aspx.cs">
       <DependentUpon>welcom.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="welcom.aspx.designer.cs">
+    <Compile Include="Login\welcom.aspx.designer.cs">
       <DependentUpon>welcom.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
