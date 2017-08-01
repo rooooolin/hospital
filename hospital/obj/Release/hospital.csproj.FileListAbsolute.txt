@@ -15,3 +15,6 @@ D:\Documents\GitHub\hospital\hospital\bin\GetuiServerApiSDK.dll
 D:\Documents\GitHub\hospital\hospital\bin\Google.ProtocolBuffers.dll
 D:\Documents\GitHub\hospital\hospital\bin\log4net.dll
 D:\Documents\GitHub\hospital\hospital\bin\GPush.pdb
+D:\Documents\GitHub\hospital\hospital\bin\FluentScheduler.dll
+D:\Documents\GitHub\hospital\hospital\bin\FluentScheduler.pdb
+D:\Documents\GitHub\hospital\hospital\bin\FluentScheduler.xml

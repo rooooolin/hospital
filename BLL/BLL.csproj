@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="O2S.Components.PDFRender4NET">
+      <HintPath>..\hospital\bin\O2S.Components.PDFRender4NET.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -56,6 +59,7 @@
     <Compile Include="bll_patient.cs" />
     <Compile Include="bll_search.cs" />
     <Compile Include="PageIndex.cs" />
+    <Compile Include="PDFTranImgHelp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UploadFile.cs" />
     <Compile Include="ValidatedCode.cs" />

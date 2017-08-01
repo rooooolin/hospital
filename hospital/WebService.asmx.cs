@@ -19,6 +19,7 @@ using System.Xml;
 using System.Reflection;
 using System.Web.Mvc;
 using DAL;
+using System.Web;
 namespace hospital
 {
     /// <summary>
@@ -35,7 +36,7 @@ namespace hospital
 
 
         [WebMethod(Description = "输入患者(或医生)手机号,密码,以及用户角色ID(患者=3,医生=2)。登录成功返回患者(或医生)ID,登录失败返回0。")]
-        public string login(string u_phone, string u_passwd, string client_id, int u_roleId)
+        public string login(string u_phone, string u_passwd, int u_roleId)
         {
             string u_pwd = FormsAuthentication.HashPasswordForStoringInConfigFile(FormsAuthentication.HashPasswordForStoringInConfigFile(u_passwd, "MD5"), "MD5");
             bll_patient user = new bll_patient();
@@ -138,6 +139,7 @@ namespace hospital
             return_str += "]";
             return return_str;
         }
+
         [WebMethod(Description = "患者表搜索。输入需要搜索的字段,以及搜索内容。搜索成功返回相关字符串，失败返回0")]
         public string patient_search(string filed, string content)
         {
@@ -272,6 +274,16 @@ namespace hospital
             }
             return_str += "]";
             return return_str;
+        }
+        [WebMethod(Description = "将PDF文档转换为图片。输入值为原pdf路径,生成图片的文件夹名称，图片名称，需要转化的pdf起始页以及结束页。返回成功转换后的图片目录")]
+        public string get_images(string pdf_path,string images_flod_name,string image_name, int start_page, int end_page)
+        {
+            PDFTranImgHelp pdf2img = new PDFTranImgHelp();
+            //pdf2img.convert_pdf_to_image("D:\\Documents\\GitHub\\hospital\\hospital\\"+pdf_path, "D:\\Documents\\GitHub\\hospital\\hospital\\UploadFiles\\Case\\PDFtoImages\\" + images_flod_name + "\\", image_name, start_page, end_page);
+            //return "D:\\Documents\\GitHub\\hospital\\hospital\\UploadFiles\\Case\\PDFtoImages\\" + images_flod_name + "\\"; 
+            pdf2img.convert_pdf_to_image("C:\\inetpub\\wwwroot\\hospital\\Published\\" + pdf_path, "C:\\inetpub\\wwwroot\\hospital\\Published\\UploadFiles\\Case\\PDFtoImages\\" + images_flod_name + "\\", image_name, start_page, end_page);
+            return "http://" + HttpContext.Current.Request.Url.Host + "UploadFiles//Case//PDFtoImages//" + images_flod_name + "//"; 
+            
         }
         [WebMethod(Description = "通过患者ID获取患者所有信息")]
         public string get_patientinfo(int u_id)

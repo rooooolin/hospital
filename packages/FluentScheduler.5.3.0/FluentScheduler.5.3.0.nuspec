@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>FluentScheduler</id>
+    <version>5.3.0</version>
+    <title>FluentScheduler</title>
+    <authors>Jim Geurts &lt;jim@biacreations.com&gt;,Talles L &lt;talleslasmar@gmail.com&gt; &amp; further contributors</authors>
+    <owners>Jim Geurts &lt;jim@biacreations.com&gt;,Talles L &lt;talleslasmar@gmail.com&gt; &amp; further contributors</owners>
+    <licenseUrl>https://opensource.org/licenses/BSD-3-Clause</licenseUrl>
+    <projectUrl>https://github.com/fluentscheduler/FluentScheduler</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/fluentscheduler/FluentScheduler/master/Assets/logo-200x200.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Automated job scheduler with fluent interface.</description>
+    <summary />
+    <releaseNotes />
+    <language />
+    <tags>background cron job schedule task</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.0" />
+      <group targetFramework="Unsupported0.0" />
+    </dependencies>
+  </metadata>
+</package>

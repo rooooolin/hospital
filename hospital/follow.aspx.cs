@@ -12,6 +12,7 @@ using BLL;
 using Model;
 using System.Web.UI.HtmlControls;
 using GPush;
+using hospital.common;
 
 namespace hospital
 {
@@ -226,29 +227,25 @@ namespace hospital
                 bll_follow follow = new bll_follow();
 
                 int result = follow.add_follow_record("Follow_" + table_name, columns, insert_values);
-                string push_result = "";
-                string transmission_str = "{\"action\":\"d_push_p\",\"parameter\":\"table_id,follow_id\",\"value\":\""+table_id+","+result+"\"}";
+               
+                string transmission_str = "{\"action\":\"d_push_p\",\"parameter\":\"table_id,follow_id\",\"value\":\"" + table_id + "," + result + "\"}|{\"action\":\"expire\",\"parameter\":\"table_id,follow_id\",\"value\":\"" + table_id + "," + result + "\"}";
                 
                 if (RadioTarget.SelectedItem.Text == "单人")
                 {
-                    push_result = push_message.PushMessageToSingle(get_push_target(), "随访通知", "您有一条新的随访通知", transmission_str,2);
+                    fs_timer fs=new fs_timer();
+
+                    fs.add_follow_task(get_push_target(), "随访通知", "来自医生的随访表填写请求|您有一条随访计划即将执行", transmission_str, 2, follow_time.Text.Split()[0], 1, d_id + "_" + table_id + "_" + result, d_id, p_id_list_str);
                 }
                 else if (RadioTarget.SelectedItem.Text == "组员")
                 {
-                    push_result = push_message.PushMessageToList(get_push_target(), "随访通知", "您有一条新的随访通知", transmission_str,2);
+                    fs_timer fs = new fs_timer();
+                    fs.add_follow_task(get_push_target(), "随访通知", "来自医生的随访表填写请求|您有一条随访计划即将执行", transmission_str, 2, follow_time.Text.Split()[0], 2, d_id + "_" + table_id + "_" + result, d_id, p_id_list_str);
                 }
-                bll_push push=new bll_push();
-                model_pushlog model=new model_pushlog();
-                model.activator=d_id.ToString();
-                model.target=p_id_list_str;
-                model.push_time=System.DateTime.Now.ToString();
-                model.result=push_result;
-                model.remarks="医生发起随访";
-                int int_push_result = push.add_push_log(model);
+               
 
-                if (result != 0 && int_push_result !=0)
+                if (result != 0)
                 {
-                    Response.Write("<script>alert('成功添加并推送随访记录')</script>");
+                    Response.Write("<script>alert('成功添加并推送随访计划')</script>");
                 }
                 else
                 {

@@ -16,3 +16,4 @@ D:\Documents\GitHub\hospital\BLL\bin\Debug\Model.pdb
 D:\Documents\GitHub\hospital\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 D:\Documents\GitHub\hospital\BLL\obj\Debug\BLL.dll
 D:\Documents\GitHub\hospital\BLL\obj\Debug\BLL.pdb
+D:\Documents\GitHub\hospital\BLL\bin\Debug\O2S.Components.PDFRender4NET.dll

@@ -32,6 +32,7 @@ namespace hospital
                     role_id = int.Parse(Request.QueryString["role_id"].ToString());
                     follow_id = int.Parse(Request.QueryString["follow_id"].ToString());
                     p_id = int.Parse(Request.QueryString["p_id"].ToString());
+                    
                 }
             }
             if (Request.QueryString["table_id"] != null)
