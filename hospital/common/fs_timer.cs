@@ -15,10 +15,21 @@ namespace hospital.common
         {
             DateTime task_time = DateTime.Parse(follow_time).AddDays(-1);
             System.TimeSpan task_span = DateTime.Parse(follow_time) - DateTime.Now;
-            int day_interval = int.Parse(task_span.ToString().Split(new char[1] { '.' })[0]); 
-            Registry registry = new Registry();
-            registry.Schedule(() => execution_jod(ALIAS, title, text, transmission_content, role_id, task_time.ToString().Split()[0], behav, task_id, d_id, p_id_list_str)).WithName(task_id).ToRunNow().AndEvery(day_interval).Days();
-            JobManager.Initialize(registry);
+            string[] span_list = task_span.ToString().Split(new char[1] { '.' });
+            if (span_list.Length > 2)
+            {
+                int day_interval = int.Parse(span_list[0]);
+                Registry registry = new Registry();
+                registry.Schedule(() => execution_jod(ALIAS, title, text, transmission_content, role_id, task_time.ToString().Split()[0], behav, task_id, d_id, p_id_list_str)).WithName(task_id).ToRunNow().AndEvery(day_interval).Days();
+                JobManager.Initialize(registry);
+            }
+            else
+            {
+                Registry registry = new Registry();
+                registry.Schedule(() => execution_jod(ALIAS, title, text, transmission_content, role_id, task_time.ToString().Split()[0], behav, task_id, d_id, p_id_list_str)).WithName(task_id).ToRunNow();
+                JobManager.Initialize(registry);
+            }
+            
         }
 
         public void execution_jod(string ALIAS, string title, string text, string transmission_content, int role_id, string task_time, int behav, string task_id, int d_id, string p_id_list_str)
