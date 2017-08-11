@@ -70,7 +70,7 @@ namespace hospital.Follow
                 if (index > -1)
                 {
                     DataTable dt_temp = new DataTable();
-                    dt_temp = sqlcmd.getCommonJoinData( table + " as a left join DoctorInfo as b","*", "b.ID=a.d_id");
+                    dt_temp = sqlcmd.getCommonJoinData( table + " as a left join DoctorInfo as b","*", "b.ID=a.d_id order by a.ID desc");
                     dt.Merge(dt_temp);
                 }
             }

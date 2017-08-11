@@ -279,8 +279,8 @@ namespace hospital
         public string get_images(string pdf_path,string images_flod_name,string image_name, int start_page, int end_page)
         {
             PDFTranImgHelp pdf2img = new PDFTranImgHelp();
-            //pdf2img.convert_pdf_to_image("D:\\Documents\\GitHub\\hospital\\hospital\\"+pdf_path, "D:\\Documents\\GitHub\\hospital\\hospital\\UploadFiles\\Case\\PDFtoImages\\" + images_flod_name + "\\", image_name, start_page, end_page);
-            //return "D:\\Documents\\GitHub\\hospital\\hospital\\UploadFiles\\Case\\PDFtoImages\\" + images_flod_name + "\\"; 
+            //pdf2img.convert_pdf_to_image("D:\\Documents\\GitHub\\hospital\\hospital\\" + pdf_path, "D:\\Documents\\GitHub\\hospital\\hospital\\UploadFiles\\Case\\PDFtoImages\\" + images_flod_name + "\\", image_name, start_page, end_page);
+            //return "D:\\Documents\\GitHub\\hospital\\hospital\\UploadFiles\\Case\\PDFtoImages\\" + images_flod_name + "\\";
             pdf2img.convert_pdf_to_image("C:\\inetpub\\wwwroot\\hospital\\Published\\" + pdf_path, "C:\\inetpub\\wwwroot\\hospital\\Published\\UploadFiles\\Case\\PDFtoImages\\" + images_flod_name + "\\", image_name, start_page, end_page);
             return "http://" + HttpContext.Current.Request.Url.Host + "UploadFiles//Case//PDFtoImages//" + images_flod_name + "//"; 
             
