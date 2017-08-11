@@ -20,46 +20,60 @@ namespace hospital.common
             {
                 int day_interval = int.Parse(span_list[0]);
                 Registry registry = new Registry();
-                registry.Schedule(() => execution_jod(ALIAS, title, text, transmission_content, role_id, task_time.ToString().Split()[0], behav, task_id, d_id, p_id_list_str)).WithName(task_id).ToRunNow().AndEvery(day_interval).Days();
+                registry.Schedule(() => execution_jod(ALIAS, title, text, transmission_content, role_id, task_time.ToString().Split()[0], behav, task_id, d_id, p_id_list_str,1)).WithName(task_id).ToRunNow().AndEvery(day_interval).Days();
                 JobManager.Initialize(registry);
             }
             else
             {
                 Registry registry = new Registry();
-                registry.Schedule(() => execution_jod(ALIAS, title, text, transmission_content, role_id, task_time.ToString().Split()[0], behav, task_id, d_id, p_id_list_str)).WithName(task_id).ToRunNow();
+                registry.Schedule(() => execution_jod(ALIAS, title, text, transmission_content, role_id, task_time.ToString().Split()[0], behav, task_id, d_id, p_id_list_str,0)).WithName(task_id).ToRunNow();
                 JobManager.Initialize(registry);
             }
             
         }
 
-        public void execution_jod(string ALIAS, string title, string text, string transmission_content, int role_id, string task_time, int behav, string task_id, int d_id, string p_id_list_str)
+        public void execution_jod(string ALIAS, string title, string text, string transmission_content, int role_id, string task_time, int behav, string task_id, int d_id, string p_id_list_str,int interval_state)
         {
             string[] text_list = text.Split(new char[1] { '|' });
             string[] transmission_content_list = transmission_content.Split(new char[1] { '|' });
             string push_result = "";
             if (behav == 1)
             {
-                if (DateTime.Now.ToString().Split()[0] == task_time)
+                if (interval_state == 0)
                 {
-                    push_result = push_message.PushMessageToSingle(ALIAS, title, text_list[1], transmission_content_list[1], role_id);
-                    JobManager.RemoveJob(task_id);
+                    push_result = push_message.PushMessageToSingle(ALIAS, title, text_list[0], transmission_content_list[0], role_id);
                 }
                 else
                 {
-                    push_result = push_message.PushMessageToSingle(ALIAS, title, text_list[0], transmission_content_list[0], role_id);
+                    if (DateTime.Now.ToString().Split()[0] == task_time)
+                    {
+                        push_result = push_message.PushMessageToSingle(ALIAS, title, text_list[1], transmission_content_list[1], role_id);
+                        JobManager.RemoveJob(task_id);
+                    }
+                    else
+                    {
+                        push_result = push_message.PushMessageToSingle(ALIAS, title, text_list[0], transmission_content_list[0], role_id);
+                    }
                 }
             }
             else if (behav == 2)
             {
-                if (DateTime.Now.ToString().Split()[0] == task_time)
+                if (interval_state == 0)
                 {
-                    push_result = push_message.PushMessageToList(ALIAS, title, text_list[1], transmission_content_list[1], role_id);
-                    JobManager.RemoveJob(task_id);
+                    push_result = push_message.PushMessageToSingle(ALIAS, title, text_list[0], transmission_content_list[0], role_id);
                 }
                 else
                 {
-                    push_result = push_message.PushMessageToList(ALIAS, title, text_list[0], transmission_content_list[0], role_id);
-                } 
+                    if (DateTime.Now.ToString().Split()[0] == task_time)
+                    {
+                        push_result = push_message.PushMessageToList(ALIAS, title, text_list[1], transmission_content_list[1], role_id);
+                        JobManager.RemoveJob(task_id);
+                    }
+                    else
+                    {
+                        push_result = push_message.PushMessageToList(ALIAS, title, text_list[0], transmission_content_list[0], role_id);
+                    }
+                }
             }
             bll_push push = new bll_push();
             model_pushlog model = new model_pushlog();
